@@ -1,1 +1,3 @@
-ErrorDocument 404 /P5/error404.php
+ErrorDocument 403 /P5/error/403.php
+ErrorDocument 404 /P5/error/404.php
+ErrorDocument 500 /P5/error/500.php
