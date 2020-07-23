@@ -1,3 +1,6 @@
+<?php
+	include('inc/dbconnect.inc.php');
+?>
 <!doctype html>
 <html lang="de">
 	<head>
@@ -14,6 +17,8 @@
 		<meta name="author" content="">
 	</head>
 	<body>
+		<?php include('inc/header.inc.php');?>
 		
+		<?php include('inc/header.inc.php');?>
 	</body>
 </html>
