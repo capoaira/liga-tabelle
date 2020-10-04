@@ -1,3 +1,6 @@
+<?php
+	require_once('inc/dbconnect.php');
+?>
 <!doctype html>
 <html lang="de">
 	<head>
