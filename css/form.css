@@ -1,0 +1,21 @@
+body {
+    grid: "head"
+          "main"
+          "foot"
+          / 1fr;
+}
+
+#content {
+    justify-self: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    gap: .5em;
+}
+
+form button {
+    width: max-content;
+    padding: 0 .3em;
+}

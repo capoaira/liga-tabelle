@@ -1,5 +1,6 @@
 <?php
 	require_once('inc/dbconnect.php');
+	session_start();
 ?>
 <!doctype html>
 <html lang="de">

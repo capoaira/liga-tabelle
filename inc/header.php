@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <header>
     <a href="/ligatabelle/index.php">
         <img src="/ligatabelle/img/logo.png">

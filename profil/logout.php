@@ -1,5 +1,5 @@
 <?php
-    require_once('inc/dbconnect.php');
+    require_once('../inc/dbconnect.php');
     session_start();
     session_destroy();
 ?>
@@ -16,13 +16,13 @@
 		<meta name="keywords" content="">
 	</head>
 	<body>
-		<?php include_once('inc/header.php') ?>
+		<?php include_once('../inc/header.php') ?>
 		<div id="content">
 			Du wurdest erfolgreich ausgeloggt.
 		</div>
 		<aside>
 			
 		</aside>
-		<?php include_once('inc/footer.php') ?>
+		<?php include_once('../inc/footer.php') ?>
 	</body>
 </html>
