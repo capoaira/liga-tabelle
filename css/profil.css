@@ -1,0 +1,53 @@
+#content {
+	display: grid;
+	grid: "h1 h1"
+		  "pb ausgabe"
+		  / min-content auto;
+	gap: .5em;
+	align-content: start;
+}
+
+#content h1 {
+	margin-bottom: 1em;
+}
+
+#content p {
+	padding-bottom: .5em;
+}
+
+h1 {
+	grid-area: h1;
+}
+
+img#pb {
+	grid-area: pb;
+	height: 10em;
+	border-radius: 100%;
+	margin-right: .5em;
+}
+
+#ausgabe {
+	display: grid;
+	grid-template-columns: min-content min-content;
+	grid-template-rows: min-content;
+	grid-area: ausgabe;
+	gap: .5em;
+	align-content: center;
+}
+
+#ausgabe p {
+	white-space: nowrap;
+}
+
+.bearbeiten {
+	text-decoration: none;
+	margin: 1em;
+}
+
+.bearbeiten img {
+	height: 1em;
+}
+
+#bestellungen {
+	grid-area: bestellungen;
+}

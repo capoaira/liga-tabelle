@@ -1,2 +1,3 @@
-ErrorDocument 404 /P5/error/404.php
-ErrorDocument 500 /P5/error/500.php
+ErrorDocument 403 /ligatabelle/error/403.php
+ErrorDocument 404 /ligatabelle/error/404.php
+ErrorDocument 500 /ligatabelle/error/500.php
