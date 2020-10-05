@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="de">
 	<head>
-		<title>Profil</title>
+		<title>Login</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="img/favicon.png" type="image/png">
@@ -16,7 +16,7 @@
 	<body>
 		<?php include_once('inc/header.php') ?>
 		<div id="content">
-			<p>Hallo Welt</p>
+			
 		</div>
 		<aside>
 			
