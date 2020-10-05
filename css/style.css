@@ -74,6 +74,11 @@ nav ul {
     min-height: 100vh;
 }
 
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 aside {
     grid-area: side;
 }

@@ -8,7 +8,7 @@
 		<title>Registrieren</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" href="img/favicon.png" type="image/png">
+		<link rel="icon" href="/ligatabelle/img/favicon.png" type="image/png">
 		<link rel="stylesheet" href="/ligatabelle/css/style.css">
 		<link rel="stylesheet" href="/ligatabelle/css/form.css">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">

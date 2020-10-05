@@ -45,8 +45,8 @@
         $passwort = password_hash($passwort, PASSWORD_DEFAULT);
         
         // Eintrag in Datanbank
-        $eintrag = "INSERT INTO user (username, email, passwort, profilbild, beschreibung, status)
-                    VALUES ('$benutzername', '$email', '$passwort', 'keinpb.png', '', 'member')";
+        $eintrag = "INSERT INTO user (username, email, passwort, profilbild, status)
+                    VALUES ('$benutzername', '$email', '$passwort', 'keinPB.png', 'member')";
         $eintragen = mysqli_query($db, $eintrag);
 
         header('location: ../login.php?registriert=erfolgreich');

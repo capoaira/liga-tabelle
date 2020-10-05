@@ -18,12 +18,14 @@
 
     if ($row=mysqli_fetch_object($ergebnis)) {
         $user_userId = $row->userId;
+        $user_username = $row->username;
         $user_passwort = $row->passwort;
         $user_status = $row->status;
         
         if (password_verify($passwort, $user_passwort)) {
             $_SESSION['userId'] = $user_userId;
             $_SESSION['status'] = $user_status;
+            $_SESSION['username'] = $user_username;
             header ('location: ../../index.php');
         } else {
             header ('location: ../login.php?errorMsg=Passwort ist falsch.');

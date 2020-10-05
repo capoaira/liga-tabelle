@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 04. Okt 2020 um 09:47
+-- Erstellungszeit: 05. Okt 2020 um 17:22
 -- Server-Version: 10.4.13-MariaDB
 -- PHP-Version: 7.4.7
 
@@ -87,7 +87,6 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `passwort` text NOT NULL,
   `profilbild` varchar(255) NOT NULL,
-  `beschreibung` text NOT NULL,
   `status` varchar(255) NOT NULL,
   `createdAt` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
