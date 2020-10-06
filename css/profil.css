@@ -19,11 +19,37 @@ h1 {
 	grid-area: h1;
 }
 
-img#pb {
+figure {
 	grid-area: pb;
+	position: relative;
+	display: inline-block;
+	width: 10em;
 	height: 10em;
 	border-radius: 100%;
+	overflow: hidden;
+}
+
+figcaption {
+	position: absolute;
+	display: inline-block;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	color: #fff;
+	background: rgba(0, 0, 0, .5);
+}
+
+img#pb {
+	height: 100%;
 	margin-right: .5em;
+	border-radius: 1em;
+}
+
+input[type="file"] {
+	border: none;
+	padding: 0;
+	content: "";
+	
 }
 
 #ausgabe {
@@ -39,12 +65,7 @@ img#pb {
 	white-space: nowrap;
 }
 
-.bearbeiten {
-	text-decoration: none;
-	margin: 1em;
-}
-
-.bearbeiten img {
+.img_btn img {
 	height: 1em;
 }
 

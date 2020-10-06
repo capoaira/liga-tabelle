@@ -28,11 +28,7 @@
 		}
 	}
 
-	$pb_filename = $_POST['pb_old'];
-	$zurueckZumStartOrdner = '../../';
-	include('../../inc/bild_upload.php');
-
-	$eintrag = "UPDATE user SET username = '$benutzername', email = '$email'" . ($bildBearbeitet ? ", profilbild = '$pb_filename'" : "") . ($pwAendern && $pwKannGeaendertWerden ? ", passwort = '$neuPW'" : "") . " WHERE userId = $userId;";
+	$eintrag = "UPDATE user SET username = '$benutzername', email = '$email'" . ($pwAendern && $pwKannGeaendertWerden ? ", passwort = '$neuPW'" : "") . " WHERE userId = $userId;";$eintrag = "UPDATE user SET username = '$benutzername', email = '$email'" . ($pwAendern && $pwKannGeaendertWerden ? ", passwort = '$neuPW'" : "") . " WHERE userId = $userId;";
 	$eintragen = mysqli_query($db, $eintrag);
 
 	if ($pwAendern && !$pwKannGeaendertWerden) header('location: ../bearbeiten.php?error=pw');

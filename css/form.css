@@ -6,13 +6,19 @@ body {
 }
 
 #content {
-    justify-self: center;
+    display: flex;
+    flex-direction: column;
 }
 
 form {
     display: grid;
     grid-template-columns: min-content min-content;
     gap: .5em;
+}
+
+form,
+p {
+    margin: 0 auto;
 }
 
 form button {
