@@ -6,7 +6,7 @@ body {
 }
 
 #content {
-    justify-self: center;
+    display: flex;
 }
 
 form {
