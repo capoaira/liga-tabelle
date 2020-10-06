@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Okt 2020 um 17:22
+-- Erstellungszeit: 06. Okt 2020 um 13:45
 -- Server-Version: 10.4.13-MariaDB
 -- PHP-Version: 7.4.7
 
@@ -91,6 +91,14 @@ CREATE TABLE `user` (
   `createdAt` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `user`
+--
+
+INSERT INTO `user` (`userId`, `username`, `email`, `passwort`, `profilbild`, `status`, `createdAt`) VALUES
+(1, 'admin', 'admin@admin.admin', '$2y$10$EdcseY8ry2tCXU7PPHMC9eR5rBi1E.lgM4o2in52k3zOiBq5tK1Aa', 'keinPB.png', 'admin', '2020-10-05'),
+(2, 'capoaira', 'capoaira@web.de', '$2y$10$GSJ.hZpkaQfqHayErvUjoe7SbT86Ww89PmERm6Gdx8IVGeuBgOMv.', '2.jpg', 'member', '2020-10-06');
+
 -- --------------------------------------------------------
 
 --
@@ -173,7 +181,7 @@ ALTER TABLE `spieltage`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `vereine`
