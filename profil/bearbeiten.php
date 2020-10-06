@@ -49,11 +49,7 @@
 				
 				<label for="neuPWWdhl">Passwort Wiederholen:</label>
 				<input type="password" id="neuPWWdhl" placeholder="Neues Passwort Wiederholen" name="neuPWWdhl">
-				
-				<label for="pb">Lade ein Profilbild hoch:</label>
-				<input type="file" id="pb" name="pb">
-				<input type="hidden" id="pb_old" name="pb_old" value="<?=$profilbild;?>">
-				
+								
 				<button id="submit" name="submit">Speichern</button>
 			</form>
 			<?php 

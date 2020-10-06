@@ -11,7 +11,7 @@ body {
     grid: "head head" 
           "main side"
           "foot foot"
-          / 3fr 1fr;
+          / 5fr 3fr;
     gap: 1em;
     margin: 0 auto;
 }
@@ -38,6 +38,52 @@ header a {
 
 header img {
     width: 5em;
+}
+
+label.smartphone-btn { 
+    display: none;
+    width: 4em;
+    height: 3em; 
+    position: relative; 
+    margin-right: .5em;
+}
+ 
+input#smartphone-btn {
+    display:none
+}
+
+.line { 
+    position: absolute;
+    display: block;
+    left: 10px;
+    height: 4px;
+    width: 55px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.5s;
+    transform-origin: center;
+}
+ 
+.line:nth-child(1) {
+    top: 12px;
+}
+.line:nth-child(2) {
+    top: 24px;
+}
+.line:nth-child(3) {
+    top: 36px;
+}
+
+#smartphone-btn:checked + .smartphone-btn .line:nth-child(1) {
+    transform: translateY(12px) rotate(-45deg);
+}
+
+#smartphone-btn:checked + .smartphone-btn .line:nth-child(2) {
+    opacity: 0;
+}
+
+#smartphone-btn:checked + .smartphone-btn .line:nth-child(3) {
+    transform: translateY(-12px) rotate(45deg);
 }
 
 nav {
@@ -70,11 +116,33 @@ nav ul {
     height: calc(1.5em + 3px);
 }
 
+.dropdown-content {
+    position: absolute;
+    display: none;
+    height: unset;
+    margin-left: -1.2em;
+    padding: .5em;
+    background: rgb(76, 153, 235);
+    border-radius: 1em;
+}
+
+.dropdown-content a {
+    font-size: 1.2em;
+}
+
+.dropdown-content li {
+    margin: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
 #content {
     grid-area: main;
     min-height: 100vh;
     width: calc(100% - 1em);
-    justify-content: center;
     background: lightgray;
     border-radius: 1em;
 }
@@ -86,6 +154,8 @@ h1 {
 
 aside {
     grid-area: side;
+    background: gray;
+    border-radius: 1em;
 }
 
 footer {
@@ -94,4 +164,66 @@ footer {
     background-color: rgb(0, 61, 127);
     border-radius: 1em 1em 0 0;
     color: #fff;
+}
+
+@media (max-width: 50em) {
+    body {
+        grid: "head" 
+              "main"
+              "side"
+              "foot"
+              / 1fr;
+        width: 90%;
+    }
+}
+
+@media (max-width: 30em) {
+    body {
+        width: 100%;
+    }
+
+    header {
+        border-bottom-right-radius: 0;
+    }
+
+    label.smartphone-btn { 
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: fixed;
+        top: 6em;
+        right: 0;
+        margin: 0;
+        background-color: rgb(0, 61, 127);
+    }
+
+    #smartphone-btn:checked ~ nav {
+        display: flex !important;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        height: unset;
+        padding: .5em;
+    }
+
+    ul li {
+        margin: 0;
+    }
+    
+    .dropdown-content {
+        position: relative;
+        display: unset;
+        margin-left: 0;
+        padding: 0;
+        background: rgb(0, 61, 127);;
+        border-radius: 0;
+    }
+    
+    .dropdown-content a {
+        font-size: 1.2em;
+    }
 }
