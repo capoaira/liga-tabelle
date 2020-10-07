@@ -5,7 +5,7 @@
     font-size: 1em;
 }
 
-button {
+button, a.btn {
     width: max-content;
     border: none;
     border-radius: 5em;
@@ -13,10 +13,11 @@ button {
     background: rgb(0, 61, 127);
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
     transition: opacity .2s ease;
 }
 
-button:hover {
+button:hover, a.btn:hover {
     opacity: .8;
 }
 
@@ -25,16 +26,19 @@ label {
     align-self: center;
 }
 
-input {
+input,
+textarea,
+select {
     padding: .5em .9em;
     border-radius: .5em;
     border: 1px solid rgb(0, 61, 127);
 }
 
-input:focus {
+input:focus,
+textarea:focus,
+select:focus {
     border: 2px solid rgb(0, 61, 127);
 }
-
 
 body {
     width: 80%;
@@ -185,6 +189,7 @@ nav ul {
 h1 {
     font-size: 1.5em;
     font-weight: bold;
+    margin-bottom: 1em;
 }
 
 aside {
