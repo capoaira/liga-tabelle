@@ -35,7 +35,7 @@
 					}
 			?>
 			<form action="php/bearbeiten.php" method="POST" enctype="multipart/form-data">
-				<label for="email">Benutzername:</label>
+				<label for="benutzername">Benutzername:</label>
 				<input type="text" id="benutzername" placeholder="Benutzername" value="<?=$username;?>" name="benutzername" required>
 				
 				<label for="email">E-Mail:</label>

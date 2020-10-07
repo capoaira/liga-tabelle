@@ -25,16 +25,16 @@
 					}
 			?>
 			<form action="php/registrieren.php" method="POST">
-				<lable for="name">Benutzername: </lable>
+				<label for="name">Benutzername: </label>
 				<input type="text" id="name" name="benutzername" placeholder="Benutzername" required>
 				
-				<lable for="email">E-Mail: </lable>				
+				<label for="email">E-Mail: </label>				
 				<input type="email" id="email" name="email" placeholder="E-mail" required>
 				
-				<lable for="passwort">Passwort: </lable>				
+				<label for="passwort">Passwort: </label>				
 				<input type="password" id="passwort" name="passwort" placeholder="Passwort" required>
 				
-				<lable for="passwortWdhl">Passwort&nbsp;Wiederholen: </lable>
+				<label for="passwortWdhl">Passwort&nbsp;Wiederholen: </label>
 				<input type="password" id="passwortWdhl" name="passwortWdhl" placeholder="Passwort Wiederholen" required>
 				
 				<button id="submit" name="submit">Registrieren</button>

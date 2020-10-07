@@ -25,10 +25,10 @@
 					}
 			?>
 			<form action="php/login.php" method="POST">
-				<lable for="name">Benutzername: </lable>
+				<label for="name">Benutzername: </label>
 				<input type="text" id="name" name="benutzername" placeholder="Benutzername" required>
 				
-				<lable for="passwort">Passwort: </lable>				
+				<label for="passwort">Passwort: </label>				
 				<input type="password" id="passwort" name="passwort" placeholder="Passwort" required>
 
 				<button id="submit" name="submit">Login</button>
