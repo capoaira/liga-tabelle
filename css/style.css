@@ -42,6 +42,7 @@ header img {
 
 label.smartphone-btn { 
     display: none;
+    align-self: center;
     width: 4em;
     height: 3em; 
     position: relative; 
@@ -55,9 +56,9 @@ input#smartphone-btn {
 .line { 
     position: absolute;
     display: block;
-    left: 10px;
-    height: 4px;
-    width: 55px;
+    left: 1em;
+    height: .3em;
+    width: 3em;
     background: #fff;
     border-radius: 2px;
     transition: 0.5s;
@@ -65,17 +66,17 @@ input#smartphone-btn {
 }
  
 .line:nth-child(1) {
-    top: 12px;
+    top: .5em;
 }
 .line:nth-child(2) {
-    top: 24px;
+    top: 1.4em;
 }
 .line:nth-child(3) {
-    top: 36px;
+    top: 2.3em;
 }
 
 #smartphone-btn:checked + .smartphone-btn .line:nth-child(1) {
-    transform: translateY(12px) rotate(-45deg);
+    transform: translateY(.85em) rotate(-45deg);
 }
 
 #smartphone-btn:checked + .smartphone-btn .line:nth-child(2) {
@@ -83,7 +84,7 @@ input#smartphone-btn {
 }
 
 #smartphone-btn:checked + .smartphone-btn .line:nth-child(3) {
-    transform: translateY(-12px) rotate(45deg);
+    transform: translateY(-.85em) rotate(45deg);
 }
 
 nav {
@@ -187,7 +188,7 @@ footer {
     }
 
     label.smartphone-btn { 
-        display: block;
+        display: flex;
     }
 
     nav {
@@ -195,7 +196,8 @@ footer {
         position: fixed;
         top: 6em;
         right: 0;
-        margin: 0;
+        margin: -.5em 0 0 0;
+        border-radius: 0 0 1em 1em;
         background-color: rgb(0, 61, 127);
     }
 
@@ -216,7 +218,8 @@ footer {
     
     .dropdown-content {
         position: relative;
-        display: unset;
+        display: block;
+        width: auto;
         margin-left: 0;
         padding: 0;
         background: rgb(0, 61, 127);;
