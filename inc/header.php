@@ -1,3 +1,6 @@
+<?php
+    $isLogin = isset($_SESSION['userId']) && $_SERVER['REQUEST_URI'] != '/ligatabelle/profil/logout.php';
+?>
 <header>
     <a href="/ligatabelle/index.php">
         <img src="/ligatabelle/img/logo.png">
@@ -15,7 +18,7 @@
             <li class="dropdown"><a>Profil</a>
                 <ul class="dropdown-content">
                     <?php
-                        if (isset($_SESSION['userId'])) {
+                        if ($isLogin) {
                             echo '<li><a href="/ligatabelle/profil/index.php">Mein Profil</a></li>';
                             echo '<li><a href="/ligatabelle/profil/logout.php">Logout</a></li>';
                         } else {

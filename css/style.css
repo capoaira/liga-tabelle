@@ -120,8 +120,10 @@ nav ul {
     position: absolute;
     display: none;
     height: unset;
+    width: 5.7em;
     margin-left: -1.2em;
     padding: .5em;
+    white-space: nowrap;
     background: rgb(76, 153, 235);
     border-radius: 1em;
 }
@@ -214,16 +216,19 @@ footer {
         margin: 0;
     }
     
+    .dropdown > a:nth-child(1) {
+        display: none;
+    }
+
     .dropdown-content {
         position: relative;
         display: unset;
         margin-left: 0;
         padding: 0;
-        background: rgb(0, 61, 127);;
-        border-radius: 0;
+        background: rgb(0, 61, 127);
     }
     
     .dropdown-content a {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 }
