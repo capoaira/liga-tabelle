@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/ligatabelle/css/style.css">
         <link rel="stylesheet" href="/ligatabelle/css/liga-erstellen.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
-        <script src="http://code.jquery.com/juery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
         <script src="../js/verein.js" type="text/javascript"></script>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
@@ -30,7 +30,8 @@
                 <input type="file" id="ligalogo" name="ligalogo">
                 <textarea id="ligabeschreibung" name="ligabeschreibung" multiline="true" placeholder="Beschreibe deine Liga"></textarea>
             
-                <select id="select">
+                <select id="select" name="verein" onchange="addVerein();">
+                    <option value="select">Wähle ein Verein</option>
                     <?php
                         $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '$userId'";
                         $abfragen = mysqli_query($db, $abfrage);
@@ -46,10 +47,11 @@
                 <div id="vereinErstellen" style="display:none">
                     <div>
                         <h1>Erstelle einen Verein</h1>
-                        <input type="text" id="vereinsname" name="vereinsname" placeholder="Name der Liga" required>
-                        <input type="file" id="vereinslogos" name="vereinslogo[]">
-                        <textarea id="vereinsbeschreibung" name="vereinsbeschreibung" multiline="true" placeholder="Beschreibe deine Liga"></textarea>
+                        <input type="text" id="vereinsname" name="vereinsname" placeholder="Name des Vereins" required>
+                        <input type="file" id="vereinslogos" name="vereinslogo">
+                        <textarea id="vereinsbeschreibung" name="vereinsbeschreibung" multiline="true" placeholder="Beschreibe den Verein"></textarea>
                         <button formaction="verein/php/erstellen.php">Hinzufügen</button>
+                        <a href="javascript:void(0)" class="btn" onclick="closeVerein();">Abbrechen</a>
                     </div>
                 </div>
             </form>

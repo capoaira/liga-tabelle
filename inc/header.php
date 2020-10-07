@@ -14,7 +14,12 @@
     <nav>
         <ul>
             <li><a href="/ligatabelle/index.php">Home</a></li>
-            <li><a href="/ligatabelle/liga/index.php">Liga</a></li>
+            <li class="dropdown"><a>Liga</a>
+                <ul class="dropdown-content">
+                    <li class="dropdown"><a href="/ligatabelle/profil/index.php#ligen">Meine Liegen</a></li>
+                    <li class="dropdown"><a href="/ligatabelle/liga/erstellen.php">Liga erstellen</a></li>
+                </ul>
+            </li>
             <li class="dropdown"><a>Profil</a>
                 <ul class="dropdown-content">
                     <?php

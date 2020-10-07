@@ -5,7 +5,8 @@
     font-size: 1em;
 }
 
-button, a.btn {
+button,
+a.btn {
     width: max-content;
     border: none;
     border-radius: 5em;
@@ -17,7 +18,8 @@ button, a.btn {
     transition: opacity .2s ease;
 }
 
-button:hover, a.btn:hover {
+button:hover,
+a.btn:hover {
     opacity: .8;
 }
 
@@ -157,7 +159,7 @@ nav ul {
     position: absolute;
     display: none;
     height: unset;
-    width: 5.7em;
+    min-width: 5.7em;
     margin-left: -1.2em;
     padding: .5em;
     white-space: nowrap;

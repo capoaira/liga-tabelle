@@ -1,9 +1,11 @@
-document.addEventListener("DOMContentLoaded", function () {
-	document.getElementById('select').addEventListener('change', function() {
-        console.log('change')
-        console.log(this.value)
-        if (this.value == 'neuerVerein') {
-            document.getElementById('vereinErstellen').style.display = 'block';
-        }
-    });
-});
+function addVerein()  {
+    $('#liganame').removeAttr('required');
+    if ($('#select').val() == 'neuerVerein') {
+        $('#vereinErstellen').css('display', 'block');
+    }
+}
+
+function closeVerein() {
+    $('#liganame').attr('required', 'true');
+    $('#vereinErstellen').css('display', 'none');
+}
