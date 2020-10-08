@@ -1,0 +1,89 @@
+/* Tabellen Info ***********************/
+.liga_block {
+    display: block;
+    margin-bottom: 1em;
+    padding: .5em;
+    text-decoration: none;
+    color: #000;
+}
+
+.liga_block img {
+    height: 5em;
+    width: 5em;
+    margin-right: .5em;
+    border-radius: 1em;
+    float: left;
+}
+
+.liga_info h1 {
+    margin: 0;
+}
+
+.ersteller {
+    display: block;
+    margin-bottom: .8em;
+}
+
+/* Tabelle *********************************/
+
+
+
+/* Aside */
+aside {
+    padding: 0;
+}
+
+#erstellerTools {
+    padding: 1em;
+    border: 1px solid rgb(0, 61, 127);
+    border-radius: 1em;
+}
+
+#erstellerTools .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#letzteSpiele {
+    margin-top: 1em;
+    padding: 1em;
+    border: 1px solid rgb(0, 61, 127);
+    border-radius: 1em;
+}
+
+/* Vorschau wenn keine Liga ausgewählt ist => home.css */
+.liga_block_klein {
+    display: block;
+    padding: .5em;
+    text-decoration: none;
+    color: #000;
+}
+
+.liga_block_klein:hover {
+    background: gray;
+    border-radius: 1em;
+}
+
+.liga_block_klein img {
+    height: 4em;
+    width: 4em;
+    margin-right: .5em;
+    border-radius: 1em;
+    float: left;
+}
+
+.liga_info_klein h1 {
+    margin: 0;
+}
+
+.liga_info_klein span {
+    display: block;
+    max-width: 20em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ersteller a:last-child:hover {
+    text-decoration: underline;
+}

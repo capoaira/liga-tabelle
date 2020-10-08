@@ -82,6 +82,7 @@
 				<span>Status:</span><span><?= $status; ?></span>
 				<span>Mitglied seit:</span><span><?= $createdAt; ?></span>
 			</div>
+
 			<?php 
 				} else {
 					echo '<p><p><a href="login.php">Melde dich an</a>, um dein Profil zu sehen</p>';

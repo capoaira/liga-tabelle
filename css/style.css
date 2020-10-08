@@ -7,6 +7,7 @@
 
 button,
 .btn {
+    display: inline-flex;
     width: max-content;
     border: none;
     border-radius: 5em;
@@ -18,10 +19,20 @@ button,
     transition: opacity .2s ease;
 }
 
+button img,
+.btn img {
+    margin-right: .5em;
+}
+
 button:hover,
 .btn:hover,
 .img_btn:hover {
     opacity: .8;
+}
+
+button:hover img,
+.btn:hover img {
+    opacity: 1;
 }
 
 .img_btn {
@@ -56,7 +67,7 @@ body {
           "main side"
           "foot foot"
           / 5fr 3fr;
-    gap: 1em;
+    gap: 1em 2em;
     margin: 0 auto;
 }
 
@@ -64,7 +75,7 @@ header,
 #content,
 aside,
 footer {
-    padding: 0.5em;
+    padding: 1em;
 }
 
 header {
@@ -174,18 +185,22 @@ nav ul {
     border-radius: 1em;
 }
 
-.dropdown-content a {
-    font-size: 1.2em;
-}
-
 .dropdown-content li {
     margin: 0;
     padding: .5em 1em;
-    border-bottom: 1px solid  rgb(0, 61, 127);
+    border-bottom: 1px solid rgb(0, 61, 127);
+}
+
+.dropdown-content li:hover {
+    padding-top: calc(.5em + 3px);
 }
 
 .dropdown-content li:last-child {
     border: none;
+}
+
+.dropdown-content a {
+    font-size: 1.2em;
 }
 
 .dropdown:hover .dropdown-content {
@@ -195,7 +210,7 @@ nav ul {
 
 #content {
     grid-area: main;
-    min-height: calc(100vh - 6em - 3em - 2em - 1em); /*100vh - header - footer - gab - content-padding*/
+    min-height: calc(100vh - 6em - 3em - 4em - 2em); /*100vh - header - footer - gab - content-padding*/
     width: calc(100% - 1em);
     background: lightgray;
     border-radius: 1em;
@@ -203,6 +218,12 @@ nav ul {
 
 h1 {
     font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 1.3em;
     font-weight: bold;
     margin-bottom: 1em;
 }
