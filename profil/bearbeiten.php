@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-	include('../inc/dbconnect.php');
+	require_once('../inc/dbconnect.php');
 	session_start();
 ?>
 <html>

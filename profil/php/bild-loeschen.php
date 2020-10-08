@@ -1,5 +1,5 @@
 <?php
-    include('../../inc/dbconnect.php');
+    require_once('../../inc/dbconnect.php');
     session_start();
     $userId = $_SESSION["userId"];
 

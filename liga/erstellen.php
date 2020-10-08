@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="/ligatabelle/css/liga-erstellen.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
-        <script src="../js/verein.js" type="text/javascript"></script>
+        <script src="../js/liga-erstellen.js" type="text/javascript"></script>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 	</head>
@@ -23,32 +23,78 @@
             <?php
                 if (isset($_SESSION['userId'])) {
                     $userId = $_SESSION['userId'];
+                    if (isset($_GET['vereinErstellt'])) {
+                        echo '<p>Der Verein wurde erfolgreich erstellt.</p>';
+                    }
+                    if (isset($_GET['error'])) {
+                        echo '<p>'.$_GET['error'].'</p>';
+                    }
             ?>
+            <h1>Erstelle deine Liga</h1>
 			<form action="php/erstellen.php" method="POST" enctype="multipart/form-data">
-                <input type="text" id="liganame" name="liganame" placeholder="Name der Liga" required>
-                <input type="text" id="keywords" name="keywords" placeholder="Keywords">
-                <input type="file" id="ligalogo" name="ligalogo">
-                <textarea id="ligabeschreibung" name="ligabeschreibung" multiline="true" placeholder="Beschreibe deine Liga"></textarea>
-            
-                <select id="select" name="verein" onchange="addVerein();">
-                    <option value="select">Wähle ein Verein</option>
+                <input type="text" id="liganame" name="liganame" value="<?=$_SESSION['neueLiga']['name']??''?>" placeholder="Name der Liga" required>
+                <input type="text" id="keywords" name="keywords" value="<?=$_SESSION['neueLiga']['keywords']??''?>" placeholder="Keywords">
+                <label id="img_input">
+                    <span class="btn">Logo Auswählen</span>
                     <?php
-                        $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '$userId'";
-                        $abfragen = mysqli_query($db, $abfrage);
-                        while ($row = mysqli_fetch_object($abfragen)) {
-                            $vereinsId = $row->vereinsId;
-                            $vereinsName = $row->name;
-                            echo "<option value=\"$vereinsId\">$vereinsName</option>";
+                        if (isset($_SESSION['neueLiga']['ligalogo'])) {
+                            $bildname = $_SESSION['neueLiga']['ligalogo']['name'];
+                            echo "<span>$bildname</span>";
+                        } else {
+                            echo '<span>Wähle ein Logo aus</span>';
                         }
                     ?>
-                    <option value="neuerVerein">Neuen Verein erstellen</option>
-                </select>
+                    <input type="file" id="ligalogo" name="ligalogo" onchange="changeBild(this)" accept="image/png, image/jpeg, image/gif" style="display:none">
+                </label>
+                
+                <textarea id="ligabeschreibung" name="ligabeschreibung" multiline="true" placeholder="Beschreibe deine Liga"><?=$_SESSION['neueLiga']['ligabeschreibung']??''?></textarea>
 
+                <div id="vereine">
+                    <select id="select" name="verein" onchange="addVerein();">
+                        <option value="select">Wähle ein Verein</option>
+                        <?php
+                            $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '$userId'";
+                            $abfragen = mysqli_query($db, $abfrage);
+                            while ($row = mysqli_fetch_object($abfragen)) {
+                                $vereinsId = $row->vereinsId;
+                                $vereinsName = $row->name;
+                                echo "<option value=\"$vereinsId\">$vereinsName</option>";
+                            }
+                        ?>
+                        <option value="neuerVerein">Neuen Verein erstellen</option>
+                    </select>
+                    <div id="vereinsListe">
+                        <?php
+                            if (isset($_SESSION['neueLiga']['vereine'])) {
+                                $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '$userId'";
+                                $abfragen = mysqli_query($db, $abfrage);
+                                while ($row = mysqli_fetch_object($abfragen)) {
+                                    if (in_array($row->vereinsId, $_SESSION['neueLiga']['vereine'])) {
+                                        $vereinsId = $row->vereinsId;
+                                        $name = $row->name;
+                                        echo "<label>$name";
+                                        echo "  <input type=\"hidden\" name=\"vereine[]\" value=\"$vereinsId\">";
+                                        echo '  <img src="../img/loeschen.png" class="img_btn" onclick="this.parentNode.remove();">';
+                                        echo '</label>';
+                                    }
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+
+                <button id="submit" name="submit">Erstellen</button>
+
+                <!-- Popup um den Verein zu erstellen -->
                 <div id="vereinErstellen" style="display:none">
                     <div>
                         <h1>Erstelle einen Verein</h1>
-                        <input type="text" id="vereinsname" name="vereinsname" placeholder="Name des Vereins" required>
-                        <input type="file" id="vereinslogos" name="vereinslogo">
+                        <input type="text" id="vereinsname" name="vereinsname" placeholder="Name des Vereins">
+                        <label id="img_input">
+                            <span class="btn">Logo Auswählen</span>
+                            <span>Wähle ein Logo aus</span>
+                            <input type="file" id="vereinslogo" name="vereinslogo" onchange="changeBild(this)" accept="image/png, image/jpeg, image/gif" style="display:none">
+                        </label>
                         <textarea id="vereinsbeschreibung" name="vereinsbeschreibung" multiline="true" placeholder="Beschreibe den Verein"></textarea>
                         <button formaction="verein/php/erstellen.php">Hinzufügen</button>
                         <a href="javascript:void(0)" class="btn" onclick="closeVerein();">Abbrechen</a>
@@ -58,7 +104,7 @@
 
             <?php
                 } else {
-					echo '<p><p><a href="login.php">Melde dich an</a>, um eine Liga zu erstellen.</p>';
+					echo '<p><p><a href="../profil/login.php">Melde dich an</a>, um eine Liga zu erstellen.</p>';
 				}
             ?>
 		</div>

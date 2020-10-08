@@ -65,10 +65,6 @@ input[type="file"] {
 	white-space: nowrap;
 }
 
-.img_btn img {
-	height: 1em;
-}
-
 #bestellungen {
 	grid-area: bestellungen;
 }

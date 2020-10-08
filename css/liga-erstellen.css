@@ -12,9 +12,19 @@ body {
 
 input,
 select,
+#img_input,
 textarea {
     display: block;
     margin-bottom: .5em;
+}
+
+#img_input {
+    margin: 1em 0;
+    width: min-content;
+}
+
+#img_input:hover .btn {
+    opacity: 0.8;
 }
 
 input#liganame,
@@ -25,6 +35,36 @@ input#keywords {
 textarea {
     width: calc(100% - 2em);
     height: 10em;
+}
+
+select {
+    min-width: 35%;
+    height: min-content;
+}
+
+#vereine {
+    display: grid;
+    gap: 5em;
+    grid-template-columns: min-content 1fr;
+}
+
+#vereinsListe {
+    min-width: 50%;
+    max-width: min-content;
+    height: min-content;
+    border-radius: 1em;
+    background: rgba(31, 31, 31, .3);
+}
+
+#vereinsListe label {
+    display: flex;
+    justify-content: space-between;
+    padding: .5em 1em;
+    border-bottom: 1px solid rgba(76, 153, 235, 1);
+}
+
+#vereinsListe label:last-child {
+    border: none;
 }
 
 div#vereinErstellen {

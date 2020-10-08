@@ -5,7 +5,7 @@
     $userId = $_SESSION['userId'];
 
     $old_filename = $_POST['pb_old'];
-    $bildId = 'pb_bearbeiten';
+    $bild = $_FILES['pb_bearbeiten'];
     $upload_folder = '../../img/profile/';
     $standartBild = 'keinPB.png';
     $filename = $userId;
