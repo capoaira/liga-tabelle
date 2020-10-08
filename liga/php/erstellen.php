@@ -16,9 +16,9 @@
 
         $old_filename = 'keinLogo.png';
         $bild = $_SESSION['neueLiga']['ligalogo'];
-        $upload_folder = '../../img/liegen/';
+        $upload_folder = '../../img/ligen/';
         $standartBild = 'keinLogo.png';
-        $abfrage = "SELECT * FROM liegen"; // Abfragen, welche die letzte ligaId ist, damit das Logo den richtigen Namen bekommt
+        $abfrage = "SELECT * FROM ligen"; // Abfragen, welche die letzte ligaId ist, damit das Logo den richtigen Namen bekommt
         $abfragen = mysqli_query($db, $abfrage);
         $filename = mysqli_num_rows($abfragen)+1;
         $ligaId = $filename;
@@ -37,8 +37,8 @@
             $eintragen = mysqli_query($db, $eintrag);
         }
         
-        // unset($_SESSION['neueLiga']);
-        header('location: ../erstellen.php?ligaErstellt=true');
+        unset($_SESSION['neueLiga']);
+        header("location: ../index.php?liga=$ligaId");
     } else {
         header('location: ../erstellen.php?error=Die+Liga+konnte+leider+nicht+erstellt+werden');
     }
