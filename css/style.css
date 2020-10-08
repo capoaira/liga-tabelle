@@ -1,3 +1,4 @@
+/* Generelle Eistellungen */
 * {
     padding: 0;
     margin: 0;
@@ -5,37 +6,7 @@
     font-size: 1em;
 }
 
-button {
-    width: max-content;
-    border: none;
-    border-radius: 5em;
-    padding: .5em .9em;
-    background: rgb(0, 61, 127);
-    color: #fff;
-    cursor: pointer;
-    transition: opacity .2s ease;
-}
-
-button:hover {
-    opacity: .8;
-}
-
-label {
-    white-space: nowrap;
-    align-self: center;
-}
-
-input {
-    padding: .5em .9em;
-    border-radius: .5em;
-    border: 1px solid rgb(0, 61, 127);
-}
-
-input:focus {
-    border: 2px solid rgb(0, 61, 127);
-}
-
-
+/* Ausehen der Seite, header, content, aside, footer */
 body {
     width: 80%;
     display: grid;
@@ -54,6 +25,7 @@ footer {
     padding: 0.5em;
 }
 
+/* header */
 header {
     grid-area: head;
     display: flex;
@@ -72,6 +44,7 @@ header img {
     border-radius: 1em;
 }
 
+/* Menü Button für Mobile Ansicht */
 label.smartphone-btn { 
     display: none;
     align-self: center;
@@ -119,6 +92,7 @@ input#smartphone-btn {
     transform: translateY(-.85em) rotate(45deg);
 }
 
+/* Navigation */
 nav {
     display: flex;
     align-items: center;
@@ -174,6 +148,7 @@ nav ul {
     flex-direction: column;
 }
 
+/* Inhalt der Seite ********************************/
 #content {
     grid-area: main;
     min-height: 100vh;
@@ -187,12 +162,45 @@ h1 {
     font-weight: bold;
 }
 
+/* Button und Input Aussehen für alle Seiten */
+button {
+    width: max-content;
+    border: none;
+    border-radius: 5em;
+    padding: .5em .9em;
+    background: rgb(0, 61, 127);
+    color: #fff;
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+
+button:hover {
+    opacity: .8;
+}
+
+label {
+    white-space: nowrap;
+    align-self: center;
+}
+
+input {
+    padding: .5em .9em;
+    border-radius: .5em;
+    border: 1px solid rgb(0, 61, 127);
+}
+
+input:focus {
+    border: 2px solid rgb(0, 61, 127);
+}
+
+/* Aside */
 aside {
     grid-area: side;
     background: gray;
     border-radius: 1em;
 }
 
+/* Footer */
 footer {
     grid-area: foot;
     height: 2em;
@@ -201,6 +209,8 @@ footer {
     color: #fff;
 }
 
+
+/* Tablat Ansicht */
 @media (max-width: 50em) {
     body {
         grid: "head" 
@@ -212,6 +222,8 @@ footer {
     }
 }
 
+
+/* Smartphone Ansicht */
 @media (max-width: 30em) {
     body {
         width: 100%;
@@ -236,7 +248,7 @@ footer {
     }
 
     #smartphone-btn:checked ~ nav {
-        display: flex !important;
+        display: flex;
     }
     
     nav ul {
