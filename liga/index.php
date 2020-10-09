@@ -134,7 +134,7 @@
 				}
 			?>
 
-			<!-- Popups -->
+			<!-- Popups: Neuer Spieltag und Neues Spiel -->
 			<div id="neuenSpieltag" class="popup_background" style="display:none;">
 				<div class="popup_content">
 					<h1>Neuer Spieltag</h1>
@@ -148,26 +148,27 @@
 					</form>
 				</div>
 			</div>
+
 			<div id="neuesSpiel" class="popup_background" style="display:none;">
 				<div class="popup_content">
 					<h1>Neues Spiel</h1>
-					<form action="spiel/php/erstellen" method="POST">
+					<form action="spiel/php/erstellen.php" method="POST">
 						<input type="hidden" id="ligaId" name="ligaId" value="<?=$ligaId?>" required>
 						
 						<label for="heimverein">Heimverein:</label>
-						<select id="heimverein">
+						<select id="heimverein" name="heimverein">
 							<option value="default">Heimverein</option>
 							<?=getVereine($db, $ligaId)?>
 						</select>
 
-						<label for="auswärtsverein">Auswärtsverein:</label>
-						<select id="suswärtsverein">
+						<label for="auswaertsverein">Auswärtsverein:</label>
+						<select id="auswaertsverein" name="auswaertsverein">
 							<option value="default">Auswärtsverein</option>
 							<?=getVereine($db, $ligaId)?>
 						</select>
 
 						<label for="spieltag">Spieltag:</label>
-						<select id="spieltag">
+						<select id="spieltag" name="spieltag">
 							<option value="default">Spieltag</option>
 							<?php
 								$abfrage = "SELECT spieltagId, von, bis FROM spieltage ORDER BY von";
