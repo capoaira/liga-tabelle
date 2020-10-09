@@ -1,0 +1,93 @@
+body {
+    grid: "head"
+          "main"
+          "foot"
+          / 1fr;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select,
+#img_input,
+textarea {
+    display: block;
+    margin-bottom: .5em;
+}
+
+#img_input {
+    margin: 1em 0;
+    width: min-content;
+}
+
+#img_input:hover .btn {
+    opacity: 0.8;
+}
+
+input#liganame,
+input#keywords {
+    width: 50%;
+}
+
+textarea {
+    width: calc(100% - 2em);
+    height: 10em;
+}
+
+select {
+    min-width: 35%;
+    height: min-content;
+}
+
+#vereine {
+    display: grid;
+    gap: 5em;
+    grid-template-columns: min-content 1fr;
+}
+
+#vereinsListe {
+    min-width: 50%;
+    max-width: min-content;
+    height: min-content;
+    border-radius: 1em;
+    background: rgba(31, 31, 31, .3);
+}
+
+#vereinsListe label {
+    display: flex;
+    justify-content: space-between;
+    padding: .5em 1em;
+    border-bottom: 1px solid rgba(76, 153, 235, 1);
+}
+
+#vereinsListe label:last-child {
+    border: none;
+}
+
+div#vereinErstellen {
+    position: fixed;
+    background-color: rgba(31, 31, 31, .7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+div#vereinErstellen div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    padding: .5em;
+    border-radius: 1em;
+    background-color: rgba(76, 153, 235, 1);
+}
+
+a.btn {
+    margin: .5em;
+}

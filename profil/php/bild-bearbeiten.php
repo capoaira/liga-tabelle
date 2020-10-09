@@ -4,12 +4,15 @@
 
     $userId = $_SESSION['userId'];
 
-    $pb_filename = $_POST['pb_old'];
-	$zurueckZumStartOrdner = '../../';
+    $old_filename = $_POST['pb_old'];
+    $bild = $_FILES['pb_bearbeiten'];
+    $upload_folder = '../../img/profile/';
+    $standartBild = 'keinPB.png';
+    $filename = $userId;
 	include('../../inc/bild_upload.php');
 
     if ($bildBearbeitet) {
-        $eintrag = "UPDATE user SET profilbild = '$pb_filename' WHERE userId = $userId;";
+        $eintrag = "UPDATE user SET profilbild = '$new_filename' WHERE userId = $userId;";
         $eintragen = mysqli_query($db, $eintrag);
         header('location: ../index.php');
     } else {

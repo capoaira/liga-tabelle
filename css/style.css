@@ -14,7 +14,7 @@ body {
           "main side"
           "foot foot"
           / 5fr 3fr;
-    gap: 1em;
+    gap: 1em 2em;
     margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@ header,
 #content,
 aside,
 footer {
-    padding: 0.5em;
+    padding: 1em;
 }
 
 /* header */
@@ -105,6 +105,7 @@ nav a {
     text-decoration: none;
     height: 1.5em;
     font-size: 1.5em;
+    cursor: pointer;
 }
 
 nav li {
@@ -127,20 +128,29 @@ nav ul {
     position: absolute;
     display: none;
     height: unset;
-    width: 5.7em;
+    min-width: 5.7em;
     margin-left: -1.2em;
-    padding: .5em;
     white-space: nowrap;
     background: rgb(76, 153, 235);
     border-radius: 1em;
 }
 
-.dropdown-content a {
-    font-size: 1.2em;
-}
-
 .dropdown-content li {
     margin: 0;
+    padding: .5em 1em;
+    border-bottom: 1px solid rgb(0, 61, 127);
+}
+
+.dropdown-content li:hover {
+    padding-top: calc(.5em + 3px);
+}
+
+.dropdown-content li:last-child {
+    border: none;
+}
+
+.dropdown-content a {
+    font-size: 1.2em;
 }
 
 .dropdown:hover .dropdown-content {
@@ -151,7 +161,7 @@ nav ul {
 /* Inhalt der Seite ********************************/
 #content {
     grid-area: main;
-    min-height: 100vh;
+    min-height: calc(100vh - 6em - 3em - 4em - 2em); /*100vh - header - footer - gab - content-padding*/
     width: calc(100% - 1em);
     background: lightgray;
     border-radius: 1em;
@@ -160,22 +170,50 @@ nav ul {
 h1 {
     font-size: 1.5em;
     font-weight: bold;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 1em;
 }
 
 /* Button und Input Aussehen für alle Seiten */
-button {
+button,
+.btn {
+    display: inline-flex;
     width: max-content;
     border: none;
     border-radius: 5em;
-    padding: .5em .9em;
+    padding: .5em 1em;
     background: rgb(0, 61, 127);
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
     transition: opacity .2s ease;
 }
 
-button:hover {
+button img,
+.btn img {
+    margin-right: .5em;
+}
+
+button:hover,
+.btn:hover,
+.img_btn:hover {
     opacity: .8;
+}
+
+button:hover img,
+.btn:hover img {
+    opacity: 1;
+}
+
+.img_btn {
+    height: 1em;
+    align-self: center;
+    cursor: pointer;
 }
 
 label {
@@ -183,13 +221,17 @@ label {
     align-self: center;
 }
 
-input {
-    padding: .5em .9em;
+input,
+textarea,
+select {
+    padding: .5em 1em;
     border-radius: .5em;
     border: 1px solid rgb(0, 61, 127);
 }
 
-input:focus {
+input:focus,
+textarea:focus,
+select:focus {
     border: 2px solid rgb(0, 61, 127);
 }
 
@@ -203,14 +245,18 @@ aside {
 /* Footer */
 footer {
     grid-area: foot;
+    display: flex;
     height: 2em;
     background-color: rgb(0, 61, 127);
     border-radius: 1em 1em 0 0;
     color: #fff;
 }
 
+footer p {
+    align-self: center;
+}
 
-/* Tablat Ansicht */
+/* Tablet Ansicht */
 @media (max-width: 50em) {
     body {
         grid: "head" 

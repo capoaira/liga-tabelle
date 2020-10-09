@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-	include('../inc/dbconnect.php');
+	require_once('../inc/dbconnect.php');
 	session_start();
 ?>
 <html>
@@ -38,16 +38,16 @@
 				<label for="benutzername">Benutzername:</label>
 				<input type="text" id="benutzername" placeholder="Benutzername" value="<?=$username;?>" name="benutzername" required>
 				
-				<label for="email">E-Mail:</label>
+				<label for="email">E-Mail: </label>
 				<input type="email" id="email" placeholder="E-Mail" value="<?=$email;?>" name="email" required>
 				
-				<label for="altPW">Altes Passwort</label>
+				<label for="altPW">Altes Passwort: </label>
 				<input type="password" id="altPW" placeholder="Altes Passwort" name="altPW">
 				
-				<label for="neuPW">Neues Passwort:</label>
+				<label for="neuPW">Neues Passwort: </label>
 				<input type="password" id="neuPW" placeholder="Neues Passwort" name="neuPW">
 				
-				<label for="neuPWWdhl">Passwort Wiederholen:</label>
+				<label for="neuPWWdhl">Passwort Wiederholen: </label>
 				<input type="password" id="neuPWWdhl" placeholder="Neues Passwort Wiederholen" name="neuPWWdhl">
 								
 				<button id="submit" name="submit">Speichern</button>

@@ -1,0 +1,33 @@
+.liga_block_klein {
+    padding: .5em;
+}
+
+.liga_block_klein a {
+    text-decoration: none;
+    color: #000;
+}
+
+.liga_block_klein:hover {
+    background: lightgray;
+    border-radius: 1em;
+}
+
+.liga_block_klein img {
+    height: 4em;
+    width: 4em;
+    margin-right: .5em;
+    border-radius: 1em;
+    float: left;
+}
+
+.liga_info_klein h2 {
+    margin: 0;
+}
+
+.liga_info_klein span {
+    display: block;
+    max-width: 10em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
