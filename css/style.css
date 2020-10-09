@@ -1,3 +1,4 @@
+/* Generelle Eistellungen */
 * {
     padding: 0;
     margin: 0;
@@ -5,61 +6,7 @@
     font-size: 1em;
 }
 
-button,
-.btn {
-    display: inline-flex;
-    width: max-content;
-    border: none;
-    border-radius: 5em;
-    padding: .5em 1em;
-    background: rgb(0, 61, 127);
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity .2s ease;
-}
-
-button img,
-.btn img {
-    margin-right: .5em;
-}
-
-button:hover,
-.btn:hover,
-.img_btn:hover {
-    opacity: .8;
-}
-
-button:hover img,
-.btn:hover img {
-    opacity: 1;
-}
-
-.img_btn {
-    height: 1em;
-    align-self: center;
-    cursor: pointer;
-}
-
-label {
-    white-space: nowrap;
-    align-self: center;
-}
-
-input,
-textarea,
-select {
-    padding: .5em 1em;
-    border-radius: .5em;
-    border: 1px solid rgb(0, 61, 127);
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    border: 2px solid rgb(0, 61, 127);
-}
-
+/* Ausehen der Seite, header, content, aside, footer */
 body {
     width: 80%;
     display: grid;
@@ -78,6 +25,7 @@ footer {
     padding: 1em;
 }
 
+/* header */
 header {
     grid-area: head;
     display: flex;
@@ -96,6 +44,7 @@ header img {
     border-radius: 1em;
 }
 
+/* Menü Button für Mobile Ansicht */
 label.smartphone-btn { 
     display: none;
     align-self: center;
@@ -143,6 +92,7 @@ input#smartphone-btn {
     transform: translateY(-.85em) rotate(45deg);
 }
 
+/* Navigation */
 nav {
     display: flex;
     align-items: center;
@@ -208,6 +158,7 @@ nav ul {
     flex-direction: column;
 }
 
+/* Inhalt der Seite ********************************/
 #content {
     grid-area: main;
     min-height: calc(100vh - 6em - 3em - 4em - 2em); /*100vh - header - footer - gab - content-padding*/
@@ -228,12 +179,70 @@ h2 {
     margin-bottom: 1em;
 }
 
+/* Button und Input Aussehen für alle Seiten */
+button,
+.btn {
+    display: inline-flex;
+    width: max-content;
+    border: none;
+    border-radius: 5em;
+    padding: .5em 1em;
+    background: rgb(0, 61, 127);
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity .2s ease;
+}
+
+button img,
+.btn img {
+    margin-right: .5em;
+}
+
+button:hover,
+.btn:hover,
+.img_btn:hover {
+    opacity: .8;
+}
+
+button:hover img,
+.btn:hover img {
+    opacity: 1;
+}
+
+.img_btn {
+    height: 1em;
+    align-self: center;
+    cursor: pointer;
+}
+
+label {
+    white-space: nowrap;
+    align-self: center;
+}
+
+input,
+textarea,
+select {
+    padding: .5em 1em;
+    border-radius: .5em;
+    border: 1px solid rgb(0, 61, 127);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border: 2px solid rgb(0, 61, 127);
+}
+
+/* Aside */
 aside {
     grid-area: side;
     background: gray;
     border-radius: 1em;
 }
 
+/* Footer */
 footer {
     grid-area: foot;
     display: flex;
@@ -247,6 +256,7 @@ footer p {
     align-self: center;
 }
 
+/* Tablet Ansicht */
 @media (max-width: 50em) {
     body {
         grid: "head" 
@@ -258,6 +268,8 @@ footer p {
     }
 }
 
+
+/* Smartphone Ansicht */
 @media (max-width: 30em) {
     body {
         width: 100%;
@@ -282,7 +294,7 @@ footer p {
     }
 
     #smartphone-btn:checked ~ nav {
-        display: flex !important;
+        display: flex;
     }
     
     nav ul {
