@@ -57,8 +57,8 @@ CREATE TABLE `spiele` (
   `spielId` int(11) NOT NULL,
   `heimVerein` int(11) NOT NULL,
   `heimVereinTore` int(11) NOT NULL,
-  `auswertsVerein` int(11) NOT NULL,
-  `auswertsVereinTore` int(11) NOT NULL,
+  `auswaertsVerein` int(11) NOT NULL,
+  `auswaertsVereinTore` int(11) NOT NULL,
   `spieltagId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
