@@ -86,8 +86,8 @@
                 <button id="submit" name="submit">Erstellen</button>
 
                 <!-- Popup um den Verein zu erstellen -->
-                <div id="vereinErstellen" style="display:none">
-                    <div>
+                <div id="vereinErstellen" class="popup_background" style="display:none">
+                    <div class="popup_content">
                         <h1>Erstelle einen Verein</h1>
                         <input type="text" id="vereinsname" name="vereinsname" placeholder="Name des Vereins">
                         <label id="img_input">
