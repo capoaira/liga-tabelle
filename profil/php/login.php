@@ -26,11 +26,11 @@
             $_SESSION['userId'] = $user_userId;
             $_SESSION['status'] = $user_status;
             $_SESSION['username'] = $user_username;
-            header ('location: ../../index.php');
+            header ('location: ../../index.php?erfolg=Du+wurdest+erfolgreich+angemeldet.');
         } else {
-            header ('location: ../login.php?errorMsg=Passwort ist falsch.');
+            header ('location: ../login.php?error=Passwort ist falsch.');
         }
     } else {
-        header ('location: ../login.php?errorMsg=Username ist falsch.');
+        header ('location: ../login.php?error=Username ist falsch.');
     }
 ?>

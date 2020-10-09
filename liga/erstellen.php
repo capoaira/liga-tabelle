@@ -23,11 +23,11 @@
             <?php
                 if (isset($_SESSION['userId'])) {
                     $userId = $_SESSION['userId'];
-                    if (isset($_GET['vereinErstellt'])) {
-                        echo '<p>Der Verein wurde erfolgreich erstellt.</p>';
+                    if (isset($_GET['erfolg'])) {
+                        echo '<p class="erfolg">'.$_GET['erfolg'].'</p>';
                     }
                     if (isset($_GET['error'])) {
-                        echo '<p>'.$_GET['error'].'</p>';
+                        echo '<p class="error">'.$_GET['error'].'</p>';
                     }
             ?>
             <h1>Erstelle deine Liga</h1>

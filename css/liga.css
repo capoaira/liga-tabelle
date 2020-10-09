@@ -42,6 +42,7 @@ aside {
 #erstellerTools .buttons {
     display: flex;
     justify-content: space-between;
+    margin-bottom: .5em;
 }
 
 #letzteSpiele {
@@ -51,9 +52,25 @@ aside {
     border-radius: 1em;
 }
 
+/* Popups */
+form {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: .5em;
+}
+
+form {
+    margin: auto;
+}
+
+.popup_content p {
+    margin-bottom: .5em;
+}
+
 /* Vorschau wenn keine Liga ausgewählt ist => home.css */
 .liga_block_klein {
     display: block;
+    height: 3em;
     padding: .5em;
     text-decoration: none;
     color: #000;
@@ -65,8 +82,8 @@ aside {
 }
 
 .liga_block_klein img {
-    height: 4em;
-    width: 4em;
+    height: 3em;
+    width: 3em;
     margin-right: .5em;
     border-radius: 1em;
     float: left;
@@ -82,8 +99,4 @@ aside {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.ersteller a:last-child:hover {
-    text-decoration: underline;
 }

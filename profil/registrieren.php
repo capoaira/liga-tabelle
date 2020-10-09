@@ -20,8 +20,8 @@
 		<div id="content">
 			<?php
 				if (!isset($_SESSION['userId'])) {
-					if (isset($_GET['errorMsg'])) {
-						echo "<p>".$_GET['errorMsg']."</p>";
+					if (isset($_GET['error'])) {
+						echo '<p class="error">'.$_GET['error'].'</p>';
 					}
 			?>
 			<form action="php/registrieren.php" method="POST">

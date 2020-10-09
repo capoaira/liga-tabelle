@@ -1,7 +1,7 @@
 function addVerein()  {
-    $('#liganame').removeAttr('required');
-    $('#vereinsname').attr('required', 'true');
     if ($('#select').val() == 'neuerVerein') {
+        $('#liganame').removeAttr('required');
+        $('#vereinsname').attr('required', 'true');
         $('#vereinErstellen').css('display', 'block');
     } else if ($('#select').val() != 'select') {
         let vereinsId = $('#select').val();

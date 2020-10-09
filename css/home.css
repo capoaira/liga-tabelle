@@ -1,4 +1,6 @@
 .liga_block_klein {
+    display: block;
+    height: 4em;
     padding: .5em;
 }
 
