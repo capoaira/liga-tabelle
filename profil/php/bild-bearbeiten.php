@@ -14,8 +14,8 @@
     if ($bildBearbeitet) {
         $eintrag = "UPDATE user SET profilbild = '$new_filename' WHERE userId = $userId;";
         $eintragen = mysqli_query($db, $eintrag);
-        header('location: ../index.php');
+        header('location: ../index.php?erfolg=Dein+Profilbild+wurde+geändert.');
     } else {
-        header('location: ../index.php?error=Das+Profilbild+konnte+leider+nicht+geändert+werden');
+        header('location: ../index.php?error=Fehler+beim+ändern+des+Passwortes.');
     }
 ?>

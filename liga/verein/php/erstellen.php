@@ -33,7 +33,7 @@
         if ($row = mysqli_fetch_object($abfragen)) {
             array_push($_SESSION['neueLiga']['vereine'], $row->vereinsId);
         }
-        header('location: ../../erstellen.php?vereinErstellt=true');
+        header('location: ../../erstellen.php?efolg=Der+Verein+wurde+erstellt.');
     } else {
         header('location: ../../erstellen.php?error=Verein+konnte+nicht+hinzugefügt+werden');
     }

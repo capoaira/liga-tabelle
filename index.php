@@ -18,7 +18,11 @@
 	<body>
 		<?php include_once('inc/header.php') ?>
 		<div id="content">
-			
+			<?php
+				if (isset($_GET['erfolg'])) {
+					echo '<p class="erfolg">'.$_GET['erfolg'].'</p>';
+				}
+			?>
 		</div>
 		<aside>
 			<h1>Neuste Ligen:</h1>

@@ -9,6 +9,7 @@
 /* Ausehen der Seite, header, content, aside, footer */
 body {
     width: 80%;
+    max-width: 90em;
     display: grid;
     grid: "head head" 
           "main side"
@@ -179,17 +180,32 @@ h2 {
     margin-bottom: 1em;
 }
 
+.erfolg, .error {
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.erfolg {
+    color: rgb(0, 111, 0);
+}
+
+.error {
+    color: #f00;
+}
+
 /* Button und Input Aussehen für alle Seiten */
 button,
 .btn {
     display: inline-flex;
-    width: max-content;
+    width: min-content;
     border: none;
     border-radius: 5em;
     padding: .5em 1em;
     background: rgb(0, 61, 127);
     color: #fff;
     cursor: pointer;
+    white-space: nowrap;
     text-decoration: none;
     transition: opacity .2s ease;
 }
@@ -235,6 +251,18 @@ select:focus {
     border: 2px solid rgb(0, 61, 127);
 }
 
+input,
+select {
+    width: min-content;
+    min-width: 10em;
+    height: min-content;
+}
+
+textarea {
+    width: calc(100% - 2em);
+    height: 10em;
+}
+
 /* Popup */
 .popup_background {
     position: fixed;
@@ -255,6 +283,7 @@ select:focus {
     padding: .5em;
     border-radius: 1em;
     background-color: rgba(76, 153, 235, 1);
+    z-index: 1001;
 }
 
 /* Aside */
@@ -279,7 +308,7 @@ footer p {
 }
 
 /* Tablet Ansicht */
-@media (max-width: 50em) {
+@media (max-width: 60em) {
     body {
         grid: "head" 
               "main"
@@ -287,6 +316,10 @@ footer p {
               "foot"
               / 1fr;
         width: 90%;
+    }
+
+    #content {
+        width: calc(100% - 2em); /*100% - padding*/
     }
 }
 

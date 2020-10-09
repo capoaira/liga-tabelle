@@ -25,7 +25,7 @@
 					$username = $_SESSION['username'];
 
 					if (isset($_GET['error'])) {
-						echo '<p>Fehler beim ändern des Passwortes</p>';
+						echo '<p class="error">'.$_GET['error'].'</p>';
 					}
 					
 					$query = mysqli_query($db, "SELECT * FROM user WHERE userId = '$userId'");
