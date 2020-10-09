@@ -1,5 +1,5 @@
 <?php
-    include('../../inc/dbconnect.php');
+    require_once('../../inc/dbconnect.php');
     session_start();
     $userId = $_SESSION["userId"];
 
@@ -13,5 +13,5 @@
     $eintrag = "UPDATE user SET profilbild = 'keinPB.png' WHERE userId = $userId;";
     $eintragen = mysqli_query($db, $eintrag);
 
-    header('location: ../index.php');
+    header('location: ../index.php?erfolg=Dein+Profilbild+wurde+gelöscht.');
 ?>

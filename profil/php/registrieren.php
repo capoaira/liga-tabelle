@@ -51,6 +51,6 @@
 
         header('location: ../login.php?registriert=erfolgreich');
     } else {
-        header('location: ../registrieren.php?errorMsg=' . join('<br>', $errorMsg));
+        header('location: ../registrieren.php?error=' . join('<br>', $errorMsg));
     }
 ?>

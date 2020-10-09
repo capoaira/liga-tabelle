@@ -20,8 +20,8 @@
 		<div id="content">
 			<?php
 				if (!isset($_SESSION['userId'])) {
-					if (isset($_GET['errorMsg'])) {
-						echo "<p>".$_GET['errorMsg']."</p>";
+					if (isset($_GET['error'])) {
+						echo '<p class="error">'.$_GET['error'].'</p>';
 					}
 			?>
 			<form action="php/login.php" method="POST">
@@ -33,7 +33,7 @@
 
 				<button id="submit" name="submit">Login</button>
 			</form>
-			<p>Noch keinen Account erstellt? <a href= "registrieren.php">Hier geht es zur Regestration</a></p>
+			<p>Noch keinen Account erstellt? <a href="registrieren.php">Hier geht es zur Regestration</a></p>
 			<?php
 				} else {
 					echo '<p>Du hast dich schon eingeloggt</p>';

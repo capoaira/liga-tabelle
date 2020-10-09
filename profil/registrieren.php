@@ -20,26 +20,26 @@
 		<div id="content">
 			<?php
 				if (!isset($_SESSION['userId'])) {
-					if (isset($_GET['errorMsg'])) {
-						echo "<p>".$_GET['errorMsg']."</p>";
+					if (isset($_GET['error'])) {
+						echo '<p class="error">'.$_GET['error'].'</p>';
 					}
 			?>
 			<form action="php/registrieren.php" method="POST">
-				<label for="name">Benutzername: </label>
+				<label for="name">Benutzername:</label>
 				<input type="text" id="name" name="benutzername" placeholder="Benutzername" required>
 				
-				<label for="email">E-Mail: </label>				
+				<label for="email">E-Mail:</label>				
 				<input type="email" id="email" name="email" placeholder="E-mail" required>
 				
-				<label for="passwort">Passwort: </label>				
+				<label for="passwort">Passwort:</label>				
 				<input type="password" id="passwort" name="passwort" placeholder="Passwort" required>
 				
-				<label for="passwortWdhl">Passwort&nbsp;Wiederholen: </label>
+				<label for="passwortWdhl">Passwort Wiederholen:</label>
 				<input type="password" id="passwortWdhl" name="passwortWdhl" placeholder="Passwort Wiederholen" required>
 				
 				<button id="submit" name="submit">Registrieren</button>
 			</form>
-			<p>Schon ein Account erstellt? <a href= "login.php">Hier geht es zum Login</a></p>
+			<p>Schon ein Account erstellt? <a href="login.php">Hier geht es zum Login</a></p>
 			<?php
 				} else {
 					echo '<p>Du hast dich schon eingeloggt</p>';

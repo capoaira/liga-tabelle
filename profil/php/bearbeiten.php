@@ -1,5 +1,5 @@
 <?php
-	include('../../inc/dbconnect.php');
+	require_once('../../inc/dbconnect.php');
 	session_start();
 	
 	$userId = $_SESSION['userId'];
@@ -31,6 +31,6 @@
 	$eintrag = "UPDATE user SET username = '$benutzername', email = '$email'" . ($pwAendern && $pwKannGeaendertWerden ? ", passwort = '$neuPW'" : "") . " WHERE userId = $userId;";$eintrag = "UPDATE user SET username = '$benutzername', email = '$email'" . ($pwAendern && $pwKannGeaendertWerden ? ", passwort = '$neuPW'" : "") . " WHERE userId = $userId;";
 	$eintragen = mysqli_query($db, $eintrag);
 
-	if ($pwAendern && !$pwKannGeaendertWerden) header('location: ../bearbeiten.php?error=pw');
-	else header('location: ../index.php');
+	if ($pwAendern && !$pwKannGeaendertWerden) header('location: ../bearbeiten.php?error=Das+Paswort+konnte+nicht+geändert+werden.');
+	else header('location: ../index.php?erfolg=Dein+Profil+wurde+bearbeitet');
 ?>
