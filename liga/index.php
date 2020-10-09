@@ -119,9 +119,9 @@
 								<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'block')" class="btn" titel="Erstelle einen neues Spiel"><img src="../img/bearbeiten.png" class="img_btn"> Neuer Spiel</a>
 							</div>
 							<div class="buttons">
-								<a href="verein/all.php?liga=<?=$ligaId?>" class="btn" titel="Alle Vereine der Liga"><img src="" class="img_btn">Vereine</a>
-								<a href="spieltag/all.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spieltage der Liga"><img src="" class="img_btn">Spieltage</a>
-								<a href="spiel/all.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spiele der Liga"><img src="" class="img_btn">Spiele</a>
+								<a href="verein/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Vereine der Liga"><img src="" class="img_btn">Vereine</a>
+								<a href="spieltag/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spieltage der Liga"><img src="" class="img_btn">Spieltage</a>
+								<a href="spiel/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spiele der Liga"><img src="" class="img_btn">Spiele</a>
 							</div>
 						</div>
 			<?php
