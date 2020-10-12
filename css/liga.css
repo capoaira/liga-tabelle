@@ -34,6 +34,7 @@ aside {
 }
 
 #erstellerTools {
+    margin-bottom: 1em;
     padding: 1em;
     border: 1px solid rgb(0, 61, 127);
     border-radius: 1em;
@@ -46,7 +47,6 @@ aside {
 }
 
 #letzteSpiele {
-    margin-top: 1em;
     padding: 1em;
     border: 1px solid rgb(0, 61, 127);
     border-radius: 1em;
@@ -99,4 +99,24 @@ form {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@media (max-width: 60em) {
+    #erstellerTools {
+        margin: 0;
+    }
+
+    #erstellerTools .buttons {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 45em) {
+    #erstellerTools {
+        margin-bottom: 1em;
+    }
+
+    #erstellerTools .buttons {
+        justify-content: space-between;
+    }
 }

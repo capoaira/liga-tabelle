@@ -15,7 +15,7 @@ body {
           "main side"
           "foot foot"
           / 5fr 3fr;
-    gap: 1em 2em;
+    gap: 1em;
     margin: 0 auto;
 }
 
@@ -163,7 +163,7 @@ nav ul {
 #content {
     grid-area: main;
     min-height: calc(100vh - 6em - 3em - 4em - 2em); /*100vh - header - footer - gab - content-padding*/
-    width: calc(100% - 1em);
+    width: calc(100% - 2em);
     background: lightgray;
     border-radius: 1em;
 }
@@ -270,7 +270,7 @@ textarea {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     z-index: 1000;
 }
 
@@ -291,6 +291,8 @@ aside {
     grid-area: side;
     background: gray;
     border-radius: 1em;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Footer */
@@ -321,8 +323,23 @@ footer p {
     #content {
         width: calc(100% - 2em); /*100% - padding*/
     }
+
+    .popup_content {
+        width: 80%;
+    }
+
+    aside {
+        justify-content: space-between;
+        flex-direction: row;
+    }
 }
 
+/* Extrastufe für aside */
+@media (max-width: 45em) {
+    aside {
+        flex-direction: column;
+    }
+}
 
 /* Smartphone Ansicht */
 @media (max-width: 30em) {
@@ -340,7 +357,7 @@ footer p {
 
     nav {
         display: none;
-        position: fixed;
+        position: absolute;
         top: 6em;
         right: 0;
         margin: -.5em 0 0 0;
@@ -362,8 +379,12 @@ footer p {
     ul li {
         margin: 0;
     }
+
+    ul li:not(.dropdown) {
+        padding: 1em .5em;
+    }
     
-    .dropdown > a:nth-child(1) {
+    .dropdown a {
         display: none;
     }
 
@@ -378,5 +399,17 @@ footer p {
     
     .dropdown-content a {
         font-size: 1.5em;
+        display: unset;
+    }
+
+    .popup_content {
+        width: calc(100% - 1em);
+        height: calc(100% - 1em);
+        overflow-y: scroll;
+    }
+
+    input,
+    select {
+        width: calc(100% - 2em);
     }
 }
