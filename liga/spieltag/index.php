@@ -1,5 +1,5 @@
 <?php
-	require_once('../inc/dbconnect.php');
+	require_once('../../inc/dbconnect.php');
     session_start();
     
 ?>
@@ -16,7 +16,7 @@
 		<meta name="keywords" content="">
 	</head>
 	<body>
-		<?php include_once('inc/header.php') ?>
+		<?php include_once('../../inc/header.php') ?>
 		<div id="content">
 			<?php
 				if (isset($_GET['erfolg'])) {
@@ -30,6 +30,6 @@
 		<aside>
 			
 		</aside>
-		<?php include_once('inc/footer.php') ?>
+		<?php include_once('../../inc/footer.php') ?>
 	</body>
 </html>

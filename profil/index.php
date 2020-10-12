@@ -53,15 +53,11 @@
 				}
 			?>
 			</h1>
-			<?php
-				if ($eigenesProfil) {
-					echo '<figure>';
-				}
-			?>
+			<figure>
 				<img id="pb" src="../img/profile/<?=$profilbild;?>" alt="Profilbild" title="<?=$benutzername;?>">
-			<?php
-				if ($eigenesProfil) {
-			?>
+				<?php
+					if ($eigenesProfil) {
+				?>
 					<figcaption>
 						<form action="php/bild-bearbeiten.php" method="POST" enctype="multipart/form-data" style="display: unset">
 							<label title="Bearbeite dein Profilbild">
@@ -75,10 +71,10 @@
 							<img src="../img/loeschen.png" class="img_btn">
 						</a>
 					</figcaption>
-				</figure>
 			<?php
 				}
 			?>
+			</figure>
 			<div id="ausgabe">
 				<span>Benutzername:</span><span><?= $benutzername; ?></span>
 				<span>E-Mail:</span><span><?= $email; ?></span>
@@ -86,7 +82,7 @@
 				<span>Mitglied seit:</span><span><?= $createdAt; ?></span>
 			</div>
 
-			<?php 
+			<?php
 				} else {
 					echo '<p><p><a href="login.php">Melde dich an</a>, um dein Profil zu sehen</p>';
 				}
