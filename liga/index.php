@@ -2,6 +2,8 @@
 	require_once('../inc/dbconnect.php');
 	session_start();
 	
+	require_once('../inc/global.php');
+
 	function zeigenEigeneLigen($db) {
 		if (isset($_SESSION['userId'])) {
 			$userid = $_SESSION['userId'];
@@ -14,7 +16,7 @@
 					$name = $row->name;
 					$beschreibung = $row->beschreibung;
 					$logo = $row->logo;
-	?>
+?>
 
 					<a href="?liga=<?=$ligaId?>" class="liga_block_klein" title="<?=$name?>">
 						<img src="../img/ligen/<?=$logo?>">
@@ -23,7 +25,7 @@
 							<span><?=$beschreibung?></span>
 						</div>
 					</a>
-	<?php
+<?php
 				}
 			} else {
 					echo '<p>Verwende die Suche oder <a href="erstellen.php">erstelle</a> eine Liga.</p>';
@@ -33,7 +35,7 @@
 		}
 	}
 
-	function getVereine($db, $ligaId) {
+	function getVereineFuerSelect($db, $ligaId) {
 		$abfrage = "SELECT vereine.vereinsId, vereine.name
 					FROM vereine, `liga-verein`
 					WHERE `liga-verein`.ligaId = '$ligaId'
@@ -108,25 +110,25 @@
 				?>
 		</div>
 		<aside>
+			<div id="erstellerTools">
+							
 			<?php
 				if (isset($ligaAnzeigen) && $ligaAnzeigen) {
 					if ($istMeineLiga) {
 			?>
-						<div id="erstellerTools">
-							<h2>Ersteller Tools:</h2>
-							<div class="buttons">
-								<a href="javascript:void(0)" onclick="$('#neuenSpieltag').css('display', 'block')" class="btn" titel="Erstelle einen neunen Spieltag"><img src="../img/bearbeiten.png" class="img_btn"> Neuer Spieltag</a>
-								<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'block')" class="btn" titel="Erstelle einen neues Spiel"><img src="../img/bearbeiten.png" class="img_btn"> Neuer Spiel</a>
-							</div>
-							<div class="buttons">
-								<a href="verein/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Vereine der Liga"><img src="" class="img_btn">Vereine</a>
-								<a href="spieltag/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spieltage der Liga"><img src="" class="img_btn">Spieltage</a>
-								<a href="spiel/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spiele der Liga"><img src="" class="img_btn">Spiele</a>
-							</div>
+						<h2>Ersteller Tools:</h2>
+						<div class="buttons">
+							<a href="javascript:void(0)" onclick="$('#neuenSpieltag').css('display', 'block')" class="btn" titel="Erstelle einen neunen Spieltag"><img src="../img/bearbeiten.png" class="img_btn"> Neuer Spieltag</a>
+							<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'block')" class="btn" titel="Erstelle einen neues Spiel"><img src="../img/bearbeiten.png" class="img_btn"> Neuer Spiel</a>
 						</div>
 			<?php
 					}
 			?>
+						<div class="buttons">
+							<a href="verein/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Vereine der Liga"><img src="" class="img_btn">Vereine</a>
+							<a href="spieltag/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spieltage mit Spielen der Liga"><img src="" class="img_btn">Spieltage und Spiele</a>
+						</div>
+					</div>
 					<div id="letzteSpiele">
 						<h2>Letzte Spiele:</h2>
 					</div>
@@ -158,13 +160,13 @@
 						<label for="heimverein">Heimverein:</label>
 						<select id="heimverein" name="heimverein">
 							<option value="default">Heimverein</option>
-							<?=getVereine($db, $ligaId)?>
+							<?=getVereineFuerSelect($db, $ligaId)?>
 						</select>
 
 						<label for="auswaertsverein">Auswärtsverein:</label>
 						<select id="auswaertsverein" name="auswaertsverein">
 							<option value="default">Auswärtsverein</option>
-							<?=getVereine($db, $ligaId)?>
+							<?=getVereineFuerSelect($db, $ligaId)?>
 						</select>
 
 						<label for="spieltag">Spieltag:</label>
