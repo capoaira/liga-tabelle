@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 06. Okt 2020 um 13:45
--- Server-Version: 10.4.13-MariaDB
--- PHP-Version: 7.4.7
+-- Erstellungszeit: 14. Okt 2020 um 21:10
+-- Server-Version: 10.4.14-MariaDB
+-- PHP-Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,6 +32,30 @@ CREATE TABLE `liga-verein` (
   `vereinsId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Daten für Tabelle `liga-verein`
+--
+
+INSERT INTO `liga-verein` (`ligaId`, `vereinsId`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 11),
+(1, 12),
+(1, 13),
+(1, 14),
+(1, 15),
+(1, 16),
+(1, 17),
+(1, 18);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +70,13 @@ CREATE TABLE `ligen` (
   `erstelltVon` varchar(255) NOT NULL,
   `keywords` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `ligen`
+--
+
+INSERT INTO `ligen` (`ligaId`, `name`, `beschreibung`, `logo`, `erstelltVon`, `keywords`) VALUES
+(1, 'Bundesliga', 'Deutsche Profiliga', '1.png', '2', 'Deutschland Bundesliga');
 
 -- --------------------------------------------------------
 
@@ -74,6 +105,15 @@ CREATE TABLE `spieltage` (
   `bis` date NOT NULL,
   `ligaId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `spieltage`
+--
+
+INSERT INTO `spieltage` (`spieltagId`, `von`, `bis`, `ligaId`) VALUES
+(1, '2020-09-18', '2020-09-20', 1),
+(2, '2020-09-25', '2020-09-27', 1),
+(3, '2020-10-02', '2020-10-04', 1);
 
 -- --------------------------------------------------------
 
@@ -112,6 +152,30 @@ CREATE TABLE `vereine` (
   `logo` varchar(255) NOT NULL,
   `erstelltVon` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `vereine`
+--
+
+INSERT INTO `vereine` (`vereinsId`, `name`, `beschreibung`, `logo`, `erstelltVon`) VALUES
+(1, 'RB Leibzig', '', '1.jpg', '2'),
+(2, 'Augsburg', '', '2.jpg', '2'),
+(3, 'Eintracht Frankfurt', '', '3.jpg', '2'),
+(4, 'FC Bayern', '', '4.jpg', '2'),
+(5, 'Borussia Dortmund', '', '5.jpg', '2'),
+(6, 'Hoffenheim', '', '6.jpg', '2'),
+(7, 'Werder Bremen', '', '7.jpg', '2'),
+(8, 'VfB Stuttgart', '', '8.jpg', '2'),
+(9, 'Union Berlin', '', '9.jpg', '2'),
+(10, 'Arminia Bielefeld', '', '10.jpg', '2'),
+(11, 'Mönchengladbach', '', '11.jpg', '2'),
+(12, 'Freiburg', '', '12.jpg', '2'),
+(13, 'Herta BSC', '', '13.jpg', '2'),
+(14, 'Leverkusen', '', '14.jpg', '2'),
+(15, 'Hannover 96', '', '15.jpg', '2'),
+(16, '1. FC Köln', '', '16.jpg', '2'),
+(17, 'Mainz 05', '', '17.jpg', '2'),
+(18, 'Schalke 04', '', '18.jpg', '2');
 
 --
 -- Indizes der exportierten Tabellen
@@ -163,7 +227,7 @@ ALTER TABLE `vereine`
 -- AUTO_INCREMENT für Tabelle `ligen`
 --
 ALTER TABLE `ligen`
-  MODIFY `ligaId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ligaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `spiele`
@@ -175,7 +239,7 @@ ALTER TABLE `spiele`
 -- AUTO_INCREMENT für Tabelle `spieltage`
 --
 ALTER TABLE `spieltage`
-  MODIFY `spieltagId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `spieltagId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `user`
@@ -187,7 +251,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für Tabelle `vereine`
 --
 ALTER TABLE `vereine`
-  MODIFY `vereinsId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `vereinsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
