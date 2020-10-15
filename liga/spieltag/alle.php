@@ -45,7 +45,7 @@
 					echo ($darfBearbeiten ?
 						 '<a href="javascript:void(0)" onclick="openSpieltag(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
 						 <a href="php/loeschen.php?spieltag='.$spieltagId.'&liga='.$ligaId.'"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>' : '').'</div>';
-						 $abfrageSpiele = mysqli_query($db, "SELECT * FROM spiele WHERE spieltagId = $spieltagId");
+						 $abfrageSpiele = mysqli_query($db, "SELECT * FROM spiele WHERE spieltagId = $spieltagId ORDER BY datum");
 					while ($abfrageSpiele && $row=mysqli_fetch_object($abfrageSpiele)) {
 						$heimVereinId = $row->heimVerein;
 						$auswaertsVereinId = $row->auswaertsVerein;
@@ -66,11 +66,12 @@
 								<img src="/ligatabelle/img/vereine/<?=$heimVereinLogo?>">
 								<span><?=$heimVereinName?></span>
 							</span>
-							<span><?=$row->heimVereinTore?> : <?=$row->auswaertsVereinTore?></span>
+							<span><?=($row->heimVereinTore < 0 ? '--' : $row->heimVereinTore)?> : <?=($row->auswaertsVereinTore < 0 ? '--' : $row->auswaertsVereinTore)?></span>
 							<span>
 								<span><?=$auswaertsVereinName?></span>
 								<img src="/ligatabelle/img/vereine/<?=$auswaertsVereinLogo?>">
 							</span>
+							<span><?=$row->datum?></span>
 						</div>
 			<?php if ($darfBearbeiten) {?>
 						<div class="buttons">
@@ -93,8 +94,8 @@
 					<form action="php/bearbeiten.php" method="POST">
 						<input type="hidden" id="ligaId" name="ligaId" value="<?=$ligaId?>" required>
 						<input type="hidden" id="spieltagId" name="spieltagId" required>
-						<label for="von">Von:</label><input type="date" id="von" name="von" placeholder="Startdatum" required>
-						<label for="bis">Bis:</label><input type="date" id="bis" name="bis" placeholder="Enddatum" required>
+						<label for="von">Von:</label><input type="date" id="von" name="von" required>
+						<label for="bis">Bis:</label><input type="date" id="bis" name="bis" required>
 						<button name="submit">Bearbeiten</button>
 						<a href="javascript:void(0)" onclick="$('#spieltagBearbeiten').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
@@ -110,10 +111,10 @@
 						<input type="hidden" id="spielId" name="spielId" value="0" required>
 						
 						<label for="heimverein">Heimverein:</label>
-						<input type="number" id="heimVereinTore" name="heimVereinTore" value="0">
+						<input type="number" id="heimVereinTore" name="heimVereinTore" min="0" max="99" value="0">
 
 						<label for="auswaertsverein">Auswärtsverein:</label>
-						<input type="number" id="auswaertsVereinTore" name="auswaertsVereinTore" value="0">
+						<input type="number" id="auswaertsVereinTore" name="auswaertsVereinTore" min="0" max="99" value="0">
 
 						<button name="submit">Bearbeiten</button>
 						<a href="javascript:void(0)" onclick="$('#spielBearbeiten').css('display', 'none')" class="btn">Abbrechen</a>

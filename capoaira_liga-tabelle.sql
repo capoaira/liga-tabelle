@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Erstellungszeit: 15. Okt 2020 um 14:50
--- Server-Version: 10.3.22-MariaDB-1:10.3.22+maria~stretch
--- PHP-Version: 7.1.33
+-- Host: 127.0.0.1
+-- Erstellungszeit: 15. Okt 2020 um 16:41
+-- Server-Version: 10.4.14-MariaDB
+-- PHP-Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `capoaira_liga-tabelle`
+-- Datenbank: `liga-tabelle`
 --
 
 -- --------------------------------------------------------
@@ -91,6 +90,7 @@ CREATE TABLE `spiele` (
   `heimVereinTore` int(11) NOT NULL,
   `auswaertsVerein` int(11) NOT NULL,
   `auswaertsVereinTore` int(11) NOT NULL,
+  `datum` datetime NOT NULL,
   `spieltagId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -260,26 +260,31 @@ ALTER TABLE `vereine`
 --
 ALTER TABLE `ligen`
   MODIFY `ligaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT für Tabelle `spiele`
 --
 ALTER TABLE `spiele`
-  MODIFY `spielId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `spielId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT für Tabelle `spieltage`
 --
 ALTER TABLE `spieltage`
   MODIFY `spieltagId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT für Tabelle `vereine`
 --
 ALTER TABLE `vereine`
-  MODIFY `vereinsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;COMMIT;
+  MODIFY `vereinsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

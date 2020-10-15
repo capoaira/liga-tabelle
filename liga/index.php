@@ -192,6 +192,10 @@
 								?>
 								<span id="selecedDatum"></span>
 						</span>
+						<label for="date">Datum:</label>
+						<select id="date" name="date" required></select>
+						<label for="time">Uhrzeit:</label>
+						<input type="time" id="time" name="time" required>
 						<button name="submit">Erstellen</button>
 						<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
