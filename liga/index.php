@@ -119,8 +119,8 @@
 			?>
 						<h2>Ersteller Tools:</h2>
 						<div class="buttons">
-							<a href="javascript:void(0)" onclick="$('#neuenSpieltag').css('display', 'block')" class="btn" titel="Erstelle einen neunen Spieltag"><img src="../img/bearbeiten.png" class="img_btn"> Neuer Spieltag</a>
-							<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'block')" class="btn" titel="Erstelle einen neues Spiel"><img src="../img/bearbeiten.png" class="img_btn"> Neuer Spiel</a>
+							<a href="javascript:void(0)" onclick="$('#neuenSpieltag').css('display', 'block')" class="btn" titel="Erstelle einen neunen Spieltag"><img src="../img/bearbeiten.png" class="img_btn">Neuer Spieltag</a>
+							<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'block')" class="btn" titel="Erstelle einen neues Spiel"><img src="../img/bearbeiten.png" class="img_btn">Neues Spiel</a>
 						</div>
 			<?php
 					}
@@ -130,8 +130,8 @@
 							<a href="spieltag/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spieltage mit Spielen der Liga"><img src="" class="img_btn">Spieltage und Spiele</a>
 						</div>
 					</div>
-					<div id="letzteSpiele">
-						<h2>Letzte Spiele:</h2>
+					<div id="letzterSpieltag">
+						<h2>Letzter Spieltag:</h2>
 					</div>
 			<?php
 				}
@@ -141,7 +141,7 @@
 			<div id="neuenSpieltag" class="popup_background" style="display:none;">
 				<div class="popup_content">
 					<h1>Neuer Spieltag</h1>
-					<p>Erstelle einen neues Spieltag. Danach kannst du diesen Spieltag auswählen, wenn du neue Spiele erstellt.</p>
+					<p>Erstelle einen neuen Spieltag. Danach kannst du diesen Spieltag auswählen, wenn du neue Spiele erstellt.</p>
 					<form action="spieltag/php/erstellen.php" method="POST">
 						<input type="hidden" id="ligaId" name="ligaId" value="<?=$ligaId?>" required>
 						<label for="von">Von:</label><input type="date" id="von" name="von" placeholder="Startdatum" required>
@@ -175,7 +175,7 @@
 							<select id="spieltag" name="spieltag" onchange="setDatum();">
 								<option value="default" data-von="" data-bis="">Spieltag Wählen</option>
 								<?php
-									$abfrage = "SELECT spieltagId, von, bis FROM spieltage ORDER BY von";
+									$abfrage = "SELECT spieltagId, von, bis FROM spieltage WHERE ligaId = $ligaId ORDER BY von";
 									$abfragen = mysqli_query($db, $abfrage);
 									$spieltag = 0;
 									while ($abfragen && $row = mysqli_fetch_object($abfragen)) {
