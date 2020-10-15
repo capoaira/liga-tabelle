@@ -195,7 +195,7 @@ h2 {
 }
 
 /* Button und Input Aussehen für alle Seiten */
-button,
+button:not(.img_btn),
 .btn {
     display: inline-flex;
     width: min-content;
@@ -208,6 +208,11 @@ button,
     white-space: nowrap;
     text-decoration: none;
     transition: opacity .2s ease;
+}
+
+.img_btn {
+    border: none;
+    background: none;
 }
 
 button img,
