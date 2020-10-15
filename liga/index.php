@@ -59,6 +59,7 @@
 		<link rel="stylesheet" href="/ligatabelle/css/liga.css">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+        <script src="/ligatabelle/js/liga.js" type="text/javascript"></script>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 	</head>
@@ -170,24 +171,27 @@
 						</select>
 
 						<label for="spieltag">Spieltag:</label>
-						<select id="spieltag" name="spieltag">
-							<option value="default">Spieltag</option>
-							<?php
-								$abfrage = "SELECT spieltagId, von, bis FROM spieltage ORDER BY von";
-								$abfragen = mysqli_query($db, $abfrage);
-								while ($abfragen && $row = mysqli_fetch_object($abfragen)) {
-									$spieltagId = $row->spieltagId;
-									$von = $row->von;
-									$bis = $row->bis;
-									echo "<option value=\"$spieltagId\">$von - $bis</option>";
-								}
-							?>
-						</select>
-						<?php
-							if (mysqli_num_rows($abfragen) == 0) {
-								echo "<span>Du hast noch keinen Spieltag erstellt</span>";
-							}
-						?>
+						<span>
+							<select id="spieltag" name="spieltag" onchange="setDatum();">
+								<option value="default" data-von="" data-bis="">Spieltag Wählen</option>
+								<?php
+									$abfrage = "SELECT spieltagId, von, bis FROM spieltage ORDER BY von";
+									$abfragen = mysqli_query($db, $abfrage);
+									$spieltag = 0;
+									while ($abfragen && $row = mysqli_fetch_object($abfragen)) {
+										$spieltag++;
+										$spieltagId = $row->spieltagId;
+										$von = $row->von;
+										$bis = $row->bis;
+										echo "<option value=\"$spieltagId\" data-von=\"$von\" data-bis=\"$bis\">Spieltag $spieltag</option>";
+									}
+									echo "</select>";
+									if (mysqli_num_rows($abfragen) == 0) {
+										echo "<span>Du hast noch keinen Spieltag erstellt</span>";
+									}
+								?>
+								<span id="selecedDatum"></span>
+						</span>
 						<button name="submit">Erstellen</button>
 						<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
