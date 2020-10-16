@@ -4,6 +4,10 @@
 	
 	require_once('../inc/global.php');
 
+	
+	$ligaId = $_GET['liga'];
+	$darfBearbeiten = istMeineLiga($db, $_SESSION['userId'], $ligaId) || $_SESSION['status'] == 'admin';
+
 	function zeigenEigeneLigen($db) {
 		if (isset($_SESSION['userId'])) {
 			$userid = $_SESSION['userId'];
@@ -73,9 +77,7 @@
 				if (isset($_GET['error'])) {
 					echo '<p class="error">'.$_GET['error'].'</p>';
 				}
-				if (isset($_GET['liga']) && is_numeric($_GET['liga'])) {
-					$ligaId = $_GET['liga'];
-					
+				if (isset($_GET['liga']) && is_numeric($_GET['liga'])) {					
 					$abfrage = "SELECT ligen.name, ligen.beschreibung, ligen.logo, ligen.erstelltVon, user.username 
 								FROM ligen, user
 								WHERE ligaId = '$ligaId' AND erstelltVon = userId";
@@ -95,8 +97,10 @@
 							<div class="liga_info">
 								<span class="h1">
 									<?=$name?>
-									<a href="bearbeiten.php?liga=<?=$ligaId?>"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
-									<a href="php/loeschen.php?liga=<?=$ligaId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
+									<?php if ($darfBearbeiten) { ?>
+										<a href="bearbeiten.php?liga=<?=$ligaId?>"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
+										<a href="php/loeschen.php?liga=<?=$ligaId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
+									<?php } ?>
 								</span>
 								<span class="ersteller">Erstellt von <a href="../profil/index.php?id=<?=$erstelltVon?>"><?=$ersteller?></a></span>
 								<span><?=$beschreibung?></span>

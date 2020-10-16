@@ -39,9 +39,6 @@
 						<span><img src="../../img/vereine/<?=$row->logo?>"><?=$row->name?></span>
 					</a>
 					<span>
-						<a href="bearbeiten.php?verein='<?=$row->vereinsId?>'">
-							<img class="img_btn" src="/ligatabelle/img/bearbeiten.png">
-						</a>
 						<a href="php/entfernen.php?liga=<?=$ligaId?>&verein=<?=$row->vereinsId?>&return=../alle.php">
 							<img class="img_btn" src="../../img/loeschen.png">
 						</a>

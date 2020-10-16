@@ -8,8 +8,6 @@
     $name = $_POST['vereinsname'];
     $beschreibung = $_POST['vereinsbeschreibung'];
 
-    print_r($_FILES['vereinslogo']);
-
     $bildBearbeiten = isset($_FILES['vereinslogo']);
     if ($bildBearbeiten) {
         echo "Bild bearbeiten";
@@ -27,5 +25,5 @@
                 WHERE vereinsId = $vereinsId;";
     $eintragen = mysqli_query($db, $eintrag);
     
-    //header("location: ../index.php?verein=$vereinsId&erfolg=Der+Verein+wurde+erfolgreich+bearbeitet");
+    header("location: ../index.php?verein=$vereinsId&erfolg=Der+Verein+wurde+erfolgreich+bearbeitet");
 ?>
