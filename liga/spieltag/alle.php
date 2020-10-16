@@ -45,7 +45,7 @@
 					echo ($darfBearbeiten ?
 						 '<a href="javascript:void(0)" onclick="openSpieltag(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
 						 <a href="php/loeschen.php?spieltag='.$spieltagId.'&liga='.$ligaId.'"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>' : '').'</div>';
-						 $abfrageSpiele = mysqli_query($db, "SELECT * FROM spiele WHERE spieltagId = $spieltagId ORDER BY datum");
+					$abfrageSpiele = mysqli_query($db, "SELECT * FROM spiele WHERE spieltagId = $spieltagId ORDER BY datum");
 					while ($abfrageSpiele && $row=mysqli_fetch_object($abfrageSpiele)) {
 						$heimVereinId = $row->heimVerein;
 						$auswaertsVereinId = $row->auswaertsVerein;
@@ -61,24 +61,26 @@
 						}
 			?>
 					<div data-id="<?=$row->spielId?>" class="spiel">
-						<div class="spiel_info">
-							<span>
-								<img src="/ligatabelle/img/vereine/<?=$heimVereinLogo?>">
-								<span><?=$heimVereinName?></span>
-							</span>
-							<span><?=($row->heimVereinTore < 0 ? '--' : $row->heimVereinTore)?> : <?=($row->auswaertsVereinTore < 0 ? '--' : $row->auswaertsVereinTore)?></span>
-							<span>
-								<span><?=$auswaertsVereinName?></span>
-								<img src="/ligatabelle/img/vereine/<?=$auswaertsVereinLogo?>">
-							</span>
-							<span><?=$row->datum?></span>
+						<span><?=$row->datum?></span>
+						<div>
+							<div class="spiel_info">
+								<span>
+									<img src="/ligatabelle/img/vereine/<?=$heimVereinLogo?>">
+									<a href="../verein/index.php?verein=<?=$heimVereinId?>"><?=$heimVereinName?></a>
+								</span>
+								<span><?=($row->heimVereinTore < 0 ? '--' : $row->heimVereinTore)?> : <?=($row->auswaertsVereinTore < 0 ? '--' : $row->auswaertsVereinTore)?></span>
+								<span>
+									<a href="../verein/index.php?verein=<?=$auswaertsVereinId?>"><?=$auswaertsVereinName?></a>
+									<img src="/ligatabelle/img/vereine/<?=$auswaertsVereinLogo?>">
+								</span>
+							</div>
+						<?php if ($darfBearbeiten) {?>
+							<div class="buttons">
+								<a href="javascript:void(0)" onclick="openSpiel(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
+								<a href="../spiel/php/loeschen.php?spiel=<?=$row->spielId?>&liga=<?=$ligaId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
+							</div>
+						<?php } ?>
 						</div>
-			<?php if ($darfBearbeiten) {?>
-						<div class="buttons">
-							<a href="javascript:void(0)" onclick="openSpiel(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
-							<a href="../spiel/php/loeschen.php?spiel=<?=$row->spielId?>&liga=<?=$ligaId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
-						</div>
-			<?php } ?>
 					</div>
 			<?php
 					}
