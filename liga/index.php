@@ -93,7 +93,11 @@
 						<div class="liga_block">
 							<img src="../img/ligen/<?=$logo?>">
 							<div class="liga_info">
-								<h1><?=$name?></h1>
+								<span class="h1">
+									<?=$name?>
+									<a href="bearbeiten.php?liga=<?=$ligaId?>"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
+									<a href="php/loeschen.php?liga=<?=$ligaId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
+								</span>
 								<span class="ersteller">Erstellt von <a href="../profil/index.php?id=<?=$erstelltVon?>"><?=$ersteller?></a></span>
 								<span><?=$beschreibung?></span>
 							</div>

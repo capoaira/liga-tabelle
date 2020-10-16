@@ -4,21 +4,22 @@
 
     $ligaId = $_GET['liga'];
 
-    if (!isset($_SESSION['neueLiga']) || $_SESSION['neueLiga']['ligaId'] != $ligaId) {
+    if (!isset($_SESSION['ligaBearbeiten']) || $_SESSION['ligaBearbeiten']['ligaId'] != $ligaId) {
         $abfrage = mysqli_query($db, "SELECT * FROM ligen WHERE ligaId = '$ligaId'");
         $liga = mysqli_fetch_object($abfrage);
 
-        $_SESSION['neueLiga']['ligaId'] = $liga->ligaId;
-        $_SESSION['neueLiga']['name'] = $liga->name;
-        $_SESSION['neueLiga']['keywords'] = $liga->name;
-        $_SESSION['neueLiga']['ligabeschreibung'] = $liga->name;
-        $_SESSION['neueLiga']['vereine'] = [];
+        $_SESSION['ligaBearbeiten']['ligaId'] = $liga->ligaId;
+        $_SESSION['ligaBearbeiten']['name'] = $liga->name;
+        $_SESSION['ligaBearbeiten']['keywords'] = $liga->name;
+        $_SESSION['ligaBearbeiten']['ligabeschreibung'] = $liga->name;
+        $_SESSION['ligaBearbeiten']['alt_ligaLogo'] = $liga->logo;
+        $_SESSION['ligaBearbeiten']['vereine'] = [];
         
         $abfrage = mysqli_query($db, "SELECT * FROM vereine
                                     INNER JOIN `liga-verein` ON vereine.vereinsId = `liga-verein`.vereinsId
                                     WHERE `liga-verein`.ligaId = '$ligaId'");
         while ($abfrage && $verein=mysqli_fetch_object($abfrage)) {
-            array_push($_SESSION['neueLiga']['vereine'], $verein->vereinsId);
+            array_push($_SESSION['ligaBearbeiten']['vereine'], $verein->vereinsId);
         }
     }
 ?>
@@ -52,13 +53,13 @@
             ?>
             <h1>Bearbeite deine Liga</h1>
 			<form action="php/bearbeiten.php" method="POST" enctype="multipart/form-data">
-                <input type="text" id="liganame" name="liganame" value="<?=$_SESSION['neueLiga']['name']??''?>" placeholder="Name der Liga" required>
-                <input type="text" id="keywords" name="keywords" value="<?=$_SESSION['neueLiga']['keywords']??''?>" placeholder="Keywords">
+                <input type="text" id="liganame" name="liganame" value="<?=$_SESSION['ligaBearbeiten']['name']??''?>" placeholder="Name der Liga" required>
+                <input type="text" id="keywords" name="keywords" value="<?=$_SESSION['ligaBearbeiten']['keywords']??''?>" placeholder="Keywords">
                 <label id="img_input">
                     <span class="btn">Logo Auswählen</span>
                     <?php
-                        if (isset($_SESSION['neueLiga']['ligalogo'])) {
-                            $bildname = $_SESSION['neueLiga']['ligalogo']['name'];
+                        if (isset($_SESSION['ligaBearbeiten']['ligalogo'])) {
+                            $bildname = $_SESSION['ligaBearbeiten']['ligalogo']['name'];
                             echo "<span>$bildname</span>";
                         } else {
                             echo '<span>Ligalogo ändern</span>';
@@ -67,7 +68,7 @@
                     <input type="file" id="ligalogo" name="ligalogo" onchange="changeBild(this)" accept="image/png, image/jpeg, image/gif" style="display:none">
                 </label>
                 
-                <textarea id="ligabeschreibung" name="ligabeschreibung" multiline="true" placeholder="Beschreibe deine Liga"><?=$_SESSION['neueLiga']['ligabeschreibung']??''?></textarea>
+                <textarea id="ligabeschreibung" name="ligabeschreibung" multiline="true" placeholder="Beschreibe deine Liga"><?=$_SESSION['ligaBearbeiten']['ligabeschreibung']??''?></textarea>
 
                 <div id="vereine">
                     <select id="select" name="verein" onchange="addVerein();">
@@ -85,11 +86,11 @@
                     </select>
                     <div id="vereinsListe">
                         <?php
-                            if (isset($_SESSION['neueLiga']['vereine'])) {
+                            if (isset($_SESSION['ligaBearbeiten']['vereine'])) {
                                 $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '$userId'";
                                 $abfragen = mysqli_query($db, $abfrage);
                                 while ($abfragen && $row = mysqli_fetch_object($abfragen)) {
-                                    if (in_array($row->vereinsId, $_SESSION['neueLiga']['vereine'])) {
+                                    if (in_array($row->vereinsId, $_SESSION['ligaBearbeiten']['vereine'])) {
                                         $vereinsId = $row->vereinsId;
                                         $name = $row->name;
                                         echo "<label>$name";

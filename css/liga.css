@@ -7,7 +7,7 @@
     color: #000;
 }
 
-.liga_block img {
+.liga_block img:not(.img_btn) {
     height: 5em;
     width: 5em;
     margin-right: .5em;

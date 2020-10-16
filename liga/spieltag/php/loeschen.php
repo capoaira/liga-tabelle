@@ -5,6 +5,9 @@
     $ligaId = $_GET['liga'];
     $spieltagId = $_GET['spieltag'];
 
+    $loeschen = "DELETE FROM spiele WHERE spieltagId = '$spieltagId'";
+    $loeschen = mysqli_query($db, $loeschen);
+
     $loeschen = "DELETE FROM spieltage WHERE spieltagId = '$spieltagId'";
     $loeschen = mysqli_query($db, $loeschen);
 
