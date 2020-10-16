@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Erstellungszeit: 15. Okt 2020 um 17:59
--- Server-Version: 10.3.22-MariaDB-1:10.3.22+maria~stretch
--- PHP-Version: 7.1.33
+-- Host: 127.0.0.1
+-- Erstellungszeit: 16. Okt 2020 um 13:57
+-- Server-Version: 10.4.13-MariaDB
+-- PHP-Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `capoaira_liga-tabelle`
+-- Datenbank: `liga-tabelle`
 --
 
 -- --------------------------------------------------------
@@ -124,24 +123,16 @@ INSERT INTO `spiele` (`spielId`, `heimVerein`, `heimVereinTore`, `auswaertsVerei
 (24, 15, -1, 14, -1, '2020-09-20 18:00:00', 1),
 (25, 13, -1, 16, -1, '2021-05-15 15:30:00', 18),
 (26, 18, -1, 3, -1, '2021-05-15 15:30:00', 18),
-(27, 13, -1, 3, -1, '2020-09-25 20:30:00', 2),
 (28, 17, -1, 5, -1, '2021-05-15 15:30:00', 18),
 (29, 2, -1, 7, -1, '2021-05-15 15:30:00', 18),
-(30, 11, -1, 9, -1, '2020-09-26 15:30:00', 2),
 (31, 10, -1, 6, -1, '2021-05-15 15:30:00', 18),
-(32, 14, -1, 1, -1, '2020-09-26 15:30:00', 2),
 (33, 4, -1, 11, -1, '2021-05-07 18:30:00', 19),
-(34, 17, -1, 8, -1, '2020-09-26 15:30:00', 2),
 (35, 5, -1, 1, -1, '2021-05-07 18:30:00', 19),
 (36, 6, -1, 18, -1, '2021-05-07 18:30:00', 19),
-(37, 2, -1, 5, -1, '2020-09-26 15:30:00', 2),
 (38, 15, -1, 9, -1, '2021-05-08 15:30:00', 19),
-(39, 10, -1, 16, -1, '2020-09-26 15:30:00', 2),
 (40, 3, -1, 17, -1, '2021-05-08 15:30:00', 19),
 (41, 13, -1, 10, -1, '2021-05-09 14:30:00', 19),
-(42, 18, -1, 7, -1, '2020-09-26 18:30:00', 2),
 (43, 16, -1, 12, -1, '2021-05-09 14:30:00', 19),
-(44, 12, -1, 15, -1, '2020-09-27 18:00:00', 2),
 (45, 7, -1, 14, -1, '2021-05-10 18:30:00', 19),
 (46, 8, -1, 2, -1, '2021-05-10 18:30:00', 19),
 (47, 13, -1, 3, -1, '2020-10-02 20:30:00', 3),
@@ -402,26 +393,31 @@ ALTER TABLE `vereine`
 --
 ALTER TABLE `ligen`
   MODIFY `ligaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT für Tabelle `spiele`
 --
 ALTER TABLE `spiele`
   MODIFY `spielId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+
 --
 -- AUTO_INCREMENT für Tabelle `spieltage`
 --
 ALTER TABLE `spieltage`
   MODIFY `spieltagId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT für Tabelle `vereine`
 --
 ALTER TABLE `vereine`
-  MODIFY `vereinsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;COMMIT;
+  MODIFY `vereinsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
