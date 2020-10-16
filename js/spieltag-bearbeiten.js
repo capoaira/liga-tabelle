@@ -1,18 +1,17 @@
 function openSpiel(obj) {
-    var spiel = $(obj).parent().parent();
-    console.log(spiel);
+    var spiel = $(obj).parent().parent().parent();
     var spielId = $(spiel).data('id');
-    var heimVerein = $(spiel).find('.spiel_info span span')[0].innerHTML;
-    var heimVereinTore = $(spiel).find('.spiel_info > span')[1].innerHTML.match(/\d{1,2}/g)[0];
-    var auswVerein = $(spiel).find('.spiel_info span span')[1].innerHTML;
-    var auswVereinTore = $(spiel).find('.spiel_info > span')[1].innerHTML.match(/\d{1,2}/g)[1];
+    var heimVerein = $(spiel).find('.spiel_info span a')[0].innerHTML;
+    var heimVereinTore = $(spiel).find('.spiel_info > span')[1].innerHTML.match(/(\d{1,2}|--)/g)[0];
+    var auswVerein = $(spiel).find('.spiel_info span a')[1].innerHTML;
+    var auswVereinTore = $(spiel).find('.spiel_info > span')[1].innerHTML.match(/(\d{1,2}|--)/g)[1];
 
     var popup = $('#spielBearbeiten');
     $(popup).find('#spielId').val(spielId);
     $(popup).find('[for="heimverein"]').html(heimVerein);
-    $(popup).find('#heimVereinTore').val(heimVereinTore);
+    $(popup).find('#heimVereinTore').val(heimVereinTore == '--' ? 0 : heimVereinTore);
     $(popup).find('[for="auswaertsverein"]').html(auswVerein);
-    $(popup).find('#auswaertsVereinTore').val(auswVereinTore);
+    $(popup).find('#auswaertsVereinTore').val(auswVereinTore == '--' ? 0 : heimVereinTore);
 
     $(popup).css('display', 'block');
 }

@@ -1,1 +1,3 @@
+# Verbiete Zurgiff auf include Dateien
+order allow,deny
 deny from all

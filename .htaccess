@@ -1,3 +1,10 @@
+# Fehler Dokumente
 ErrorDocument 403 /ligatabelle/error/403.php
 ErrorDocument 404 /ligatabelle/error/404.php
 ErrorDocument 500 /ligatabelle/error/500.php
+
+# Kein Zugriff auf Klassen mit der Endung *class.php
+<Files *class.php>
+    order allow,deny
+    deny from all
+</Files>
