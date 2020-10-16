@@ -1,0 +1,62 @@
+/* Vereine Übersucht ********************/
+.verein {
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+}
+
+.verein {
+    border-bottom: 1px solid rgb(0, 61, 127);
+}
+
+.verein:hover {
+    background: rgb(172, 171, 171);
+    border: 1px solid rgb(0, 61, 127);
+    border-radius: 1em;
+}
+
+.verein a {
+    color: #000;
+    text-decoration: none;
+}
+
+.verein a:hover {
+    text-decoration: underline;
+}
+
+.verein img {
+    height: 1em;
+    width: 1em;
+    padding: 0 .3em;
+    align-self: center;
+}
+
+/* Verein Info ***********************/
+.verein_block {
+    display: block;
+    margin-bottom: 1em;
+    padding: .5em;
+    text-decoration: none;
+    color: #000;
+}
+
+.verein_block img:not(.img_btn) {
+    height: 5em;
+    width: 5em;
+    margin-right: .5em;
+    border-radius: 1em;
+    float: left;
+}
+
+.verein_info div {
+    display: inline;
+}
+
+.verein_info .h1 {
+    margin: 0;
+}
+
+.ersteller {
+    display: block;
+    margin-bottom: .8em;
+}

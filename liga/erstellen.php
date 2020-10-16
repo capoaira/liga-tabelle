@@ -41,7 +41,7 @@
                             $bildname = $_SESSION['neueLiga']['ligalogo']['name'];
                             echo "<span>$bildname</span>";
                         } else {
-                            echo '<span>Wähle ein Logo aus</span>';
+                            echo '<span>Wähle ein Logo für deine Liga</span>';
                         }
                     ?>
                     <input type="file" id="ligalogo" name="ligalogo" onchange="changeBild(this)" accept="image/png, image/jpeg, image/gif" style="display:none">
@@ -92,7 +92,7 @@
                         <input type="text" id="vereinsname" name="vereinsname" placeholder="Name des Vereins">
                         <label id="img_input">
                             <span class="btn">Logo Auswählen</span>
-                            <span>Wähle ein Logo aus</span>
+                            <span>Wähle ein Logo für deinen Verein</span>
                             <input type="file" id="vereinslogo" name="vereinslogo" onchange="changeBild(this)" accept="image/png, image/jpeg, image/gif" style="display:none">
                         </label>
                         <textarea id="vereinsbeschreibung" name="vereinsbeschreibung" multiline="true" placeholder="Beschreibe den Verein"></textarea>

@@ -164,11 +164,11 @@ nav ul {
     grid-area: main;
     min-height: calc(100vh - 6em - 3em - 4em - 2em); /*100vh - header - footer - gab - content-padding*/
     width: calc(100% - 2em);
-    background: lightgray;
+    background: rgb(211, 211 ,211);
     border-radius: 1em;
 }
 
-h1 {
+h1,.h1 {
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 1em;
@@ -195,7 +195,7 @@ h2 {
 }
 
 /* Button und Input Aussehen für alle Seiten */
-button,
+button:not(.img_btn),
 .btn {
     display: inline-flex;
     width: min-content;
@@ -208,6 +208,11 @@ button,
     white-space: nowrap;
     text-decoration: none;
     transition: opacity .2s ease;
+}
+
+.img_btn {
+    border: none;
+    background: none;
 }
 
 button img,
@@ -258,6 +263,11 @@ select {
     height: min-content;
 }
 
+input[type="number"] {
+    min-width: 3em;
+    width: 3em;
+}
+
 textarea {
     width: calc(100% - 2em);
     height: 10em;
@@ -289,7 +299,7 @@ textarea {
 /* Aside */
 aside {
     grid-area: side;
-    background: gray;
+    background: rgb(128, 128, 128);
     border-radius: 1em;
     display: flex;
     flex-direction: column;

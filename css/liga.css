@@ -7,7 +7,7 @@
     color: #000;
 }
 
-.liga_block img {
+.liga_block img:not(.img_btn) {
     height: 5em;
     width: 5em;
     margin-right: .5em;
@@ -46,7 +46,7 @@ aside {
     margin-bottom: .5em;
 }
 
-#letzteSpiele {
+#letzterSpieltag {
     padding: 1em;
     border: 1px solid rgb(0, 61, 127);
     border-radius: 1em;
@@ -77,7 +77,7 @@ form {
 }
 
 .liga_block_klein:hover {
-    background: gray;
+    background: rgb(128, 128, 128);;
     border-radius: 1em;
 }
 
