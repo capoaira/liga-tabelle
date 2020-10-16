@@ -1,6 +1,8 @@
 <?php
 	require_once('../inc/dbconnect.php');
 	session_start();
+
+	include('verein/php/class.php');
 	
 	require_once('../inc/global.php');
 
@@ -50,6 +52,19 @@
 			$name = $row->name;
 			echo "<option value=\"$vereinsId\">$name</option>";
 		}
+	}
+
+	function getVereineTest($db, $ligaId) {
+		$abfrage = "SELECT vereine.vereinsId, vereine.name, vereine.beschreibung, vereine.logo, vereine.erstelltVon
+					FROM vereine, `liga-verein`
+					WHERE `liga-verein`.ligaId = '$ligaId'
+					AND `liga-verein`.vereinsId = vereine.vereinsId";
+		$abfragen = mysqli_query($db, $abfrage);
+		$vereine = [];
+		while ($row = mysqli_fetch_object($abfragen)){
+			array_push($vereine, new Verein($row, $ligaId, $db));
+		}
+		return $vereine;
 	}
 ?>
 <!doctype html>
@@ -106,6 +121,34 @@
 								<span><?=$beschreibung?></span>
 							</div>
 						</div>
+						<table id="tabelle">
+							<thead>
+								<tr>
+									<th></th>
+									<th></th>
+									<th>Verein</th>
+									<th>Spiele</th>
+									<th>Punkte</th>
+									<th>Tore</th>
+									<th>geg Tore</th>
+									<th>Tor diff</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									$vereine = getVereineTest($db, $ligaId);
+									usort($vereine, array('Verein', 'sort'));
+									for ($i=1; $i<=count($vereine); $i++) {
+										echo "<tr>";
+										echo "	<td>$i</td>";
+										$vereine[$i-1]->getTDs();
+										echo "</tr>";
+									}
+								?>
+							</tbody>
+						</table>
+
+
 			<?php
 					} else {
 						zeigenEigeneLigen($db);
