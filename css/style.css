@@ -211,8 +211,12 @@ button:not(.img_btn),
 }
 
 .img_btn {
+    height: 1em;
+    width: 1em;
+    align-self: center;
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 button img,
@@ -231,11 +235,6 @@ button:hover img,
     opacity: 1;
 }
 
-.img_btn {
-    height: 1em;
-    align-self: center;
-    cursor: pointer;
-}
 
 label {
     white-space: nowrap;
@@ -260,7 +259,6 @@ input,
 select {
     width: min-content;
     min-width: 10em;
-    height: min-content;
 }
 
 input[type="number"] {
@@ -344,18 +342,13 @@ footer p {
     }
 }
 
-/* Extrastufe für aside */
+/* Extrastufe für aside und header */
 @media (max-width: 45em) {
     aside {
         flex-direction: column;
     }
-}
 
-/* Smartphone Ansicht */
-@media (max-width: 30em) {
-    body {
-        width: 100%;
-    }
+    
 
     header {
         border-bottom-right-radius: 0;
@@ -410,6 +403,13 @@ footer p {
     .dropdown-content a {
         font-size: 1.5em;
         display: unset;
+    }
+}
+
+/* Smartphone Ansicht */
+@media (max-width: 30em) {
+    body {
+        width: 100%;
     }
 
     .popup_content {

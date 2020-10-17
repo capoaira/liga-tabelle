@@ -12,7 +12,7 @@
                     SET von = '$von', bis = '$bis'
                     WHERE spieltagId = $spieltagId";
         $eintragen = mysqli_query($db, $eintrag);
-        header("location: ../../spieltag/alle.php?liga=$ligaId&erfolg=Spieltag+wurde+erfolgreich+bearbeitet");
+        header("location: ../../spieltag/alle.php?liga=$ligaId&erfolg=Spieltag+wurde+erfolgreich+bearbeitet#spieltag_$spieltagId");
     } else {
         header("location: ../../spieltag/alle.php?liga=$ligaId&error=Bitte+fülle+alle+Felder+korrekt+aus.");
     }
