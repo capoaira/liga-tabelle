@@ -2,6 +2,9 @@
 	require_once('../../inc/dbconnect.php');
     session_start();
 	
+	require_once('../../inc/global.php');
+	$darfBearbeiten = istMeineLiga($db, $userId, $ligaId) || $_SESSION['status'] == 'admin';
+	
 	$ligaId = $_GET['liga'];
 ?>
 <!doctype html>
@@ -39,9 +42,11 @@
 						<span><img src="../../img/vereine/<?=$row->logo?>"><?=$row->name?></span>
 					</a>
 					<span>
+						<?php if ($darfBearbeiten) { ?>
 						<a href="php/entfernen.php?liga=<?=$ligaId?>&verein=<?=$row->vereinsId?>&return=../alle.php">
 							<img class="img_btn" src="../../img/loeschen.png">
 						</a>
+						<?php } ?>
 					</span>
 				</div>
 		<?php

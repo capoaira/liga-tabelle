@@ -3,10 +3,10 @@
 	session_start();
 	
 	require_once('../../inc/global.php');
+	$darfBearbeiten = istMeineLiga($db, $userId, $ligaId) || $_SESSION['status'] == 'admin';
 	
 	$ligaId = $_GET['liga'];
 	$userId = $_SESSION['userId'];
-	$darfBearbeiten = istMeineLiga($db, $userId, $ligaId) || $_SESSION['status'] == 'admin';
 ?>
 <!doctype html>
 <html lang="de">
@@ -77,7 +77,7 @@
 						<?php if ($darfBearbeiten) {?>
 							<div class="buttons">
 								<a href="javascript:void(0)" onclick="openSpiel(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
-								<a href="../spiel/php/loeschen.php?spiel=<?=$row->spielId?>&liga=<?=$ligaId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
+								<a href="../spiel/php/loeschen.php?spiel=<?=$row->spielId?>&liga=<?=$ligaId?>&spieltag=<?=$spieltagId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
 							</div>
 						<?php } ?>
 						</div>

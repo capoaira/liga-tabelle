@@ -14,5 +14,5 @@
 
     $loeschen = mysqli_query($db, "DELETE FROM spieltage WHERE ligaId = '$ligaId'");
 
-    header('location: ../index.php?erfolg=Du+hast+die+Liga+erfolgreich+gelöscht')
+    header('location: ../index.php?erfolg=Du+hast+die+Liga+erfolgreich+gelöscht');
 ?>

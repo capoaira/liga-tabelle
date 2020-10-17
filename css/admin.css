@@ -1,0 +1,22 @@
+body {
+    grid: "head"
+          "main"
+          "foot"
+          / 1fr;
+}
+
+p {
+    margin-bottom: .5em;
+}
+
+#admin_form {
+    width: 100%;
+    margin-top: 1em;
+}
+
+#admin_form div {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    gap: .5em;
+    margin: .5em 0;
+}
