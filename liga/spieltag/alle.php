@@ -40,7 +40,7 @@
 					$spieltagId = $row->spieltagId;
 					$von = $row->von;
 					$bis = $row->bis;
-					echo "<div data-id=\"$spieltagId\" class=\"spieltag\">";
+					echo "<div  id=\"spieltag_$row->spieltagId\" data-id=\"$spieltagId\" class=\"spieltag\">";
 					echo "<div class=\"spieltag_info\"><h1>Spieltag $spieltag</h1> von <span id=\"$von\">$von</span> - <span id=\"$bis\">$bis</span></span>";
 					echo ($darfBearbeiten ?
 						 '<a href="javascript:void(0)" onclick="openSpieltag(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
@@ -111,6 +111,7 @@
 					<form action="../spiel/php/bearbeiten.php" method="POST">
 						<input type="hidden" id="ligaId" name="ligaId" value="<?=$ligaId?>" required>
 						<input type="hidden" id="spielId" name="spielId" value="0" required>
+						<input type="hidden" id="spieltagId" name="spieltagId" value="0" required>
 						
 						<label for="heimverein">Heimverein:</label>
 						<input type="number" id="heimVereinTore" name="heimVereinTore" min="0" max="99" value="0">
