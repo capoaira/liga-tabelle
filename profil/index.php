@@ -2,6 +2,9 @@
 <?php 
 	require_once('../inc/dbconnect.php');
 	session_start();
+	
+	$darfBearbeiten = $_SESSION['userId'] == $_GET['id'] || !isset($_GET['id']) || $_SESSION['status'] == 'admin';
+	$isAdmin = $_SESSION['status'] == 'admin'
 ?>
 <html>
 	<head>
@@ -30,33 +33,42 @@
 				if (isset($_SESSION['userId'])) {
 					$userId = $_SESSION['userId'];
 					$username = $_SESSION['username'];
-					$eigenesProfil = true;
-
-					if (isset($_GET['id']) && $userId != $_GET['id']) {
-						$profilId = $_GET['id'];
-						$eigenesProfil = false;
-					}
 					
-					$query = mysqli_query($db, "SELECT username, email, profilbild, status, createdAt FROM user WHERE userId = '" . ($eigenesProfil ? $userId : $profilId) . "'");
+					$query = mysqli_query($db, "SELECT userId, username, email, profilbild, status, createdAt FROM user WHERE userId = '" . (isset($_GET['id']) ? $_GET['id'] : $userId) . "'");
 					if ($row = mysqli_fetch_object($query)) {
+						$profilId = $row->userId;
 						$benutzername = $row->username;
 						$profilbild = $row->profilbild;
 						$email = $row->email;
 						$status = $row->status;
 						$createdAt = $row->createdAt;
+					} else {
+						$query = mysqli_query($db, "SELECT userId, username, email, profilbild, status, createdAt FROM user WHERE userId = '$userId'");
+						if ($row = mysqli_fetch_object($query)) {
+							$darfBearbeiten = true;
+							$profilId = $row->userId;
+							$benutzername = $row->username;
+							$profilbild = $row->profilbild;
+							$email = $row->email;
+							$status = $row->status;
+							$createdAt = $row->createdAt;
+						}
 					}
 			?>
 			<h1>Profil von user <?=$benutzername;?>
 			<?php 
-				if ($eigenesProfil) {
+				if ($darfBearbeiten) {
 					echo '<a href="bearbeiten.php" title="Bearbeite dein Profil"><img src="../img/bearbeiten.png" class="img_btn"></a>';
+					if ($isAdmin) {
+						echo '<a href="php/loeschen.php?user='.$profilId.'" title="Lösche das Profil"><img src="../img/loeschen.png" class="img_btn"></a>';
+					}
 				}
 			?>
 			</h1>
 			<figure>
 				<img id="pb" src="../img/profile/<?=$profilbild;?>" alt="Profilbild" title="<?=$benutzername;?>">
 				<?php
-					if ($eigenesProfil) {
+					if ($$darfBearbeiten) {
 				?>
 					<figcaption>
 						<form action="php/bild-bearbeiten.php" method="POST" enctype="multipart/form-data" style="display: unset">

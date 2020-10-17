@@ -28,6 +28,9 @@
                     <?php
                         if ($isLogin) {
                             echo '<li><a href="/ligatabelle/profil/">Mein Profil</a></li>';
+                            if ($_SESSION['status'] === 'admin') {
+                                echo '<li><a href="/ligatabelle/admin.php">Admintools</a></li>';
+                            }
                             echo '<li><a href="/ligatabelle/profil/logout.php">Logout</a></li>';
                         } else {
                             echo '<li><a href="/ligatabelle/profil/login.php">Login</a></li>';

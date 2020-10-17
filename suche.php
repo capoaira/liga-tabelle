@@ -3,13 +3,11 @@
     session_start();
 
     $suche = $_GET['suche']??'';
-    $suche = "%".trim($suche)."%";
+    if (!is_numeric($suche)) $suche = "%".trim($suche)."%";
     $durchsuchen = [
         'ligen' => isset($_GET['liga']),
         'user' => isset($_GET['user']),
         'vereine' => isset($_GET['verein']),
-        'spiele' => isset($_GET['spiel']),
-        'spieltage' => isset($_GET['spieltag'])
     ];
 ?>
 <!doctype html>
@@ -102,9 +100,6 @@
     }
 ?>
 		</div>
-		<aside>
-			
-		</aside>
 		<?php include_once('inc/footer.php') ?>
 	</body>
 </html>

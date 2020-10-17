@@ -298,6 +298,22 @@ input[type="number"] {
     width: 3em;
 }
 
+input[type="checkbox"] {
+    width: 2em;
+    min-width: unset;
+    height: 2em;
+    background: #fff;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+
+input[type="checkbox"]:checked {
+    background: url('/ligatabelle/img/haken.png') rgb(76, 153, 235) no-repeat;
+    background-size: 1.5em;
+    background-position: center;
+}
+
 textarea {
     width: calc(100% - 2em);
     height: 10em;
