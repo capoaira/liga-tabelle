@@ -40,9 +40,19 @@ header a {
     height: 5em;
 }
 
+header div{
+     display: flex;
+}
+
 header img {
     width: 5em;
     border-radius: 1em;
+}
+
+header h1 {
+    margin: auto;
+    margin-left: 1em;
+    color: #fff;
 }
 
 /* Menü Button für Mobile Ansicht */

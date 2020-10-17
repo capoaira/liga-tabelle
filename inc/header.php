@@ -2,9 +2,12 @@
     $isLogin = isset($_SESSION['userId']) && $_SERVER['REQUEST_URI'] != '/ligatabelle/profil/logout.php';
 ?>
 <header>
-    <a href="/ligatabelle/index.php">
-        <img src="/ligatabelle/img/logo.png">
-    </a>
+    <div>
+        <a href="/ligatabelle/index.php">
+            <img src="/ligatabelle/img/logo.png">
+        </a>
+        <h1>Deine Fußballliga</h1>
+    </div>
     <input type="checkbox" id="smartphone-btn">
     <label for="smartphone-btn" class="smartphone-btn">
         <span class="line"></span>
