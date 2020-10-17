@@ -140,6 +140,7 @@ nav ul {
     display: none;
     height: unset;
     min-width: 5.7em;
+    margin-left: -1.2em;
     white-space: nowrap;
     background: rgb(76, 153, 235);
     border-radius: 1em;
@@ -166,29 +167,6 @@ nav ul {
 .dropdown:hover .dropdown-content {
     display: flex;
     flex-direction: column;
-}
-
-.suche:hover {
-    padding-top: 0;
-}
-
-#suche {
-    display: inline-flex;
-    white-space: nowrap;
-}
-
-#suche input {
-    width: 7em;
-}
-
-#suche button {
-    padding-left: .5em;
-}
-
-#suche button, 
-#suche img {
-    width: 2em;
-    height: 2em;
 }
 
 /* Inhalt der Seite ********************************/
@@ -296,22 +274,6 @@ select {
 input[type="number"] {
     min-width: 3em;
     width: 3em;
-}
-
-input[type="checkbox"] {
-    width: 2em;
-    min-width: unset;
-    height: 2em;
-    background: #fff;
-    -webkit-appearance: none;
-    cursor: pointer;
-}
-
-
-input[type="checkbox"]:checked {
-    background: url('/ligatabelle/img/haken.png') rgb(76, 153, 235) no-repeat;
-    background-size: 1.5em;
-    background-position: center;
 }
 
 textarea {

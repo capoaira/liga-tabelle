@@ -103,6 +103,7 @@
 						$beschreibung = $row->beschreibung;
 						$logo = $row->logo;
 						$erstelltVon = $row->erstelltVon;
+						$istMeineLiga = isset($_SESSION['userId']) && $erstelltVon == $_SESSION['userId'];
 						$ersteller = $row->username;
 			?>
 			
@@ -165,7 +166,7 @@
 							
 			<?php
 				if (isset($ligaAnzeigen) && $ligaAnzeigen) {
-					if ($darfBearbeiten) {
+					if ($istMeineLiga) {
 			?>
 						<h2>Ersteller Tools:</h2>
 						<div class="buttons">
