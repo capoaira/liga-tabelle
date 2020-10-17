@@ -28,24 +28,12 @@
                     <?php
                         if ($isLogin) {
                             echo '<li><a href="/ligatabelle/profil/">Mein Profil</a></li>';
-                            if ($_SESSION['status'] === 'admin') {
-                                echo '<li><a href="/ligatabelle/admin.php">Admintools</a></li>';
-                            }
                             echo '<li><a href="/ligatabelle/profil/logout.php">Logout</a></li>';
                         } else {
                             echo '<li><a href="/ligatabelle/profil/login.php">Login</a></li>';
                         }
                     ?>
                 </ul>
-            </li>
-            <li class="suche">
-                <form id="suche" action="/ligatabelle/suche.php" method="GET">
-                    <input type="text" name="suche" placeholder="Suche">
-                    <input type="hidden" name="liga" value="true">
-                    <input type="hidden" name="user" value="true">
-                    <input type="hidden" name="verein" value="true">
-                    <button class="img_btn"><img src="/ligatabelle/img/suche.png" class="img_btn"></button>
-                </form>
             </li>
         </ul>
     </nav>
