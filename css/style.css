@@ -130,7 +130,6 @@ nav ul {
     display: none;
     height: unset;
     min-width: 5.7em;
-    margin-left: -1.2em;
     white-space: nowrap;
     background: rgb(76, 153, 235);
     border-radius: 1em;
@@ -157,6 +156,29 @@ nav ul {
 .dropdown:hover .dropdown-content {
     display: flex;
     flex-direction: column;
+}
+
+.suche:hover {
+    padding-top: 0;
+}
+
+#suche {
+    display: inline-flex;
+    white-space: nowrap;
+}
+
+#suche input {
+    width: 7em;
+}
+
+#suche button {
+    padding-left: .5em;
+}
+
+#suche button, 
+#suche img {
+    width: 2em;
+    height: 2em;
 }
 
 /* Inhalt der Seite ********************************/
