@@ -25,12 +25,12 @@
 				if (isset($_GET['error'])) {
 					echo '<p class="error">'.$_GET['error'].'</p>';
                 }
-                if ($_SESSION['status'] === 'admin') {
+                if ((isset($_SESSION['status']) && $_SESSION['status'] == 'admin')) {
             ?>
             <h1>Admintools</h1>
-            <p>Als andmin hast du die Möglichkeit alle Profile, Ligen, Vereine, Spieltage und Spiele zu bearbeitene, genau so wie es auch die Ersteller können.</p>
-            <p>Hier hast du die Möglichkeit gezielt nach Benutzern, Ligen und/oder Vereinen zu suchen. Auf den jeweiligen seiten kannst du diese dann ändern.<br>
-            Die Suche funktionert mit Stichworten oder ID</p>
+            <p>Als Andmin hast du die Möglichkeit alle Profile, Ligen, Vereine, Spieltage und Spiele zu bearbeiten, genau so wie es auch die Ersteller können.</p>
+            <p>Hier hast du die Möglichkeit gezielt nach Benutzern, Ligen und/oder Vereinen zu suchen. Auf den jeweiligen Seiten kannst du diese dann ändern.<br>
+            Die Suche funktionert mit Stichwörtern oder ID's</p>
             <form id="admin_form" action="suche.php" method="GET">
                 <label for="adminsuche">Suche: </label><input type="text" id="adminsuche" name="suche" placeholde="Stichwort oder ID">
                 <div>

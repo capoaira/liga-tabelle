@@ -3,8 +3,8 @@
 	require_once('../inc/dbconnect.php');
 	session_start();
 	
-	$darfBearbeiten = $_SESSION['userId'] == $_GET['id'] || !isset($_GET['id']) || $_SESSION['status'] == 'admin';
-	$isAdmin = $_SESSION['status'] == 'admin'
+	$isAdmin = (isset($_SESSION['status']) && $_SESSION['status'] == 'admin');
+	$darfBearbeiten = (isset($_SESSION['userId']) && isset($_GET['id']) && $_SESSION['userId'] == $_GET['id']) || !isset($_GET['id']) || $isAdmin;
 ?>
 <html>
 	<head>
@@ -33,9 +33,10 @@
 				if (isset($_SESSION['userId'])) {
 					$userId = $_SESSION['userId'];
 					$username = $_SESSION['username'];
+					$benutzerId = $_GET['id']??0;
 					
-					$query = mysqli_query($db, "SELECT userId, username, email, profilbild, status, createdAt FROM user WHERE userId = '" . (isset($_GET['id']) ? $_GET['id'] : $userId) . "'");
-					if ($row = mysqli_fetch_object($query)) {
+					$abfrage = mysqli_query($db, "SELECT userId, username, email, profilbild, status, createdAt FROM user WHERE userId = '$benutzerId'");
+					if ($abfrage->num_rows > 0 && $row = mysqli_fetch_object($abfrage)) {
 						$profilId = $row->userId;
 						$benutzername = $row->username;
 						$profilbild = $row->profilbild;
@@ -43,8 +44,8 @@
 						$status = $row->status;
 						$createdAt = $row->createdAt;
 					} else {
-						$query = mysqli_query($db, "SELECT userId, username, email, profilbild, status, createdAt FROM user WHERE userId = '$userId'");
-						if ($row = mysqli_fetch_object($query)) {
+						$abfrage = mysqli_query($db, "SELECT userId, username, email, profilbild, status, createdAt FROM user WHERE userId = '$userId'");
+						if ($row = mysqli_fetch_object($abfrage)) {
 							$darfBearbeiten = true;
 							$profilId = $row->userId;
 							$benutzername = $row->username;
@@ -58,7 +59,7 @@
 			<h1>Profil von user <?=$benutzername;?>
 			<?php 
 				if ($darfBearbeiten) {
-					echo '<a href="bearbeiten.php" title="Bearbeite dein Profil"><img src="../img/bearbeiten.png" class="img_btn"></a>';
+					echo '<a href="bearbeiten.php?id='.$profilId.'" title="Bearbeite dein Profil"><img src="../img/bearbeiten.png" class="img_btn"></a>';
 					if ($isAdmin) {
 						echo '<a href="php/loeschen.php?user='.$profilId.'" title="Lösche das Profil"><img src="../img/loeschen.png" class="img_btn"></a>';
 					}
@@ -68,7 +69,7 @@
 			<figure>
 				<img id="pb" src="../img/profile/<?=$profilbild;?>" alt="Profilbild" title="<?=$benutzername;?>">
 				<?php
-					if ($$darfBearbeiten) {
+					if ($darfBearbeiten) {
 				?>
 					<figcaption>
 						<form action="php/bild-bearbeiten.php" method="POST" enctype="multipart/form-data" style="display: unset">
@@ -88,10 +89,10 @@
 			?>
 			</figure>
 			<div id="ausgabe">
-				<span>Benutzername:</span><span><?= $benutzername; ?></span>
-				<span>E-Mail:</span><span><?= $email; ?></span>
-				<span>Status:</span><span><?= $status; ?></span>
-				<span>Mitglied seit:</span><span><?= $createdAt; ?></span>
+				<span>Benutzername:</span><span><?=$benutzername?></span>
+				<span>E-Mail:</span><span><?=$email?></span>
+				<span>Status:</span><span><?=$status?></span>
+				<span>Mitglied seit:</span><span><?=$createdAt?></span>
 			</div>
 
 			<?php

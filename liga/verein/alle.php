@@ -3,9 +3,10 @@
     session_start();
 	
 	require_once('../../inc/global.php');
-	$darfBearbeiten = istMeineLiga($db, $userId, $ligaId) || $_SESSION['status'] == 'admin';
 	
-	$ligaId = $_GET['liga'];
+	$ligaId = $_GET['liga']??0;
+	$userId = $_SESSION['userId']??0;
+	$darfBearbeiten = istMeineLiga($db, $userId, $ligaId) || (isset($_SESSION['status']) && $_SESSION['status'] == 'admin');
 ?>
 <!doctype html>
 <html lang="de">

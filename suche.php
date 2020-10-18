@@ -9,6 +9,7 @@
         'user' => isset($_GET['user']),
         'vereine' => isset($_GET['verein']),
     ];
+    $gibtErgebnisse = false;
 ?>
 <!doctype html>
 <html lang="de">
@@ -39,6 +40,7 @@
         else $abfrage = "SELECT * FROM ligen WHERE name LIKE '$suche' OR keywords LIKE '$suche' OR beschreibung LIKE '$suche'";
         $abfragen = mysqli_query($db, $abfrage);
         if ($abfragen->num_rows > 0) {
+            $gibtErgebnisse = true;
             echo "<h2>Ligen:</h2>";
         }
         while ($abfragen && $liga=mysqli_fetch_object($abfragen)) {
@@ -62,6 +64,7 @@
         else $abfrage = "SELECT * FROM user WHERE username LIKE '$suche'";
         $abfragen = mysqli_query($db, $abfrage);
         if ($abfragen->num_rows > 0) {
+            $gibtErgebnisse = true;
             echo "<h2>Benutzer:</h2>";
         }
         while ($abfragen && $user=mysqli_fetch_object($abfragen)) {
@@ -81,6 +84,7 @@
         else $abfrage = "SELECT * FROM vereine WHERE name LIKE '$suche' OR beschreibung LIKE '$suche'";
         $abfragen = mysqli_query($db, $abfrage);
         if ($abfragen->num_rows > 0) {
+            $gibtErgebnisse = true;
             echo "<h2>Vereine:</h2>";
         }
         while ($abfragen && $verein=mysqli_fetch_object($abfragen)) {
@@ -97,6 +101,9 @@
             </a>
 <?php 
         }
+    }
+    if (!$gibtErgebnisse) {
+        echo '<p class="error">Wir konnten leider nichts zu deinem Suchbegriff finden.</p>';
     }
 ?>
 		</div>

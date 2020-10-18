@@ -6,16 +6,25 @@
 
         $userId = $_GET['user'];
 
-        $loeschen = mysqli_query($db, "DELETE FROM ligen WHERE erstelltVon = '$userId'"); 
-
-        $loeschen = mysqli_query($db, "DELETE FROM `liga-verein` WHERE ligaId = '$ligaId'");
-
         $loeschen = mysqli_query($db, "DELETE spiele FROM spiele
                                        INNER JOIN spieltage ON spieltage.spieltagId = spiele.spieltagId
-                                       WHERE spieltage.ligaId = '$ligaId'"); 
+                                       INNER JOIN ligen ON spieltage.ligaId = ligen.ligaId
+                                       WHERE ligen.erstelltVon = '$userId'");
 
-        $loeschen = mysqli_query($db, "DELETE FROM spieltage WHERE ligaId = '$ligaId'");
+        $loeschen = mysqli_query($db, "DELETE spieltage FROM spieltage
+                                       INNER JOIN ligen ON spieltage.ligaId = ligen.ligaId
+                                       WHERE ligen.erstelltVon = '$userId'");
 
-        header('location: ../index.php?erfolg=Du+hast+die+Liga+erfolgreich+gelöscht');
+        $loeschen = mysqli_query($db, "DELETE `liga-verein` FROM `liga-verein`
+                                       INNER JOIN ligen ON `liga-verein`.ligaId = ligen.ligaId
+                                       WHERE ligen.erstelltVon = '$userId'");
+
+    	$loeschen = mysqli_query($db, "DELETE vereine WHERE erstelltVon = '$userId'";
+
+        $loeschen = mysqli_query($db, "DELETE FROM ligen WHERE erstelltVon = '$userId'"); 
+
+        $loeschen = mysqli_query($db, "DELETE FROM user WHERE userId = '$userId'");
+
+        header('location: ../../admin.php?erfolg=Du+hast+den+Benutzer+erfolgreich+gelöscht');
     }
 ?>

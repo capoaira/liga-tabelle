@@ -7,15 +7,16 @@
 	require_once('../inc/global.php');
 
 	
-	$ligaId = $_GET['liga'];
-	$darfBearbeiten = istMeineLiga($db, $_SESSION['userId'], $ligaId) || $_SESSION['status'] == 'admin';
+	$ligaId = $_GET['liga']??0;
+	$userId = $_SESSION['userId']??0;
+	$darfBearbeiten = istMeineLiga($db, $userId, $ligaId) || (isset($_SESSION['status']) && $_SESSION['status'] == 'admin');
 
 	function zeigenEigeneLigen($db) {
 		if (isset($_SESSION['userId'])) {
 			$userid = $_SESSION['userId'];
 			$abfrage = "SELECT * FROM ligen WHERE erstelltVon = '$userid'";
 			$abfragen = mysqli_query($db, $abfrage);
-			if ($abfragen) {
+			if ($abfragen->num_rows > 0) {
 				echo '<h1>Hier ist ein Überblick zu deinen Ligen:</h1>';
 				while ($abfragen && $row = mysqli_fetch_object($abfragen)) {
 					$ligaId = $row->ligaId;
@@ -54,7 +55,7 @@
 		}
 	}
 
-	function getVereineTest($db, $ligaId) {
+	function getVereineFuerLiga($db, $ligaId) {
 		$abfrage = "SELECT vereine.vereinsId, vereine.name, vereine.beschreibung, vereine.logo, vereine.erstelltVon
 					FROM vereine, `liga-verein`
 					WHERE `liga-verein`.ligaId = '$ligaId'
@@ -135,7 +136,7 @@
 							</thead>
 							<tbody>
 								<?php
-									$vereine = getVereineTest($db, $ligaId);
+									$vereine = getVereineFuerLiga($db, $ligaId);
 									usort($vereine, array('Verein', 'sort'));
 									for ($i=1; $i<=count($vereine); $i++) {
 										echo "<tr>";
