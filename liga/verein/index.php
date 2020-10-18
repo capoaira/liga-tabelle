@@ -4,9 +4,9 @@
 	
 	require_once('../../inc/global.php');
 	
-	$userId = $_SESSION['userId'];
-	$vereinsId = $_GET['verein'];
-	$darfBearbeiten = istMeinVerein($db, $userId, $vereinsId) || $_SESSION['status'] == 'admin';
+	$userId = $_SESSION['userId'??0];
+	$vereinsId = $_GET['verein']??0;
+	$darfBearbeiten = istMeinVerein($db, $userId, $vereinsId) || (isset($_SESSION['status']) && $_SESSION['status'] == 'admin');
 ?>
 <!doctype html>
 <html lang="de">

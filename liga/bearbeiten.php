@@ -9,6 +9,7 @@
         $liga = mysqli_fetch_object($abfrage);
 
         $_SESSION['ligaBearbeiten']['ligaId'] = $liga->ligaId;
+        $_SESSION['ligaBearbeiten']['erstelltVon'] = $liga->erstelltVon;
         $_SESSION['ligaBearbeiten']['name'] = $liga->name;
         $_SESSION['ligaBearbeiten']['keywords'] = $liga->name;
         $_SESSION['ligaBearbeiten']['ligabeschreibung'] = $liga->name;
@@ -16,8 +17,8 @@
         $_SESSION['ligaBearbeiten']['vereine'] = [];
         
         $abfrage = mysqli_query($db, "SELECT * FROM vereine
-                                    INNER JOIN `liga-verein` ON vereine.vereinsId = `liga-verein`.vereinsId
-                                    WHERE `liga-verein`.ligaId = '$ligaId'");
+                                      INNER JOIN `liga-verein` ON vereine.vereinsId = `liga-verein`.vereinsId
+                                      WHERE `liga-verein`.ligaId = '$ligaId'");
         while ($abfrage && $verein=mysqli_fetch_object($abfrage)) {
             array_push($_SESSION['ligaBearbeiten']['vereine'], $verein->vereinsId);
         }
@@ -74,7 +75,7 @@
                     <select id="select" name="verein" onchange="addVerein();">
                         <option value="select">Wähle ein Verein</option>
                         <?php
-                            $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '$userId'";
+                            $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '{$_SESSION['ligaBearbeiten']['erstelltVon']}'";
                             $abfragen = mysqli_query($db, $abfrage);
                             while ($row = mysqli_fetch_object($abfragen)) {
                                 $vereinsId = $row->vereinsId;
@@ -87,7 +88,7 @@
                     <div id="vereinsListe">
                         <?php
                             if (isset($_SESSION['ligaBearbeiten']['vereine'])) {
-                                $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '$userId'";
+                                $abfrage = "SELECT vereinsId, name FROM vereine WHERE erstelltVon = '{$_SESSION['ligaBearbeiten']['erstelltVon']}'";
                                 $abfragen = mysqli_query($db, $abfrage);
                                 while ($abfragen && $row = mysqli_fetch_object($abfragen)) {
                                     if (in_array($row->vereinsId, $_SESSION['ligaBearbeiten']['vereine'])) {

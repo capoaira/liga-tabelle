@@ -2,6 +2,9 @@
 <?php 
 	require_once('../inc/dbconnect.php');
 	session_start();
+
+	$isAdmin = isset($_SESSION['status'])  && $_SESSION['status'] == 'admin';
+	$darfBearbeiten = $isAdmin || (isset($_GET['id']) && $_GET['id'] == $_SESSION['userId']);
 ?>
 <html>
 	<head>
@@ -20,9 +23,8 @@
 		<?php include('../inc/header.php'); ?>
 		<div id="content">
 			<?php
-				if (isset($_SESSION['userId'])) {
-					$userId = $_SESSION['userId'];
-					$username = $_SESSION['username'];
+				if ($darfBearbeiten) {
+					$userId = $_GET['id'];
 
 					if (isset($_GET['error'])) {
 						echo '<p class="error">'.$_GET['error'].'</p>';
@@ -30,19 +32,24 @@
 					
 					$query = mysqli_query($db, "SELECT * FROM user WHERE userId = '$userId'");
 					if ($row = mysqli_fetch_object($query)) {
+						$username = $row->username;
 						$email = $row->email;
 						$profilbild = $row->profilbild;
 					}
 			?>
 			<form action="php/bearbeiten.php" method="POST" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="<?=$userId;?>">
+				
 				<label for="benutzername">Benutzername:</label>
 				<input type="text" id="benutzername" placeholder="Benutzername" value="<?=$username;?>" name="benutzername" required>
 				
 				<label for="email">E-Mail: </label>
 				<input type="email" id="email" placeholder="E-Mail" value="<?=$email;?>" name="email" required>
 				
+				<?php if (!$isAdmin) { ?>
 				<label for="altPW">Altes Passwort: </label>
 				<input type="password" id="altPW" placeholder="Altes Passwort" name="altPW">
+				<?php } ?>
 				
 				<label for="neuPW">Neues Passwort: </label>
 				<input type="password" id="neuPW" placeholder="Neues Passwort" name="neuPW">

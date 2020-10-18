@@ -1,0 +1,49 @@
+body {
+    grid: "head"
+          "main"
+          "foot"
+          / 1fr;
+}
+
+.block {
+    display: block;
+    height: 4em;
+    padding: .5em;
+    text-decoration: none;
+    color: #000;
+}
+
+.block:hover {
+    background: rgb(128, 128, 128);;
+    border-radius: 1em;
+}
+
+.block img {
+    height: 4em;
+    width: 4em;
+    margin-right: .5em;
+    border-radius: 1em;
+    float: left;
+}
+
+h1, .h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: .5em;
+}
+
+.info {
+    display: grid;
+    height: 100%;
+}
+
+.info span {
+    display: block;
+    max-width: 20em;
+    white-space: nowrap;
+    overflow: hidden;
+    align-self: center;
+    text-overflow: ellipsis;
+}
