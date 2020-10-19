@@ -177,8 +177,8 @@
 					}
 			?>
 						<div class="buttons">
-							<a href="verein/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Vereine der Liga"><img src="" class="img_btn">Vereine</a>
-							<a href="spieltag/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spieltage mit Spielen der Liga"><img src="" class="img_btn">Spieltage und Spiele</a>
+							<a href="verein/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Vereine der Liga"><img src="/ligatabelle/img/auge.png" class="img_btn">Vereine</a>
+							<a href="spieltag/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spieltage mit Spielen der Liga"><img src="/ligatabelle/img/auge.png" class="img_btn">Spieltage und Spiele</a>
 						</div>
 					</div>
 					<div id="letzterSpieltag">

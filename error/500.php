@@ -14,6 +14,7 @@
 	<body>
 		<?php include_once('../inc/header.php') ?>
 		<div id="content">
+			<img src="/ligatabelle/img/error.png" style="margin:auto;height:calc(70vh - 6em - 3em - 4em);">
 			<p style="width:100%; font-family:Roboto; font-size:1em; text-align:center;"><span style="font-size:4em;">Error 500</span><br>
 			Die angeforderte Seite konnte leider nicht geladen werden.<br>
 			<a href="/ligatabelle/index.php" title="Startseite">Hier</a> ist unsere Startseite</p>

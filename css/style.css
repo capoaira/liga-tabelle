@@ -299,17 +299,19 @@ input[type="number"] {
 }
 
 input[type="checkbox"] {
+    -webkit-appearance: none;
     width: 2em;
     min-width: unset;
     height: 2em;
+    border-width: 2px;
+    border-radius: 50%;
     background: #fff;
-    -webkit-appearance: none;
     cursor: pointer;
 }
 
 input[type="checkbox"]:checked {
-    background: url('/ligatabelle/img/haken.png') rgb(76, 153, 235) no-repeat;
-    background-size: 1.5em;
+    background: url('/ligatabelle/img/haken.png') no-repeat;
+    background-size: 2em;
     background-position: center;
 }
 

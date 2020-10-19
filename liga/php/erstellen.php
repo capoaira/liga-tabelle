@@ -14,21 +14,24 @@
         $keywords = $_POST['keywords']??'';
         $beschreibung = $_POST['ligabeschreibung']??'';
 
+        $eintrag = "INSERT INTO ligen (name, beschreibung, logo, erstelltVon, keywords)
+                    VALUES ('$liganame', '$beschreibung', 'keinLogo.png', '$userId', '$keywords')";
+        $eintragen = mysqli_query($db, $eintrag);
+
+        $abfragen = mysqli_query($db, "SELECT ligaId FROM ligen ORDER BY ligaId DESC LIMIT 1");
+        $liga = mysqli_fetch_object($abfragen);
+        $ligaId = $liga->ligaId;
+
         $old_filename = 'keinLogo.png';
         $bild = $_SESSION['neueLiga']['ligalogo'];
         $upload_folder = '../../img/ligen/';
         $standartBild = 'keinLogo.png';
-        $abfrage = "SELECT * FROM ligen"; // Abfragen, welche die letzte ligaId ist, damit das Logo den richtigen Namen bekommt
-        $abfragen = mysqli_query($db, $abfrage);
-        $filename = mysqli_num_rows($abfragen)+1;
-        $ligaId = $filename;
+        $filename = $ligaId;
         include_once('../../inc/bild_upload.php');
 
         if (!$bildBearbeitet) $new_filename = 'keinLogo.png';
 
-        $eintrag = "INSERT INTO ligen (name, beschreibung, logo, erstelltVon, keywords)
-                    VALUES ('$liganame', '$beschreibung', '$new_filename', '$userId', '$keywords')";
-        $eintragen = mysqli_query($db, $eintrag);
+        $update = mysqli_query($db, "UPDATE ligen SET logo = '$new_filename' WHERE ligaId = $ligaId");
 
         for ($i=0; $i<count($_POST['vereine']); $i++) {
             $vereinsId = $_POST['vereine'][$i];
