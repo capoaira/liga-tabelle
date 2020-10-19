@@ -130,6 +130,31 @@ form {
     margin-bottom: .5em;
 }
 
+#neueSpieltageUndSpiele {
+    overflow-y: scroll;
+    height: 90vh;
+}
+
+#neueSpieltageUndSpiele .popup_content {
+    transform: translate(-50%, 1em);
+    top: 0;
+}
+
+#neueSpieltageUndSpiele form {
+    display: block;
+}
+
+#neueSpieltageUndSpiele form div {
+    display: grid;
+    grid-template-columns: repeat(3, min-content);
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+#neueSpieltageUndSpiele label {
+    font-weight: bold;
+}
+
 /* Vorschau wenn keine Liga ausgewählt ist */
 .liga_block_klein {
     display: block;
