@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 17. Okt 2020 um 23:04
--- Server-Version: 10.4.14-MariaDB
--- PHP-Version: 7.4.10
+-- Erstellungszeit: 19. Okt 2020 um 16:35
+-- Server-Version: 10.4.13-MariaDB
+-- PHP-Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -177,11 +177,11 @@ INSERT INTO `spiele` (`spielId`, `heimVerein`, `heimVereinTore`, `auswaertsVerei
 (108, 10, 1, 4, 4, '2020-10-17 18:30:00', 4),
 (109, 11, -1, 12, -1, '2021-04-03 15:30:00', 28),
 (110, 14, -1, 18, -1, '2021-04-04 15:30:00', 28),
-(111, 11, 0, 15, 0, '2020-10-17 20:30:00', 4),
+(111, 11, 1, 15, 1, '2020-10-17 20:30:00', 4),
 (112, 15, -1, 16, -1, '2021-04-04 15:30:00', 28),
-(113, 16, -1, 3, -1, '2020-10-18 15:30:00', 4),
+(113, 16, 1, 3, 1, '2020-10-18 15:30:00', 4),
 (114, 9, -1, 13, -1, '2021-04-04 15:30:00', 28),
-(115, 18, -1, 9, -1, '2020-10-18 18:00:00', 4),
+(115, 18, 1, 9, 1, '2020-10-18 18:00:00', 4),
 (116, 17, -1, 10, -1, '2021-04-05 20:00:00', 28),
 (118, 8, -1, 7, -1, '2021-04-05 20:00:00', 28),
 (119, 8, -1, 16, -1, '2020-10-23 20:30:00', 5),
@@ -190,7 +190,6 @@ INSERT INTO `spiele` (`spielId`, `heimVerein`, `heimVereinTore`, `auswaertsVerei
 (123, 3, -1, 9, -1, '2021-03-20 15:30:00', 30),
 (124, 4, -1, 3, -1, '2020-10-24 15:30:00', 5),
 (125, 13, -1, 14, -1, '2021-03-20 15:30:00', 30),
-(126, 1, -1, 3, -1, '2020-10-24 15:30:00', 5),
 (128, 16, -1, 5, -1, '2021-03-21 13:00:00', 30),
 (129, 9, -1, 12, -1, '2020-10-24 15:30:00', 5),
 (130, 7, -1, 15, -1, '2021-03-21 15:30:00', 30),
@@ -403,7 +402,9 @@ INSERT INTO `spiele` (`spielId`, `heimVerein`, `heimVereinTore`, `auswaertsVerei
 (346, 8, -1, 2, -1, '2021-05-10 20:30:00', 19),
 (347, 2, -1, 7, -1, '2021-05-15 18:00:00', 18),
 (348, 4, -1, 2, -1, '2021-05-22 15:30:00', 15),
-(349, 7, -1, 11, -1, '2021-05-22 15:30:00', 15);
+(349, 7, -1, 11, -1, '2021-05-22 15:30:00', 15),
+(350, 1, -1, 13, -1, '2020-10-24 15:30:00', 5),
+(351, 14, -1, 2, -1, '2020-10-26 20:30:00', 5);
 
 -- --------------------------------------------------------
 
@@ -480,7 +481,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `username`, `email`, `passwort`, `profilbild`, `status`, `createdAt`) VALUES
 (1, 'admin', 'admin@admin.admin', '$2y$10$EdcseY8ry2tCXU7PPHMC9eR5rBi1E.lgM4o2in52k3zOiBq5tK1Aa', 'keinPB.png', 'admin', '2020-10-05'),
-(2, 'Sören Gerdts', 'soerengerdts@live.de', '$2y$10$aOHjLCmWVJm4rnVMlK2.Z.K6Ra1L6SO.E1irbgp./3VoBVjaZoXda', '2.jpg', 'member', '2020-10-06');
+(2, 'Sören Gerdts', 'soerengerdts@live.de', '$2y$10$aOHjLCmWVJm4rnVMlK2.Z.K6Ra1L6SO.E1irbgp./3VoBVjaZoXda', '2.jpg', 'member', '2020-10-06'),
+(3, 'Jannes', 'jannes-ball@web.de', '$2y$10$K9aJDrA6htOmtNQ1XoysP.f5lIz0paYAFi.Zk8OYXZftWvW1WPRHK', '3.png', 'member', '2020-10-19');
 
 -- --------------------------------------------------------
 
@@ -576,7 +578,7 @@ ALTER TABLE `ligen`
 -- AUTO_INCREMENT für Tabelle `spiele`
 --
 ALTER TABLE `spiele`
-  MODIFY `spielId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=350;
+  MODIFY `spielId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=352;
 
 --
 -- AUTO_INCREMENT für Tabelle `spieltage`
@@ -588,7 +590,7 @@ ALTER TABLE `spieltage`
 -- AUTO_INCREMENT für Tabelle `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `vereine`
