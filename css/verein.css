@@ -60,3 +60,21 @@
     display: block;
     margin-bottom: .8em;
 }
+
+/* Aside */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Tablet Ansicht hier mit der aside oben, damit man schneller navigieren kann */
+@media (max-width: 70em) {
+    body {
+        grid: "head"
+              "side"
+              "main"
+              "foot"
+              / 1fr;
+        width: 90%;
+    }
+}

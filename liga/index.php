@@ -205,9 +205,6 @@
 							<a href="spieltag/alle.php?liga=<?=$ligaId?>" class="btn" titel="Alle Spieltage mit Spielen der Liga"><img src="/ligatabelle/img/auge.png" class="img_btn">Spieltage und Spiele</a>
 						</div>
 					</div>
-					<div id="letzterSpieltag">
-						<h2>Letzter Spieltag:</h2>
-					</div>
 			<?php
 				}
 			?>

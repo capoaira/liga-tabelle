@@ -367,6 +367,13 @@ aside {
     border-radius: 1em;
 }
 
+aside > div {
+    padding: 1em;
+    border: 1px solid rgb(0, 61, 127);
+    border-radius: 1em;
+    height: min-content;
+}
+
 /* Footer */
 footer {
     grid-area: foot;

@@ -1,3 +1,7 @@
+aside {
+    display: block;
+}
+
 aside .ligen {
     display: grid;
     grid-template-columns: repeat(auto-fill, 16em);

@@ -73,11 +73,8 @@
 }
 
 .buttons {
-    white-space: nowrap;
-}
-
-.buttons a {
-    padding: 0.25em;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Popups */
@@ -93,4 +90,16 @@ form {
 
 .popup_content p {
     margin-bottom: .5em;
+}
+
+/* Tablet Ansicht hier mit der aside oben, damit man schneller navigieren kann */
+@media (max-width: 70em) {
+    body {
+        grid: "head"
+              "side"
+              "main"
+              "foot"
+              / 1fr;
+        width: 90%;
+    }
 }

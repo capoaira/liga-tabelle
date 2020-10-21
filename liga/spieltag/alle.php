@@ -127,7 +127,10 @@
 			</div>
 		</div>
 		<aside>
-			
+			<div class="buttons">
+				<a href="../index.php?liga=<?=$ligaId?>" class="btn">Zurück zur Liga</a>
+				<a href="../verein/alle.php?liga=<?=$ligaId?>" class="btn">Vereine</a>
+			</div>
 		</aside>
 		<?php include_once('../../inc/footer.php') ?>
 	</body>
