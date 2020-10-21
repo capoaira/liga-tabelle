@@ -1,0 +1,16 @@
+body {
+    grid: "head"
+          "main"
+          "foot"
+          / 1fr;
+}
+
+p {
+    margin-bottom: .5em;
+}
+
+#content img:not(.img_btn) {
+    width: 70%;
+    border:  1px solid rgb(0, 61, 127);
+    border-radius: 1em;
+}

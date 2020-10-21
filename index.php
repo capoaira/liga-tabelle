@@ -23,6 +23,10 @@
 					echo '<p class="erfolg">'.$_GET['erfolg'].'</p>';
 				}
 			?>
+			<h1>Deine Ligatabelle</h1>
+			<p>Schön, dass du auf unsere Seite gefunden hast.<br>
+			Auf dieser Seite hast du die Möglichkeit Fußball Tabellen zu erstellen. Durch die übersichtliche Unterteilung der Liga in Spiele und Spieltage ist die Bedienung der Seite super einfach. Zudem hast du immer einen Überblick, welcher Verein gerade vorne liegt, denn die Tabelle ist immer auf dem neusten Stand.</p>
+			<p><a href="anleitung.php">Unsere Anleitung</a> bietet einen super Einstieg in die Bedienung unserer Webseite.</p>
 		</div>
 		<?php include_once('inc/aside_neuste_ligen.php') ?>
 		<?php include_once('inc/footer.php') ?>

@@ -281,7 +281,7 @@
 					<p>Anhand der Anzahl der Vereine werden alle Spieltage erstellt. Diesen musst du allerdings noch Daten zuordnen, da die Namensgebung der Spieltag von den Startdaten der Spieltage abhängig ist. <br>
 					Die erste Hälfte der Spieltage ist die Hinrunde. In dieser Runde spielt jeder Verein einmal gegen jeden anderen. Die zweite Hälfte der Spieltage ist die Rückrunde. Dort spielt erneut jeder Verein gegen jeden anderen, nur mit vertauschtem Heimrecht. </p>
 					<p><span class="warnung">Achtung:</span><br>
-					Durch das austomatische Erstellen aller Spiele werden alle bis jetzt von dir erstellten Spieltage und Spiele gelöscht.</p>
+					Durch das austomatische Erstellen aller Spiele, werden alle bis jetzt von dir erstellten Spieltage und Spiele gelöscht.</p>
 					<form action="php/generierung.php" method="POST">
 						<input type="hidden" id="ligaId" name="ligaId" value="<?=$ligaId?>" required>
 						<?php
