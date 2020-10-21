@@ -138,6 +138,10 @@ form {
     font-weight: bold;
 }
 
+.datetime {
+    display: none;
+}
+
 /* Vorschau wenn keine Liga ausgewählt ist */
 .liga_block_klein {
     display: block;
