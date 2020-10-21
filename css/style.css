@@ -218,7 +218,9 @@ h2 {
     margin-bottom: 1em;
 }
 
-.erfolg, .error {
+.erfolg,
+.error,
+.warnung {
     width: 100%;
     font-weight: bold;
     text-align: center;
@@ -228,7 +230,8 @@ h2 {
     color: rgb(0, 111, 0);
 }
 
-.error {
+.error,
+.warnung {
     color: #f00;
 }
 

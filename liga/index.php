@@ -194,6 +194,9 @@
 							<a href="javascript:void(0)" onclick="$('#neuenSpieltag').css('display', 'block')" class="btn" titel="Erstelle einen neunen Spieltag"><img src="../img/bearbeiten.png" class="img_btn">Neuer Spieltag</a>
 							<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'block')" class="btn" titel="Erstelle einen neues Spiel"><img src="../img/bearbeiten.png" class="img_btn">Neues Spiel</a>
 						</div>
+						<div class="buttons">
+							<a href="javascript:void(0)" onclick="$('#neueSpieltageUndSpiele').css('display', 'block')" class="btn" titel="Generiere alle Spieltage und Spiele"><img src="../img/bearbeiten.png" class="img_btn">Generiere alle Spieltage und Spiele</a>
+						</div>
 			<?php
 					}
 			?>
@@ -209,7 +212,7 @@
 				}
 			?>
 
-			<!-- Popups: Neuer Spieltag und Neues Spiel -->
+			<!-- Popups -->
 			<div id="neuenSpieltag" class="popup_background" style="display:none;">
 				<div class="popup_content">
 					<h1>Neuer Spieltag</h1>
@@ -270,6 +273,35 @@
 						<input type="time" id="time" name="time" required>
 						<button name="submit">Erstellen</button>
 						<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'none')" class="btn">Abbrechen</a>
+					</form>
+				</div>
+			</div>
+
+			<div id="neueSpieltageUndSpiele" class="popup_background" style="display:none;">
+				<div class="popup_content">
+					<h1>Trage die Daten der Spieltage ein</h1>
+					<p>Anhand der Anzahl der Vereine werden alle Spieltage erstellt. Diesen musst du allerdings noch Daten zuordnen, da die Namensgebung der Spieltag von den Startdaten der Spieltage abhängig ist. <br>
+					Die erste Hälfte der Spieltage ist die Hinrunde. In dieser Runde spielt jeder Verein einmal gegen jeden anderen. Die zweite Hälfte der Spieltage ist die Rückrunde. Dort spielt erneut jeder Verein gegen jeden anderen, nur mit vertauschtem Heimrecht. </p>
+					<p><span class="warnung">Achtung:</span><br>
+					Durch das austomatische Erstellen aller Spiele werden alle bis jetzt von dir erstellten Spieltage und Spiele gelöscht.</p>
+					<form action="php/generierung.php" method="POST">
+						<input type="hidden" id="ligaId" name="ligaId" value="<?=$ligaId?>" required>
+						<?php
+							$vereine = getVereineFuerLiga($db, $ligaId);
+							$anzahlVereine = (count($vereine)%2 == 0 ? count($vereine) : count($vereine)+1);
+							$anzahlSpieltage = $anzahlVereine * ($anzahlVereine-1) / ($anzahlVereine/2);
+							for ($i=1; $i<=$anzahlSpieltage; $i++) {
+						?>
+						<div>
+							<label>Spieltag <?=$i?>:</label>
+							<input type="date" name="von[]" required>
+							<input type="date" name="bis[]" required>
+						</div>
+						<?php
+							}
+						?>
+						<button name="submit">Spiele Generieren</button>
+						<a href="javascript:void(0)" onclick="$('#neueSpieltageUndSpiele').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
 				</div>
 			</div>
