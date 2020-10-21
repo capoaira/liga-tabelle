@@ -12,7 +12,7 @@
 <!doctype html>
 <html lang="de">
 	<head>
-		<title>Home</title>
+		<title>Spieltage</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/ligatabelle/img/favicon.png" type="image/png">
@@ -42,7 +42,7 @@
 					$von = $row->von;
 					$bis = $row->bis;
 					echo "<div  id=\"spieltag_$row->spieltagId\" data-id=\"$spieltagId\" class=\"spieltag\">";
-					echo "<div class=\"spieltag_info\"><h1>Spieltag $spieltag</h1> von <span id=\"$von\">$von</span> - <span id=\"$bis\">$bis</span></span>";
+					echo "<div class=\"spieltag_info\"><h1>Spieltag $spieltag</h1> von <span id=\"$von\">".getDatumInUseremFormat($von)."</span> - <span id=\"$bis\">".getDatumInUseremFormat($bis)."</span></span>";
 					echo ($darfBearbeiten ?
 						 '<a href="javascript:void(0)" onclick="openSpieltag(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
 						 <a href="php/loeschen.php?spieltag='.$spieltagId.'&liga='.$ligaId.'"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>' : '').'</div>';
@@ -62,7 +62,7 @@
 						}
 			?>
 					<div data-id="<?=$row->spielId?>" class="spiel">
-						<span><?=$row->datum?></span>
+						<span class="spielzeit"><?=getDatumInUseremFormat($row->datum)?></span>
 						<div>
 							<div class="spiel_info">
 								<span>

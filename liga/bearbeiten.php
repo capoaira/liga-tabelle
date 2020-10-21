@@ -27,7 +27,7 @@
 <!doctype html>
 <html lang="de">
 	<head>
-		<title>Liga Bearbeiten</title>
+		<title><?=$_SESSION['ligaBearbeiten']['name']?> Bearbeiten</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/ligatabelle/img/favicon.png" type="image/png">

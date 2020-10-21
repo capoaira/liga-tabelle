@@ -7,11 +7,18 @@
 	$userId = $_SESSION['userId'??0];
 	$vereinsId = $_GET['verein']??0;
 	$darfBearbeiten = istMeinVerein($db, $userId, $vereinsId) || (isset($_SESSION['status']) && $_SESSION['status'] == 'admin');
+
+	
+	$abfrage = mysqli_query($db, "SELECT * FROM vereine WHERE vereinsId = $vereinsId");
+	$verein = mysqli_fetch_object($abfrage);
+	$abfrage = mysqli_query($db, "SELECT * FROM user WHERE userId = $verein->erstelltVon");
+	$user = mysqli_fetch_object($abfrage);
+
 ?>
 <!doctype html>
 <html lang="de">
 	<head>
-		<title>Home</title>
+		<title><?=$verein->name?></title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/ligatabelle/img/favicon.png" type="image/png">
@@ -35,10 +42,6 @@
 				if (isset($_GET['error'])) {
 					echo '<p class="error">'.$_GET['error'].'</p>';
 				}
-				$abfrage = mysqli_query($db, "SELECT * FROM vereine WHERE vereinsId = $vereinsId");
-				$verein = mysqli_fetch_object($abfrage);
-				$abfrage = mysqli_query($db, "SELECT * FROM user WHERE userId = $verein->erstelltVon");
-				$user = mysqli_fetch_object($abfrage);
 			?>
 			<div class="verein_block">
 				<img src="/ligatabelle/img/vereine/<?=$verein->logo?>">

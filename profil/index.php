@@ -2,6 +2,8 @@
 <?php 
 	require_once('../inc/dbconnect.php');
 	session_start();
+
+	require_once('../inc/global.php');
 	
 	$isAdmin = (isset($_SESSION['status']) && $_SESSION['status'] == 'admin');
 	$darfBearbeiten = (isset($_SESSION['userId']) && isset($_GET['id']) && $_SESSION['userId'] == $_GET['id']) || !isset($_GET['id']) || $isAdmin;
@@ -42,7 +44,7 @@
 						$profilbild = $row->profilbild;
 						$email = $row->email;
 						$status = $row->status;
-						$createdAt = $row->createdAt;
+						$createdAt = getDatumInUseremFormat($row->createdAt);
 					} else {
 						$abfrage = mysqli_query($db, "SELECT userId, username, email, profilbild, status, createdAt FROM user WHERE userId = '$userId'");
 						if ($row = mysqli_fetch_object($abfrage)) {
@@ -52,7 +54,7 @@
 							$profilbild = $row->profilbild;
 							$email = $row->email;
 							$status = $row->status;
-							$createdAt = $row->createdAt;
+							$createdAt = getDatumInUseremFormat($row->createdAt);
 						}
 					}
 			?>

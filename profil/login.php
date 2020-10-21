@@ -33,7 +33,7 @@
 
 				<button id="submit" name="submit">Login</button>
 			</form>
-			<p>Noch keinen Account erstellt? <a href="registrieren.php">Hier geht es zur Regestration</a></p>
+			<p>Noch keinen Account erstellt? <a href="registrieren.php">Hier kannst du dich registrieren</a></p>
 			<?php
 				} else {
 					echo '<p>Du hast dich schon eingeloggt</p>';

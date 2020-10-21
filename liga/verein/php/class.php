@@ -29,7 +29,7 @@
             echo "  <td>{$this->getSpiele()}</td>";
             echo "  <td>{$this->getPunkte()}</td>";
             echo "  <td>{$this->getEigeneTore()}</td>";
-            echo "  <td>{$this->getGegenTore()}</td>";
+            echo "  <td class=\"desktop-only\">{$this->getGegenTore()}</td>";
             echo "  <td>{$this->getTorDiff()}</td>";
         }
 

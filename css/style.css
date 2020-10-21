@@ -40,13 +40,15 @@ header a {
     height: 5em;
 }
 
-header div{
+header div {
      display: flex;
 }
 
 header img {
     width: 5em;
     border-radius: 1em;
+    background: rgb(211, 211, 211);
+    padding: 0 .5em;
 }
 
 header h1 {
@@ -200,6 +202,10 @@ nav ul {
     border-radius: 1em;
 }
 
+.mobil-only {
+    display: none;
+}
+
 h1,.h1 {
     font-size: 1.5em;
     font-weight: bold;
@@ -350,10 +356,12 @@ textarea {
 /* Aside */
 aside {
     grid-area: side;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 22em);
+    gap: 1em;
+    justify-content: center;
     background: rgb(128, 128, 128);
     border-radius: 1em;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Footer */
@@ -371,7 +379,7 @@ footer p {
 }
 
 /* Tablet Ansicht */
-@media (max-width: 60em) {
+@media (max-width: 70em) {
     body {
         grid: "head" 
               "main"
@@ -389,20 +397,21 @@ footer p {
         width: 80%;
     }
 
-    aside {
-        justify-content: space-between;
-        flex-direction: row;
+    .desktop-only {
+        display: none;
+    }
+
+    .mobil-only {
+        display: unset;
+    }
+
+    tr.mobil-only {
+        display: table-row;
     }
 }
 
 /* Extrastufe für aside und header */
-@media (max-width: 45em) {
-    aside {
-        flex-direction: column;
-    }
-
-    
-
+@media (max-width: 55em) {
     header {
         border-bottom-right-radius: 0;
     }

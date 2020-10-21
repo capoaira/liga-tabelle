@@ -67,11 +67,23 @@
 		}
 		return $vereine;
 	}
+
+	function getPageTitle($db) {
+		$title = "Übersicht zu deinen Ligen";
+		if (isset($_GET['liga'])) {
+			$ligaId = $_GET['liga'];
+			$abfrage = mysqli_query($db, "SELECT name FROM ligen WHERE ligaId = '$ligaId'");
+			if ($liga = mysqli_fetch_object($abfrage)) {
+				$title = $liga->name;
+			}
+		}
+		return $title;
+	}
 ?>
 <!doctype html>
 <html lang="de">
 	<head>
-		<title>Liga</title>
+		<title><?=getPageTitle($db)?></title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="/ligatabelle/img/favicon.png" type="image/png">
@@ -123,7 +135,7 @@
 						</div>
 						<table id="tabelle">
 							<thead>
-								<tr>
+								<tr class="desktop-only">
 									<th></th>
 									<th></th>
 									<th>Verein</th>
@@ -132,6 +144,15 @@
 									<th>Tore</th>
 									<th>geg Tore</th>
 									<th>Tor diff</th>
+								</tr>
+								<tr class="mobil-only">
+									<th></th>
+									<th></th>
+									<th>Verein</th>
+									<th title="Spiele">Sp.</th>
+									<th title="Punkte">P.</th>
+									<th title="Tore">T.</th>
+									<th title="Tordifferenz">T.D.</th>
 								</tr>
 							</thead>
 							<tbody>
