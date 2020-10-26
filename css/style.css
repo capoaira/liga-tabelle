@@ -283,6 +283,7 @@ label {
 }
 
 input,
+.passwort,
 textarea,
 select {
     padding: .5em 1em;
@@ -291,14 +292,17 @@ select {
 }
 
 input:focus,
+.focus,
 textarea:focus,
 select:focus {
     border: 2px solid rgb(0, 61, 127);
 }
 
-input,
+input {
+    width: 10em;
+}
+
 select {
-    width: min-content;
     min-width: 10em;
 }
 
@@ -322,6 +326,37 @@ input[type="checkbox"]:checked {
     background: url('/ligatabelle/img/haken.png') no-repeat;
     background-size: 2em;
     background-position: center;
+}
+
+.passwort {
+    display:flex;
+    flex-direction:row;
+    background-color: #fff;
+    width: 10em;
+    min-width: 10em;
+}
+
+.passwort label {
+    display: flex;
+}
+
+.passwort label img {
+    margin-left: -.5em;
+}
+
+.passwort input[type="password"],
+.passwort input[type="text"] {
+    flex-grow:2;
+    border: none;
+    padding: 0;
+}
+
+.passwort input:focus {
+    outline: none;
+}
+
+::-ms-reveal {
+    display: none;
 }
 
 select {
