@@ -422,6 +422,7 @@ footer {
 
 footer p {
     align-self: center;
+    margin: 0;
 }
 
 footer a {
