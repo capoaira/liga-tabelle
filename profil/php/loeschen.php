@@ -19,9 +19,26 @@
                                        INNER JOIN ligen ON `liga-verein`.ligaId = ligen.ligaId
                                        WHERE ligen.erstelltVon = '$userId'");
 
-    	$loeschen = mysqli_query($db, "DELETE vereine WHERE erstelltVon = '$userId'";
+        $abfrage = mysqli_query($db, "SELECT logo FROM vereine WHERE erstelltVon = '$userId'");
+        while ($verein = mysqli_fetch_object($abfrage)) {
+            $logo = $verein->logo;
+            if ($logo != 'keinLogo.png') unlink("../../img/vereine/$logo");
+        }
 
-        $loeschen = mysqli_query($db, "DELETE FROM ligen WHERE erstelltVon = '$userId'"); 
+    	$loeschen = mysqli_query($db, "DELETE vereine WHERE erstelltVon = '$userId'");
+
+        $abfrage = mysqli_query($db, "SELECT logo FROM ligen WHERE erstelltVon = '$userId'");
+        while ($liga = mysqli_fetch_object($abfrage)) {
+            $logo = $liga->logo;
+            if ($logo != 'keinLogo.png') unlink("../../img/ligen/$logo");
+        }
+
+        $loeschen = mysqli_query($db, "DELETE FROM ligen WHERE erstelltVon = '$userId'");
+
+        $abfrage = mysqli_query($db, "SELECT profilbild FROM user WHERE userId = '$userId'");
+        $row = mysqli_fetch_object($abfrage);
+        $profilbild = $row->profilbild;
+        if ($profilbild != 'keinPB.png') unlink("../../img/profile/$profilbild");
 
         $loeschen = mysqli_query($db, "DELETE FROM user WHERE userId = '$userId'");
 

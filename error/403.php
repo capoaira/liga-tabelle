@@ -14,7 +14,7 @@
 	<body>
 		<?php include_once('../inc/header.php') ?>
 		<div id="content">
-			<img src="/ligatabelle/img/error.png" style="margin:auto;height:calc(70vh - 6em - 3em - 4em);">
+			<img src="/ligatabelle/img/403.png" style="margin:auto;height:calc(70vh - 6em - 3em - 4em);">
 			<p style="width:100%; font-family:Roboto; font-size:1em; text-align:center;"><span style="font-size:4em;">Error 403</span><br>
 			Die angeforderte Seite kann leider nicht angezeigt werden.<br>
 			<a href="/ligatabelle/index.php" title="Startseite">Hier</a> ist unsere Startseite</p>
