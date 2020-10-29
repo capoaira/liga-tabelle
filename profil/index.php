@@ -99,7 +99,7 @@
 
 			<?php
 				} else {
-					echo '<p><p><a href="login.php">Melde dich an</a>, um dein Profil zu sehen</p>';
+					echo '<p><p><a href="login.php" title="Login">Melde dich an</a>, um dein Profil zu sehen</p>';
 				}
 			?>
 		</div>

@@ -50,8 +50,8 @@
 						<span class="h1"><?=$verein->name?></span>
 						<?php
 							if ($darfBearbeiten) {
-								echo '<a href="javascript:void(0)" onclick="openPopup()"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>';
-								echo '<a href="php/loeschen.php?verein='.$vereinsId.'"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>';
+								echo '<a href="javascript:void(0)" onclick="openPopup()" title="Verein Bearbeiten"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>';
+								echo '<a href="php/loeschen.php?verein='.$vereinsId.'" title="Verein Löschen"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>';
 							}
 						?>
 					</div>
@@ -75,7 +75,7 @@
 						</label>
 						<textarea id="vereinsbeschreibung" name="vereinsbeschreibung" multiline="true" placeholder="Beschreibe den Verein"></textarea>
 						
-						<button>Bearbeiten</button>
+						<button title="Verein Bearbeiten">Bearbeiten</button>
 						<a href="javascript:void(0)" class="btn" onclick="$('#vereinBearbeiten').css('display', 'none');">Abbrechen</a>
 					</form>
 				</div>

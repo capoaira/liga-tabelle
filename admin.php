@@ -38,7 +38,7 @@
                     <label for="user">Benutzer:</label><input type="checkbox" id="user" name="user" value="true" checked>
                     <label for="verein">Vereine:</label><input type="checkbox" id="verein" name="verein" value="true" checked>
                </div>
-               <button id="submit" name="submit">Suchen</button>
+               <button id="submit" name="submit" title="Suchen">Suchen</button>
             </form>
             <?php
                 } else {

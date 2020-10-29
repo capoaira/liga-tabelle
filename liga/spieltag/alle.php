@@ -44,8 +44,8 @@
 					echo "<div  id=\"spieltag_$row->spieltagId\" data-id=\"$spieltagId\" class=\"spieltag\">";
 					echo "<div class=\"spieltag_info\"><h1>Spieltag $spieltag</h1> von <span id=\"$von\">".getDatumInUseremFormat($von)."</span> - <span id=\"$bis\">".getDatumInUseremFormat($bis)."</span></span>";
 					echo ($darfBearbeiten ?
-						 '<a href="javascript:void(0)" onclick="openSpieltag(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
-						 <a href="php/loeschen.php?spieltag='.$spieltagId.'&liga='.$ligaId.'"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>' : '').'</div>';
+						 '<a href="javascript:void(0)" onclick="openSpieltag(this)" title="Bearbeite deinen Spieltag"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
+						 <a href="php/loeschen.php?spieltag='.$spieltagId.'&liga='.$ligaId.'" title="Lösche deinen Spieltag"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>' : '').'</div>';
 					$abfrageSpiele = mysqli_query($db, "SELECT * FROM spiele WHERE spieltagId = $spieltagId ORDER BY datum");
 					while ($abfrageSpiele && $row=mysqli_fetch_object($abfrageSpiele)) {
 						$heimVereinId = $row->heimVerein;
@@ -77,8 +77,8 @@
 							</div>
 						<?php if ($darfBearbeiten) {?>
 							<div class="buttons">
-								<a href="javascript:void(0)" onclick="openSpiel(this)"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
-								<a href="../spiel/php/loeschen.php?spiel=<?=$row->spielId?>&liga=<?=$ligaId?>&spieltag=<?=$spieltagId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
+								<a href="javascript:void(0)" onclick="openSpiel(this)" title="Ergebnisse Eintragen"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
+								<a href="../spiel/php/loeschen.php?spiel=<?=$row->spielId?>&liga=<?=$ligaId?>&spieltag=<?=$spieltagId?>" title="Spiel Löschen"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
 							</div>
 						<?php } ?>
 						</div>
@@ -99,7 +99,7 @@
 						<input type="hidden" id="spieltagId" name="spieltagId" required>
 						<label for="von">Von:</label><input type="date" id="von" name="von" required>
 						<label for="bis">Bis:</label><input type="date" id="bis" name="bis" required>
-						<button name="submit">Bearbeiten</button>
+						<button name="submit" title="Spieltag Bearbeiten">Bearbeiten</button>
 						<a href="javascript:void(0)" onclick="$('#spieltagBearbeiten').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
 				</div>
@@ -120,7 +120,7 @@
 						<label for="auswaertsverein">Auswärtsverein:</label>
 						<input type="number" id="auswaertsVereinTore" name="auswaertsVereinTore" min="0" max="99" value="0">
 
-						<button name="submit">Bearbeiten</button>
+						<button name="submit" title="Spiel Bearbeiten">Bearbeiten</button>
 						<a href="javascript:void(0)" onclick="$('#spielBearbeiten').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
 				</div>
@@ -129,7 +129,7 @@
 		<aside>
 			<div class="buttons">
 				<a href="../index.php?liga=<?=$ligaId?>" class="btn">Zurück zur Liga</a>
-				<a href="../verein/alle.php?liga=<?=$ligaId?>" class="btn">Vereine</a>
+				<a href="../verein/alle.php?liga=<?=$ligaId?>" class="btn" title="Alle Vereine der Liga">Vereine</a>
 			</div>
 		</aside>
 		<?php include_once('../../inc/footer.php') ?>

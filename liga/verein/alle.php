@@ -44,7 +44,7 @@
 					</a>
 					<span>
 						<?php if ($darfBearbeiten) { ?>
-						<a href="php/entfernen.php?liga=<?=$ligaId?>&verein=<?=$row->vereinsId?>&return=../alle.php">
+						<a href="php/entfernen.php?liga=<?=$ligaId?>&verein=<?=$row->vereinsId?>&return=../alle.php" title="Verein Löschen">
 							<img class="img_btn" src="../../img/loeschen.png">
 						</a>
 						<?php } ?>
@@ -57,7 +57,7 @@
 		<aside>
 			<div class="buttons">
 				<a href="../index.php?liga=<?=$ligaId?>" class="btn">Zurück zur Liga</a>
-				<a href="../spieltag/alle.php?liga=<?=$ligaId?>" class="btn">Spieltage und Spiele</a>
+				<a href="../spieltag/alle.php?liga=<?=$ligaId?>" class="btn" title="Alle Spieltage mit Spielen der Liga">Spieltage und Spiele</a>
 			</div>
 		</aside>
 		<?php include_once('../../inc/footer.php') ?>

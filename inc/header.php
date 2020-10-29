@@ -44,7 +44,7 @@
                     <input type="hidden" name="liga" value="true">
                     <input type="hidden" name="user" value="true">
                     <input type="hidden" name="verein" value="true">
-                    <button class="img_btn"><img src="/ligatabelle/img/suche.png" class="img_btn"></button>
+                    <button class="img_btn" title="Suchen"><img src="/ligatabelle/img/suche.png" class="img_btn"></button>
                 </form>
             </li>
         </ul>

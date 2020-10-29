@@ -83,7 +83,7 @@
                     </div>
                 </div>
 
-                <button id="submit" name="submit">Erstellen</button>
+                <button id="submit" name="submit" title="Liga erstellen">Erstellen</button>
 
                 <!-- Popup um den Verein zu erstellen -->
                 <div id="vereinErstellen" class="popup_background" style="display:none">
@@ -96,7 +96,7 @@
                             <input type="file" id="vereinslogo" name="vereinslogo" onchange="changeBild(this)" accept="image/png, image/jpeg, image/gif" style="display:none">
                         </label>
                         <textarea id="vereinsbeschreibung" name="vereinsbeschreibung" multiline="true" placeholder="Beschreibe den Verein"></textarea>
-                        <button formaction="verein/php/erstellen.php">Hinzufügen</button>
+                        <button formaction="verein/php/erstellen.php" title="Verein Erstellen und zur Liga hinzufügen">Hinzufügen</button>
                         <a href="javascript:void(0)" class="btn" onclick="closeVerein();">Abbrechen</a>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
 
             <?php
                 } else {
-					echo '<p><p><a href="../profil/login.php">Melde dich an</a>, um eine Liga zu erstellen.</p>';
+					echo '<p><p><a href="../profil/login.php" title="Login">Melde dich an</a>, um eine Liga zu erstellen.</p>';
 				}
             ?>
 		</div>

@@ -35,10 +35,10 @@
 <?php
 				}
 			} else {
-					echo '<p>Verwende die Suche oder <a href="erstellen.php">erstelle</a> eine Liga.</p>';
+					echo '<p>Verwende die Suche oder <a href="erstellen.php" title="Erstelle eine Liga">erstelle</a> eine Liga.</p>';
 			}
 		} else {
-			echo '<p><a href="../profil/login.php">Melde dich an</a>, um deine Ligen zu sehen. Oder nutze die Suche.</p>';
+			echo '<p><a href="../profil/login.php" title="Login">Melde dich an</a>, um deine Ligen zu sehen. Oder nutze die Suche.</p>';
 		}
 	}
 
@@ -125,8 +125,8 @@
 								<span class="h1">
 									<?=$name?>
 									<?php if ($darfBearbeiten) { ?>
-										<a href="bearbeiten.php?liga=<?=$ligaId?>"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
-										<a href="php/loeschen.php?liga=<?=$ligaId?>"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
+										<a href="bearbeiten.php?liga=<?=$ligaId?>" title="Bearbeite deine Liga"><img src="/ligatabelle/img/bearbeiten.png" class="img_btn"></a>
+										<a href="php/loeschen.php?liga=<?=$ligaId?>" title="Lösche deine Liga"><img src="/ligatabelle/img/loeschen.png" class="img_btn"></a>
 									<?php } ?>
 								</span>
 								<span class="ersteller">Erstellt von <a href="../profil/index.php?id=<?=$erstelltVon?>"><?=$ersteller?></a></span>
@@ -218,7 +218,7 @@
 						<input type="hidden" id="ligaId" name="ligaId" value="<?=$ligaId?>" required>
 						<label for="von">Von:</label><input type="date" id="von" name="von" placeholder="Startdatum" required>
 						<label for="bis">Bis:</label><input type="date" id="bis" name="bis" placeholder="Enddatum" required>
-						<button name="submit">Erstellen</button>
+						<button name="submit" title="Spieltag Erstellen">Erstellen</button>
 						<a href="javascript:void(0)" onclick="$('#neuenSpieltag').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
 				</div>
@@ -269,7 +269,7 @@
 						<select class="datetime" id="date" name="date" required></select>
 						<label class="datetime" for="time">Uhrzeit:</label>
 						<input class="datetime" type="time" id="time" name="time" required>
-						<button name="submit">Erstellen</button>
+						<button name="submit" title="Spiel Erstellen">Erstellen</button>
 						<a href="javascript:void(0)" onclick="$('#neuesSpiel').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
 				</div>
@@ -298,7 +298,7 @@
 						<?php
 							}
 						?>
-						<button name="submit">Spiele Generieren</button>
+						<button name="submit" title="Spiele Generieren">Spiele Generieren</button>
 						<a href="javascript:void(0)" onclick="$('#neueSpieltageUndSpiele').css('display', 'none')" class="btn">Abbrechen</a>
 					</form>
 				</div>
