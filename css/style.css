@@ -304,6 +304,7 @@ input {
 
 select {
     min-width: 10em;
+    width: min-content;
 }
 
 input[type="number"] {
@@ -374,6 +375,7 @@ textarea {
     background-color: rgba(31, 31, 31, .7);
     top: 0;
     left: 0;
+    padding: 0;
     width: 100%;
     min-height: 100%;
     z-index: 1000;
@@ -475,7 +477,7 @@ footer a {
         display: none;
         position: absolute;
         top: 6em;
-        right: 0;
+        right: 5%;
         margin: -.5em 0 0 0;
         border-radius: 0 0 1em 1em;
         background-color: rgb(0, 61, 127);
@@ -522,7 +524,7 @@ footer a {
 /* Smartphone Ansicht */
 @media (max-width: 30em) {
     body {
-        width: 100%;
+        width: 100% !important;
     }
 
     .popup_content {
@@ -534,5 +536,9 @@ footer a {
     input,
     select {
         width: calc(100% - 2em);
+    }
+
+    nav {
+        right: 0;
     }
 }

@@ -34,6 +34,7 @@
                             echo '<li><a href="/ligatabelle/profil/logout.php">Logout</a></li>';
                         } else {
                             echo '<li><a href="/ligatabelle/profil/login.php">Login</a></li>';
+                            echo '<li><a href="/ligatabelle/profil/registrieren.php">Registrieren</a></li>';
                         }
                     ?>
                 </ul>

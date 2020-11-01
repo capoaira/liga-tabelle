@@ -40,7 +40,8 @@
                         WHERE heimVerein = $this->vereinsId
                         AND spiele.spieltagId = spieltage.spieltagId
                         AND heimVereinTore >= 0 AND auswaertsVereinTore >= 0
-                        AND spieltage.ligaId = $this->ligaId";
+                        AND spieltage.ligaId = $this->ligaId
+                        AND ligen.ligaId = $this->ligaId";
             $abfragen = mysqli_query($this->db, $abfrage);
             while ($abfragen && $row=mysqli_fetch_object($abfragen)) {
                 array_push($this->spiele, new Spiel($row, true));
@@ -52,7 +53,8 @@
                         WHERE auswaertsVerein = $this->vereinsId
                         AND spiele.spieltagId = spieltage.spieltagId
                         AND heimVereinTore >= 0 AND auswaertsVereinTore >= 0
-                        AND spieltage.ligaId = $this->ligaId";
+                        AND spieltage.ligaId = $this->ligaId
+                        AND ligen.ligaId = $this->ligaId";
             $abfragen = mysqli_query($this->db, $abfrage);
             while ($abfragen && $row=mysqli_fetch_object($abfragen)) {
                 array_push($this->spiele, new Spiel($row, false));

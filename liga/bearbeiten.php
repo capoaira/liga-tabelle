@@ -11,8 +11,8 @@
         $_SESSION['ligaBearbeiten']['ligaId'] = $liga->ligaId;
         $_SESSION['ligaBearbeiten']['erstelltVon'] = $liga->erstelltVon;
         $_SESSION['ligaBearbeiten']['name'] = $liga->name;
-        $_SESSION['ligaBearbeiten']['keywords'] = $liga->name;
-        $_SESSION['ligaBearbeiten']['ligabeschreibung'] = $liga->name;
+        $_SESSION['ligaBearbeiten']['keywords'] = $liga->keywords;
+        $_SESSION['ligaBearbeiten']['ligabeschreibung'] = $liga->beschreibung;
         $_SESSION['ligaBearbeiten']['alt_ligaLogo'] = $liga->logo;
         $_SESSION['ligaBearbeiten']['vereine'] = [];
         
