@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 01. Nov 2020 um 20:00
+-- Erstellungszeit: 18. Nov 2020 um 12:55
 -- Server-Version: 10.4.13-MariaDB
 -- PHP-Version: 7.4.7
 
@@ -54,7 +54,11 @@ INSERT INTO `liga-verein` (`ligaId`, `vereinsId`) VALUES
 (1, 15),
 (1, 16),
 (1, 17),
-(1, 18);
+(1, 18),
+(3, 20),
+(3, 21),
+(3, 22),
+(3, 23);
 
 -- --------------------------------------------------------
 
@@ -76,7 +80,8 @@ CREATE TABLE `ligen` (
 --
 
 INSERT INTO `ligen` (`ligaId`, `name`, `beschreibung`, `logo`, `erstelltVon`, `keywords`) VALUES
-(1, 'Bundesliga', 'Bundesliga', '1.png', '2', 'Bundesliga');
+(1, 'Bundesliga', 'Bundesliga', '1.png', '2', 'Bundesliga'),
+(3, 'Meine Tolle Liga', 'Meine super tolle Fußball-Liga', 'keinLogo.png', '2', 'super toll genial');
 
 -- --------------------------------------------------------
 
@@ -221,13 +226,13 @@ INSERT INTO `spiele` (`spielId`, `heimVerein`, `heimVereinTore`, `auswaertsVerei
 (163, 11, 1, 1, 0, '2020-10-31 18:30:00', 6),
 (164, 12, 2, 14, 4, '2020-11-01 15:30:00', 6),
 (165, 13, 1, 15, 1, '2020-11-01 18:00:00', 6),
-(166, 6, -1, 9, -1, '2020-11-02 20:30:00', 6),
-(167, 7, -1, 16, -1, '2020-11-06 20:30:00', 7),
-(168, 1, -1, 12, -1, '2020-11-07 15:30:00', 7),
-(169, 9, -1, 10, -1, '2020-11-07 15:30:00', 7),
-(170, 17, -1, 18, -1, '2020-11-07 15:30:00', 7),
-(171, 2, -1, 13, -1, '2020-11-07 15:30:00', 7),
-(172, 8, -1, 3, -1, '2020-11-07 15:30:00', 7),
+(166, 6, 1, 9, 3, '2020-11-02 20:30:00', 6),
+(167, 7, 1, 16, 1, '2020-11-06 20:30:00', 7),
+(168, 1, 3, 12, 0, '2020-11-07 15:30:00', 7),
+(169, 9, 5, 10, 0, '2020-11-07 15:30:00', 7),
+(170, 17, 2, 18, 2, '2020-11-07 15:30:00', 7),
+(171, 2, 0, 13, 3, '2020-11-07 15:30:00', 7),
+(172, 8, 2, 3, 2, '2020-11-07 15:30:00', 7),
 (173, 5, -1, 4, -1, '2020-11-07 18:30:00', 7),
 (174, 15, -1, 6, -1, '2020-11-08 15:30:00', 7),
 (175, 14, -1, 11, -1, '2020-11-08 18:00:00', 7),
@@ -481,7 +486,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `username`, `email`, `passwort`, `profilbild`, `status`, `createdAt`) VALUES
 (1, 'admin', 'admin@admin.admin', '$2y$10$EdcseY8ry2tCXU7PPHMC9eR5rBi1E.lgM4o2in52k3zOiBq5tK1Aa', 'keinPB.png', 'admin', '2020-10-05'),
-(2, 'Sören Gerdts', 'soerengerdts@live.de', '$2y$10$aOHjLCmWVJm4rnVMlK2.Z.K6Ra1L6SO.E1irbgp./3VoBVjaZoXda', '2.jpg', 'member', '2020-10-06'),
+(2, 'Sören', 'soerengerdts@live.de', '$2y$10$aOHjLCmWVJm4rnVMlK2.Z.K6Ra1L6SO.E1irbgp./3VoBVjaZoXda', '2.jpg', 'member', '2020-10-06'),
 (3, 'Jannes', 'jannes-ball@web.de', '$2y$10$K9aJDrA6htOmtNQ1XoysP.f5lIz0paYAFi.Zk8OYXZftWvW1WPRHK', '3.png', 'member', '2020-10-19');
 
 -- --------------------------------------------------------
@@ -520,7 +525,11 @@ INSERT INTO `vereine` (`vereinsId`, `name`, `beschreibung`, `logo`, `erstelltVon
 (15, 'Hannover 96', '', '15.jpg', '2'),
 (16, '1. FC Köln', '', '16.jpg', '2'),
 (17, 'Mainz 05', '', '17.jpg', '2'),
-(18, 'Schalke 04', '', '18.jpg', '2');
+(18, 'Schalke 04', '', '18.jpg', '2'),
+(20, 'Mein Verein 01', '', 'keinLogo.png', '2'),
+(21, 'Mein Verein 02', '', 'keinLogo.png', '2'),
+(22, 'Mein Verein 03', '', 'keinLogo.png', '2'),
+(23, 'Mein Verein 04', '', 'keinLogo.png', '2');
 
 --
 -- Indizes der exportierten Tabellen
@@ -572,19 +581,19 @@ ALTER TABLE `vereine`
 -- AUTO_INCREMENT für Tabelle `ligen`
 --
 ALTER TABLE `ligen`
-  MODIFY `ligaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ligaId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `spiele`
 --
 ALTER TABLE `spiele`
-  MODIFY `spielId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=352;
+  MODIFY `spielId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=364;
 
 --
 -- AUTO_INCREMENT für Tabelle `spieltage`
 --
 ALTER TABLE `spieltage`
-  MODIFY `spieltagId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `spieltagId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT für Tabelle `user`
@@ -596,7 +605,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für Tabelle `vereine`
 --
 ALTER TABLE `vereine`
-  MODIFY `vereinsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `vereinsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

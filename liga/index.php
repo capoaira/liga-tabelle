@@ -92,6 +92,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
         <script src="/ligatabelle/js/liga.js" type="text/javascript"></script>
+        <script src="/ligatabelle/js/praesi.js" type="text/javascript"></script>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 	</head>
