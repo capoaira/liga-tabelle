@@ -1,16 +1,17 @@
 <?php
     include('spiel/php/class.php');
     class Verein {
-        private $db;
-        private $vereinsId;
-        private $name;
-        private $beschreibung;
-        private $logo;
-        private $erstelltVon;
-        private $ligaId;
-        private $spiele; // Array
+        private $db;            // Datenbankobjekt muss übergeben werden
+        private $vereinsId;     // id des Vereins
+        private $name;          // Name des Vereins
+        private $beschreibung;  // Vereinsbeschreibung
+        private $logo;          // Vereinslogo
+        private $erstelltVon;   // id des Erstellers des Vereins
+        private $ligaId;        // id der Liga in der sich der Verein gerade befindet
+        private $spiele;        // Array mit allen Spielen des Vereins
 
         function __construct($verein, $ligaId, $db) {
+            // Im Konstukter werden den Attributen Werten zugeordnet
             $this->ligaId = $ligaId;
             $this->db = $db;
             $this->spiele = [];
@@ -19,10 +20,12 @@
             $this->beschreibung = $verein->beschreibung;
             $this->logo = $verein->logo;
             $this->erstelltVon = $verein->erstelltVon;
+            // Um das Array zu füllen müssen die Spiele vereinheitlicht werden
             $this->addHeimSpiele();
             $this->addAuswaetsSpiele();
         }
 
+        // Funktion zur Ausgabe der Tabellenzeilen
         public function getTDs() {
             echo "  <td>{$this->getLogoImg()}</td>";
             echo "  <td><a href=\"verein/index.php?verein={$this->getVereinsId()}\">{$this->name}</a></td>";
@@ -34,6 +37,11 @@
         }
 
         // Get - Methoden
+        /* Klasse Spiel:
+         * Die Klasse Spiel vereinheitlich die Spiele indem sie nicht mehr ein Heim- und Auswärts-
+         * Tore unterscheidet, sondern in Eigene und Gegentore
+         * Dazu müssen die Heim- und Auswärtsspiele erstmal getrennt aufgerufen werden
+        */
         private function addHeimSpiele() {
             $abfrage = "SELECT spiele.spielId, spiele.heimVerein, spiele.heimVereinTore, spiele.auswaertsVereinTore
                         FROM spiele, spieltage, ligen
@@ -95,6 +103,13 @@
             return count($this->spiele);
         }
 
+        /*
+         * static damit die funktion auch ohne Object aufgerufen werden kann
+         * $a und $b sind vom Type Verein
+         * Wenn die Bedingung (z.B. Punkte) ungleich ist wird überprüft welcher Verein mehr
+         * Punkte hat. Dieser wird um einen Platz nach oben, bzw. der mit weniger
+         * einen nach unten in der Liste verschoben.
+         */
         public static function sort($a, $b) {
             if ($a->getPunkte() != $b->getPunkte()) {                       // Punkte
                 return ($a->getPunkte() < $b->getPunkte() ? 1 : -1);
