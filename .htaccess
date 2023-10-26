@@ -8,3 +8,13 @@ ErrorDocument 500 /ligatabelle/error/500.php
     order allow,deny
     deny from all
 </Files>
+
+<Files *.sql>
+    order allow,deny
+    deny from all
+</Files>
+
+<Files *.md>
+    order allow,deny
+    deny from all
+</Files>

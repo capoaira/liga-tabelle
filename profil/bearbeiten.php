@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php 
 	require_once('../inc/dbconnect.php');
 	session_start();
@@ -6,6 +5,7 @@
 	$isAdmin = isset($_SESSION['status'])  && $_SESSION['status'] == 'admin';
 	$darfBearbeiten = $isAdmin || (isset($_GET['id']) && $_GET['id'] == $_SESSION['userId']);
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Profil Bearbeiten</title>

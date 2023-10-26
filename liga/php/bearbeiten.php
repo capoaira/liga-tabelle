@@ -37,8 +37,7 @@
         }
         
         unset($_SESSION['ligaBearbeiten']);
-        header("location: ../index.php?liga=$ligaId&erfolg=Liga+wurde+erfolgreich+bearbeitet.");
+        exit(header("location: ../index.php?liga=$ligaId&erfolg=Liga+wurde+erfolgreich+bearbeitet."));
     } else {
-        header('location: ../bearbeiten.php?error=Die+Liga+konnte+leider+nicht+bearbeitet+werden.');
+        exit(header('location: ../bearbeiten.php?error=Die+Liga+konnte+leider+nicht+bearbeitet+werden.'));
     }
-?>

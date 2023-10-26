@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<?php 
+<?php
 	require_once('../inc/dbconnect.php');
 	session_start();
 
@@ -8,6 +7,7 @@
 	$isAdmin = (isset($_SESSION['status']) && $_SESSION['status'] == 'admin');
 	$darfBearbeiten = (isset($_SESSION['userId']) && isset($_GET['id']) && $_SESSION['userId'] == $_GET['id']) || !isset($_GET['id']) || $isAdmin;
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Mein Profil</title>
